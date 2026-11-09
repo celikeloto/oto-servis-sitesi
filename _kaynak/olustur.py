@@ -68,9 +68,9 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "20"
-GORSELLER = {"yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
-GORSEL_ALT = {"lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
+CSS_SURUM = "21"
+GORSELLER = {"yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","aku":"aku-takviye","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
+GORSEL_ALT = {"aku-takviye":"Kaputu açık araçta takviye cihazıyla akü takviyesi yapan usta","lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
 def gorsel(ad, oncelik=False):
     yuk = 'fetchpriority="high"' if oncelik else 'loading="lazy"'
     return f'<figure class="icerik-gorsel"><img src="assets/img/{ad}.jpg" srcset="assets/img/{ad}-kucuk.jpg 800w, assets/img/{ad}.jpg 1200w" sizes="(max-width: 900px) 100vw, 760px" alt="{GORSEL_ALT[ad]}" width="1200" height="600" {yuk}></figure>'
