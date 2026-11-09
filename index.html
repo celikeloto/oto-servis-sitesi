@@ -3,25 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Çelikel Oto Servis | Yarımburgaz, Küçükçekmece</title>
-<meta name="description" content="Çelikel Oto Servis: Yarımburgaz, Küçükçekmece'de periyodik bakım, arıza tespit, motor, şanzıman, klima, kaporta boya ve oto yedek parça. Aracınızı adresinizden alıyoruz. Pazartesi–Cumartesi 08:00–19:00. Telefon ve WhatsApp: 0542 140 19 74.">
-<meta name="theme-color" content="#0b3a8c">
+<title>Çelikel Oto Servis | Yarımburgaz, Küçükçekmece Oto Tamir ve Bakım</title>
+<meta name="description" content="Çelikel Oto Servis: Yarımburgaz, Küçükçekmece'de periyodik bakım, arıza tespit, motor, şanzıman, klima, kaporta boya ve oto yedek parça. Aracınızı adresinizden alıyoruz. 0542 140 19 74">
+<meta name="theme-color" content="#23272b">
 <meta property="og:title" content="Çelikel Oto Servis | Yarımburgaz, Küçükçekmece">
 <meta property="og:description" content="Parçası da tamiri de aynı yerde. Arayın ya da WhatsApp'tan yazın: 0542 140 19 74.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="logo/logo-yatay.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="logo/logo-amblem.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
   "name": "Çelikel Oto Servis",
-  "description": "Oto yedek parça satışı, periyodik bakım, arıza tespit ve tamir servisi.",
+  "description": "Periyodik bakım, arıza tespit, motor, şanzıman, klima, kaporta boya ve oto yedek parça. Adresten araç alma hizmeti.",
   "telephone": "+905421401974",
   "contactPoint": [{"@type":"ContactPoint","telephone":"+905354943400","contactType":"customer service"}],
+  "logo": "logo/logo-amblem.png",
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
@@ -37,174 +40,208 @@
     "addressCountry": "TR"
   },
   "geo": {"@type": "GeoCoordinates", "latitude": 41.0456607, "longitude": 28.7519682},
-  "areaServed": ["Küçükçekmece", "Başakşehir", "Avcılar", "Beylikdüzü", "Bakırköy"],
+  "areaServed": ["Küçükçekmece", "Başakşehir", "Avcılar", "Beylikdüzü", "Esenyurt", "Bakırköy"],
   "priceRange": "₺₺"
 }
 </script>
 
 <style>
   :root{
-    --plaka-mavi:#0b3a8c;
-    --plaka-beyaz:#fbfbf8;
-    --ikaz:#f2b705;
-    --grafit:#23272b;
-    --beton:#e7e5e0;
-    --beton-koyu:#cfccc5;
-    --metin-soluk:#555b61;
-    --wa:#1f9e55;
+    --grafit:#23272b; --grafit-2:#2c3136; --grafit-3:#3a4046;
+    --ikaz:#f2b705; --ikaz-koyu:#c99600;
+    --beton:#ecebe7; --beton-koyu:#d4d1ca; --kagit:#f7f6f3;
+    --soluk:#5b6167; --soluk-koyu:#aeb3b8;
+    --plaka-mavi:#0b3a8c; --wa:#1f9e55;
     --govde:"Barlow", system-ui, sans-serif;
     --baslik:"Barlow Condensed", "Arial Narrow", sans-serif;
   }
   *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  body{
-    margin:0;font-family:var(--govde);font-size:1.0625rem;line-height:1.55;
-    color:var(--grafit);background:var(--beton);
-    -webkit-font-smoothing:antialiased;
-  }
+  body{margin:0;font-family:var(--govde);font-size:1.0625rem;line-height:1.55;color:var(--grafit);background:var(--kagit);-webkit-font-smoothing:antialiased}
   a{color:inherit}
+  img,svg{display:block}
+  :focus-visible{outline:3px solid var(--ikaz);outline-offset:3px;border-radius:3px}
+  .kap{max-width:1180px;margin:0 auto;padding:0 24px}
   .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-  :focus-visible{outline:3px solid var(--ikaz);outline-offset:3px;border-radius:2px}
-  .kap{max-width:1080px;margin:0 auto;padding:0 20px}
 
-  /* Üst şerit */
-  .ust{background:var(--grafit);color:#fff}
-  .ust .kap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
-  .marka{font-family:var(--baslik);font-weight:800;font-size:1.6rem;letter-spacing:.02em;text-decoration:none;line-height:1}
-  .marka span{color:var(--ikaz)}
-  .ust nav{display:flex;gap:22px;font-weight:500}
-  .ust nav a{text-decoration:none;opacity:.85}
-  .ust nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
-  @media (max-width:720px){.ust nav{display:none}}
+  /* ---------- Üst menü ---------- */
+  .ust{position:sticky;top:0;z-index:20;background:rgba(35,39,43,.97);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,.06)}
+  .ust .kap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
+  .ust .logo img{height:60px;width:auto;margin:-4px 0}
+  .ust nav{display:flex;align-items:center;gap:26px;color:#e4e6e8;font-weight:500}
+  .ust nav a{text-decoration:none}
+  .ust nav a:not(.btn):hover{color:var(--ikaz)}
+  .ust .btn{min-height:44px;font-size:1.1rem;padding:8px 18px}
+  @media (max-width:900px){.ust nav a:not(.btn){display:none}}
+  @media (max-width:520px){.ust .logo img{height:38px}.ust .btn span{display:none}}
 
-  /* Giriş */
-  .giris{padding:56px 0 64px;border-bottom:6px solid var(--grafit);
+  /* ---------- Düğmeler ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:12px 24px;font-family:var(--baslik);font-weight:700;font-size:1.3rem;letter-spacing:.02em;text-decoration:none;border:0;border-radius:10px;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease, background-color .15s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:active{transform:translateY(0)}
+  .btn-sari{background:var(--ikaz);color:var(--grafit);box-shadow:0 4px 0 var(--ikaz-koyu)}
+  .btn-sari:hover{box-shadow:0 6px 0 var(--ikaz-koyu)}
+  .btn-wa{background:var(--wa);color:#fff;box-shadow:0 4px 0 #157a40}
+  .btn-wa:hover{box-shadow:0 6px 0 #157a40}
+  .btn-koyu{background:var(--grafit);color:#fff;box-shadow:0 4px 0 #000}
+  .btn-cizgi{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.35)}
+  .btn-cizgi:hover{border-color:var(--ikaz);color:var(--ikaz)}
+  @media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+
+  /* ---------- Giriş ---------- */
+  .giris{position:relative;overflow:hidden;color:#fff;
     background:
-      repeating-linear-gradient(-45deg, var(--ikaz) 0 18px, var(--grafit) 18px 36px) bottom/100% 10px no-repeat,
-      var(--beton);
-  }
-  .giris .kap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
-  @media (max-width:860px){.giris .kap{grid-template-columns:1fr;gap:32px}}
-  h1{font-family:var(--baslik);font-weight:800;font-size:clamp(2.6rem,6.2vw,4.6rem);line-height:.95;margin:0 0 18px;letter-spacing:-.005em;text-wrap:balance}
-  .giris p.alt{font-size:1.2rem;max-width:34ch;margin:0 0 22px;color:var(--metin-soluk)}
-  .durum{display:inline-flex;align-items:center;gap:10px;font-weight:600;background:#fff;border:2px solid var(--grafit);padding:8px 14px;border-radius:14px}
-  .durum i{width:11px;height:11px;border-radius:50%;background:#999;display:inline-block}
-  .durum.acik i{background:var(--wa);box-shadow:0 0 0 4px rgba(31,158,85,.2)}
-  .durum.kapali i{background:#c0392b}
+      radial-gradient(900px 600px at 85% 40%, rgba(242,183,5,.10), transparent 60%),
+      linear-gradient(180deg,#2a2f34 0%, var(--grafit) 100%);
+    padding:72px 0 0}
+  .giris::before{content:"";position:absolute;inset:0;opacity:.35;pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.09) 1px, transparent 1px);background-size:22px 22px}
+  .giris .kap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;min-height:540px}
+  @media (max-width:960px){.giris .kap{grid-template-columns:1fr;min-height:0}}
+  .konum{display:inline-flex;align-items:center;gap:8px;color:var(--soluk-koyu);font-weight:600;margin:0 0 18px}
+  .konum svg{color:var(--ikaz)}
+  h1{font-family:var(--baslik);font-weight:800;font-size:clamp(3rem,7vw,5.6rem);line-height:.92;margin:0 0 22px;letter-spacing:-.01em;text-wrap:balance}
+  h1 .alt-satir{display:block;color:var(--ikaz)}
+  .giris p.ozet{font-size:1.22rem;color:#d3d6d9;max-width:40ch;margin:0 0 30px}
+  .giris .eylemler{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:26px}
+  .durum-satir{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;color:var(--soluk-koyu);font-weight:500}
+  .durum{display:inline-flex;align-items:center;gap:10px;font-weight:600;color:#fff;margin:0}
+  .durum i{width:10px;height:10px;border-radius:50%;background:#888;display:inline-block}
+  .durum.acik i{background:#35d07f;box-shadow:0 0 0 5px rgba(53,208,127,.18)}
+  .durum.kapali i{background:#e5533d;box-shadow:0 0 0 5px rgba(229,83,61,.18)}
+  .durum-satir a{font-weight:600;color:#fff}
 
-  /* Plaka */
-  .plaka-alan{display:flex;flex-direction:column;gap:14px;align-items:stretch}
-  .plaka-not{font-weight:600;margin:0;color:var(--metin-soluk)}
-  .plaka{
-    display:flex;align-items:stretch;text-decoration:none;
-    background:var(--plaka-beyaz);border:4px solid var(--grafit);border-radius:10px;
-    box-shadow:0 2px 0 #fff inset, 0 10px 0 -2px var(--beton-koyu), 0 14px 28px rgba(35,39,43,.18);
-    overflow:hidden;color:var(--grafit);transform:rotate(-1.2deg);
-    transition:transform .18s ease;
-  }
-  .plaka:hover{transform:rotate(0) translateY(-2px)}
-  @media (prefers-reduced-motion:reduce){.plaka,.plaka:hover{transition:none}}
-  .plaka .tr{background:var(--plaka-mavi);color:#fff;font-family:var(--baslik);font-weight:700;
-    display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:10px 10px 8px;font-size:1.35rem;min-width:52px;line-height:1}
-  .plaka .tr svg{margin-bottom:auto}
-  .plaka .no{flex:1;display:flex;align-items:center;justify-content:center;
-    font-family:var(--baslik);font-weight:700;font-size:clamp(2.1rem,6.4vw,3.6rem);letter-spacing:.06em;
-    padding:14px 18px;white-space:nowrap;font-variant-numeric:tabular-nums}
-  .butonlar{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
-  .btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:12px 18px;
-    font-family:var(--baslik);font-weight:700;font-size:1.3rem;letter-spacing:.02em;text-decoration:none;
-    border:3px solid var(--grafit);border-radius:8px;cursor:pointer}
-  .btn-ara{background:var(--ikaz);color:var(--grafit)}
-  .btn-wa{background:var(--wa);color:#fff;border-color:#157a40}
-  .btn:hover{filter:brightness(1.06)}
-  .btn svg{flex:none}
-  @media (max-width:420px){.butonlar .btn{font-size:1.15rem;padding:10px 12px;gap:8px}}
+  .gorsel{position:relative;align-self:stretch;min-height:420px}
+  .disk{position:absolute;width:min(640px,120%);right:-14%;top:50%;transform:translateY(-50%);filter:drop-shadow(0 30px 50px rgba(0,0,0,.5))}
+  .disk .donen{transform-origin:300px 300px;animation:don 2.4s cubic-bezier(.16,.8,.24,1) .2s both}
+  @keyframes don{from{transform:rotate(-200deg)}to{transform:rotate(0)}}
+  @media (prefers-reduced-motion:reduce){.disk .donen{animation:none}}
+  @media (max-width:960px){.gorsel{min-height:300px;margin:0 -24px}.disk{width:440px;right:50%;transform:translate(50%,-46%)}}
 
-  /* Bölümler */
-  section{padding:72px 0}
-  h2{font-family:var(--baslik);font-weight:800;font-size:clamp(2rem,4vw,2.8rem);line-height:1;margin:0 0 10px}
-  .giris-metin{color:var(--metin-soluk);max-width:56ch;margin:0 0 36px}
+  /* Plaka kartı */
+  .plaka-kart{position:absolute;left:0;bottom:46px;z-index:2;display:flex;flex-direction:column;gap:6px}
+  .plaka-kart small{color:var(--soluk-koyu);font-weight:600}
+  .plaka{display:flex;align-items:stretch;text-decoration:none;background:#fbfbf8;border:3px solid #111418;border-radius:9px;overflow:hidden;color:var(--grafit);box-shadow:0 18px 40px rgba(0,0,0,.45);transform:rotate(-3deg);transition:transform .2s ease}
+  .plaka:hover{transform:rotate(0) scale(1.02)}
+  .plaka .tr{background:var(--plaka-mavi);color:#fff;font-family:var(--baslik);font-weight:700;display:flex;align-items:flex-end;padding:8px 9px;font-size:1.1rem}
+  .plaka .no{font-family:var(--baslik);font-weight:700;font-size:clamp(1.7rem,3vw,2.3rem);letter-spacing:.06em;padding:8px 16px;white-space:nowrap}
+  @media (max-width:960px){.plaka-kart{left:24px;bottom:18px}}
+  @media (prefers-reduced-motion:reduce){.plaka{transition:none}}
 
-  .hizmetler{background:#fff}
-  .liste{display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px;margin:0;padding:0;list-style:none}
-  @media (min-width:980px){.liste{grid-template-columns:repeat(3,1fr);gap:0 40px}}
-  @media (max-width:720px){.liste{grid-template-columns:1fr}}
-  .liste li{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:22px 0;border-top:2px solid var(--beton)}
-  .liste h3{font-family:var(--baslik);font-weight:700;font-size:1.45rem;margin:0 0 4px;line-height:1.1}
-  .liste p{margin:0;color:var(--metin-soluk)}
-  .ikon{width:44px;height:44px;border-radius:8px;background:var(--grafit);color:var(--ikaz);display:grid;place-items:center}
+  /* Özellik şeridi */
+  .serit{position:relative;margin-top:56px;background:var(--ikaz);color:var(--grafit)}
+  .serit::before{content:"";position:absolute;left:0;right:0;top:-10px;height:10px;background:repeating-linear-gradient(-45deg,var(--ikaz) 0 16px,var(--grafit) 16px 32px)}
+  .serit ul{list-style:none;margin:0 auto;padding:0 24px;max-width:1180px;display:grid;grid-template-columns:repeat(4,1fr)}
+  .serit li{display:flex;align-items:center;gap:14px;padding:22px 18px;font-weight:600;line-height:1.25;border-left:2px solid rgba(35,39,43,.15)}
+  .serit li:first-child{border-left:0;padding-left:0}
+  .serit li strong{display:block;font-family:var(--baslik);font-size:1.3rem;font-weight:800}
+  .serit svg{flex:none}
+  @media (max-width:900px){.serit ul{grid-template-columns:1fr 1fr}.serit li:nth-child(3){border-left:0;padding-left:0}.serit li{border-top:2px solid rgba(35,39,43,.12)}.serit li:nth-child(-n+2){border-top:0}}
+  @media (max-width:480px){.serit li{padding:16px 10px;gap:10px;font-size:.95rem}.serit li strong{font-size:1.1rem}.serit svg{width:28px;height:28px}}
 
-  .ikinci{margin:4px 0 0;font-size:.98rem;color:var(--metin-soluk)}
-  .ikinci a{font-weight:600;color:var(--grafit)}
+  /* ---------- Genel bölüm ---------- */
+  section{padding:96px 0}
+  .bas{display:grid;grid-template-columns:1fr 1fr;gap:24px 56px;align-items:end;margin-bottom:48px}
+  @media (max-width:860px){.bas{grid-template-columns:1fr}}
+  h2{font-family:var(--baslik);font-weight:800;font-size:clamp(2.3rem,4.6vw,3.6rem);line-height:.98;margin:0;letter-spacing:-.005em;text-wrap:balance}
+  .bas p{margin:0;color:var(--soluk);font-size:1.12rem;max-width:52ch}
 
-  /* Adresten alma şeridi */
-  .alma{background:var(--ikaz);padding:30px 0;border-bottom:3px solid var(--grafit)}
-  .alma .kap{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center}
-  .alma svg{flex:none}
-  .alma h2{font-size:clamp(1.6rem,3vw,2.1rem);margin:0 0 4px}
-  .alma p{margin:0;max-width:60ch}
-  .alma .btn{background:var(--grafit);color:#fff;white-space:nowrap}
-  @media (max-width:720px){.alma .kap{grid-template-columns:1fr;gap:12px}.alma .ikon-buyuk{display:none}}
+  /* ---------- Hizmetler ---------- */
+  .hizmet-izgara{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;list-style:none;margin:0;padding:0}
+  @media (max-width:960px){.hizmet-izgara{grid-template-columns:1fr 1fr}}
+  @media (max-width:600px){.hizmet-izgara{grid-template-columns:1fr}}
+  .hizmet{position:relative;background:#fff;border:1px solid var(--beton-koyu);border-radius:16px;padding:28px 26px 26px;overflow:hidden;transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease}
+  .hizmet:hover{border-color:var(--grafit);box-shadow:0 18px 40px -18px rgba(35,39,43,.35);transform:translateY(-3px)}
+  .hizmet .ikon{width:62px;height:62px;border-radius:14px;background:var(--grafit);color:var(--ikaz);display:grid;place-items:center;margin-bottom:20px;transition:background-color .2s ease,color .2s ease}
+  .hizmet:hover .ikon{background:var(--ikaz);color:var(--grafit)}
+  .hizmet h3{font-family:var(--baslik);font-weight:700;font-size:1.65rem;line-height:1.05;margin:0 0 8px}
+  .hizmet p{margin:0;color:var(--soluk)}
+  .hizmet.one{grid-column:span 1;background:var(--grafit);color:#fff;border-color:var(--grafit)}
+  .hizmet.one p{color:var(--soluk-koyu)}
+  .hizmet.one .ikon{background:var(--ikaz);color:var(--grafit)}
+  .hizmet.one a{display:inline-block;margin-top:16px;font-weight:700;color:var(--ikaz)}
+  @media (prefers-reduced-motion:reduce){.hizmet,.hizmet .ikon{transition:none}.hizmet:hover{transform:none}}
 
-  /* Usta */
-  .usta .kap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-  @media (max-width:860px){.usta .kap{grid-template-columns:1fr;gap:32px}}
-  .usta blockquote{margin:0;font-family:var(--baslik);font-weight:600;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.15;border-left:8px solid var(--ikaz);padding-left:22px}
-  .usta .imza{margin:14px 0 0 30px;font-weight:600;color:var(--metin-soluk)}
-  .usta p{max-width:60ch}
-  .adimlar{list-style:none;margin:0;padding:0;counter-reset:adim}
-  .adimlar li{counter-increment:adim;display:grid;grid-template-columns:48px 1fr;gap:16px;padding:16px 0;border-top:2px solid var(--beton-koyu)}
-  .adimlar li::before{content:counter(adim);width:48px;height:48px;border-radius:50%;border:3px solid var(--grafit);display:grid;place-items:center;font-family:var(--baslik);font-weight:800;font-size:1.5rem;background:#fff}
-  .adimlar h3{font-family:var(--baslik);font-weight:700;font-size:1.35rem;margin:0 0 2px;line-height:1.15}
-  .adimlar p{margin:0;color:var(--metin-soluk)}
-  .gorus{display:inline-block;margin-top:8px;font-weight:600}
+  /* ---------- Adresten alma ---------- */
+  .alma{padding:0}
+  .alma-kart{position:relative;overflow:hidden;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:30px;background:var(--ikaz);border-radius:22px;padding:56px 56px}
+  .alma-kart h2{margin-bottom:14px}
+  .alma-kart p{margin:0 0 26px;font-size:1.15rem;max-width:46ch}
+  .alma-kart .yol{position:absolute;right:-40px;bottom:-30px;width:520px;opacity:.95}
+  .alma-kart .eylemler{display:flex;flex-wrap:wrap;gap:12px}
+  @media (max-width:860px){.alma-kart{grid-template-columns:1fr;padding:40px 28px 200px}.alma-kart .yol{width:420px;right:-60px}}
 
-  /* Parça / randevu formu */
-  .sor{background:var(--grafit);color:#fff}
-  .sor .kap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
-  @media (max-width:860px){.sor .kap{grid-template-columns:1fr;gap:28px}}
-  .sor .giris-metin{color:#c9ccd0}
-  .sor ul{margin:0;padding-left:1.1em;color:#c9ccd0}
-  .sor ul li{margin:6px 0}
-  form{background:#fff;color:var(--grafit);border-radius:10px;padding:26px;border-top:8px solid var(--ikaz)}
-  fieldset{border:0;margin:0 0 18px;padding:0}
-  legend{font-weight:600;margin-bottom:8px}
+  /* ---------- Hakkımızda ---------- */
+  .usta .kap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  @media (max-width:900px){.usta .kap{grid-template-columns:1fr;gap:40px}}
+  .usta .giris-yazi{font-size:1.15rem;color:var(--soluk);max-width:52ch;margin:22px 0 30px}
+  .ilke{margin:0;padding:28px 30px;background:var(--grafit);color:#fff;border-radius:16px;position:relative}
+  .ilke p{margin:0;font-family:var(--baslik);font-weight:600;font-size:clamp(1.5rem,2.6vw,1.95rem);line-height:1.15}
+  .ilke::before{content:"";position:absolute;left:30px;top:-10px;width:56px;height:10px;background:var(--ikaz);border-radius:4px 4px 0 0}
+  .google{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-weight:700;text-decoration:none;border-bottom:2px solid var(--ikaz);padding-bottom:2px}
+  .adimlar-baslik{font-family:var(--baslik);font-weight:700;font-size:1.5rem;margin:0 0 6px}
+  .adimlar{list-style:none;margin:0;padding:0;counter-reset:adim;position:relative}
+  .adimlar::before{content:"";position:absolute;left:27px;top:30px;bottom:30px;width:2px;background:repeating-linear-gradient(to bottom,var(--beton-koyu) 0 6px,transparent 6px 12px)}
+  .adimlar li{counter-increment:adim;position:relative;display:grid;grid-template-columns:56px 1fr;gap:18px;padding:16px 0}
+  .adimlar li::before{content:counter(adim);position:relative;z-index:1;width:56px;height:56px;border-radius:50%;background:#fff;border:3px solid var(--grafit);display:grid;place-items:center;font-family:var(--baslik);font-weight:800;font-size:1.6rem}
+  .adimlar li:last-child::before{background:var(--ikaz)}
+  .adimlar h3{font-family:var(--baslik);font-weight:700;font-size:1.45rem;margin:6px 0 2px;line-height:1.1}
+  .adimlar p{margin:0;color:var(--soluk)}
+
+  /* ---------- Form ---------- */
+  .sor{background:var(--grafit);color:#fff;position:relative;overflow:hidden}
+  .sor::after{content:"";position:absolute;right:-180px;top:-180px;width:520px;height:520px;border-radius:50%;border:60px solid rgba(255,255,255,.03)}
+  .sor .kap{position:relative;z-index:1;display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+  @media (max-width:900px){.sor .kap{grid-template-columns:1fr;gap:32px}}
+  .sor .aciklama{color:var(--soluk-koyu);font-size:1.12rem;max-width:44ch;margin:20px 0 26px}
+  .ipuclari{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+  .ipuclari li{display:grid;grid-template-columns:28px 1fr;gap:12px;color:#dfe2e5}
+  .ipuclari svg{color:var(--ikaz);margin-top:2px}
+  form{background:#fff;color:var(--grafit);border-radius:18px;padding:32px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
+  fieldset{border:0;margin:0 0 20px;padding:0}
+  legend{font-weight:700;margin-bottom:10px}
   .secim{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .secim label{display:flex;align-items:center;gap:10px;border:2px solid var(--beton-koyu);border-radius:8px;padding:12px 14px;cursor:pointer;font-weight:600}
-  .secim input{accent-color:var(--plaka-mavi);width:18px;height:18px}
-  .secim label:has(input:checked){border-color:var(--plaka-mavi);background:#eef2fb}
-  .alan{display:block;margin-bottom:16px}
-  .alan span{display:block;font-weight:600;margin-bottom:6px}
-  .alan small{font-weight:400;color:var(--metin-soluk)}
-  input[type=text],textarea{width:100%;font:inherit;padding:12px 14px;border:2px solid var(--beton-koyu);border-radius:8px;background:#fafaf8;color:var(--grafit)}
-  input[type=text]:focus,textarea:focus{border-color:var(--plaka-mavi);outline:none;background:#fff}
-  textarea{min-height:96px;resize:vertical}
+  .secim label{display:flex;align-items:center;gap:10px;border:2px solid var(--beton-koyu);border-radius:10px;padding:14px 16px;cursor:pointer;font-weight:600}
+  .secim input{accent-color:var(--grafit);width:18px;height:18px}
+  .secim label:has(input:checked){border-color:var(--grafit);background:#fff8de;box-shadow:inset 0 0 0 1px var(--grafit)}
+  .alan{display:block;margin-bottom:18px}
+  .alan span{display:block;font-weight:700;margin-bottom:6px}
+  .alan small{font-weight:500;color:var(--soluk)}
+  input[type=text],textarea{width:100%;font:inherit;padding:14px 16px;border:2px solid var(--beton-koyu);border-radius:10px;background:var(--kagit);color:var(--grafit)}
+  input[type=text]:focus,textarea:focus{border-color:var(--grafit);outline:none;background:#fff}
+  textarea{min-height:110px;resize:vertical}
   form .btn{width:100%}
-  .form-not{font-size:.92rem;color:var(--metin-soluk);margin:12px 0 0}
+  .form-not{font-size:.95rem;color:var(--soluk);margin:14px 0 0;text-align:center}
   .hata{color:#b3261e;font-weight:600;margin:0 0 12px;display:none}
   .hata.goster{display:block}
 
-  /* İletişim */
-  .iletisim .kap{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-  @media (max-width:860px){.iletisim .kap{grid-template-columns:1fr;gap:28px}}
-  dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:14px 24px}
-  dt{font-weight:600}
-  dd{margin:0}
-  dd a{font-weight:600}
-  .harita{min-height:280px;padding:0 !important;border:3px solid var(--grafit);border-radius:10px;background:
-      linear-gradient(var(--beton-koyu) 1px,transparent 1px) 0 0/28px 28px,
-      linear-gradient(90deg,var(--beton-koyu) 1px,transparent 1px) 0 0/28px 28px, #f3f2ee;
-    display:grid;place-items:center;text-align:center;padding:24px;color:var(--metin-soluk);overflow:hidden}
-  .harita iframe{width:100%;height:100%;min-height:280px;border:0}
+  /* ---------- İletişim ---------- */
+  .iletisim .kap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:stretch}
+  @media (max-width:900px){.iletisim .kap{grid-template-columns:1fr;gap:32px}}
+  .bilgi{list-style:none;margin:32px 0 0;padding:0;display:grid;gap:0}
+  .bilgi li{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:18px 0;border-top:1px solid var(--beton-koyu)}
+  .bilgi .ikon{width:52px;height:52px;border-radius:12px;background:var(--beton);display:grid;place-items:center;color:var(--grafit)}
+  .bilgi b{display:block;font-family:var(--baslik);font-size:1.25rem;font-weight:700;line-height:1.1;margin-bottom:2px}
+  .bilgi a{font-weight:600}
+  .harita{border-radius:18px;overflow:hidden;min-height:420px;background:var(--beton);border:1px solid var(--beton-koyu)}
+  .harita iframe{width:100%;height:100%;min-height:420px;border:0;display:block}
 
-  footer{background:var(--grafit);color:#b8bcc1;padding:28px 0 96px;font-size:.95rem}
-  footer .kap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  @media (min-width:721px){footer{padding-bottom:28px}}
+  /* ---------- Alt bilgi ---------- */
+  footer{background:#1b1e21;color:var(--soluk-koyu);padding:56px 0 110px}
+  footer .kap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px}
+  footer img{height:52px;width:auto;margin-bottom:16px}
+  footer h3{font-family:var(--baslik);font-weight:700;font-size:1.25rem;color:#fff;margin:0 0 12px}
+  footer ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  footer a{text-decoration:none}
+  footer a:hover{color:var(--ikaz)}
+  .telif{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.08);padding-top:20px;font-size:.92rem}
+  @media (max-width:800px){footer .kap{grid-template-columns:1fr}}
+  @media (min-width:721px){footer{padding-bottom:40px}}
 
   /* Mobil alt çubuk */
-  .alt-cubuk{position:fixed;left:0;right:0;bottom:0;display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(35,39,43,.96);z-index:10}
-  .alt-cubuk .btn{min-height:50px;font-size:1.2rem}
+  .alt-cubuk{position:fixed;left:0;right:0;bottom:0;display:none;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(27,30,33,.97);z-index:30;box-shadow:0 -10px 30px rgba(0,0,0,.25)}
+  .alt-cubuk .btn{min-height:52px;font-size:1.2rem;padding:8px}
   @media (max-width:720px){.alt-cubuk{display:grid}}
 </style>
 </head>
@@ -212,102 +249,174 @@
 
 <header class="ust">
   <div class="kap">
-    <a class="marka" href="#">ÇELİKEL <span>OTO SERVİS</span></a>
-    <nav aria-label="Sayfa içi">
+    <a class="logo" href="#" aria-label="Çelikel Oto Servis ana sayfa"><img src="logo/logo-yatay-beyaz.svg" alt="Çelikel Oto Servis" width="383" height="132"></a>
+    <nav aria-label="Ana menü">
       <a href="#hizmetler">Hizmetler</a>
       <a href="#hakkimizda">Hakkımızda</a>
       <a href="#parca-sor">Parça sor</a>
       <a href="#iletisim">İletişim</a>
+      <a class="btn btn-sari" href="tel:+905421401974"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>0542 140 19 74</span></a>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="giris" aria-labelledby="baslik">
+  <section class="giris" aria-labelledby="baslik" style="padding-bottom:0">
     <div class="kap">
       <div>
-        <h1 id="baslik">Parçası da tamiri de aynı yerde.</h1>
-        <p class="alt">Periyodik bakım, arıza tespit ve tamir. Gereken yedek parçayı da biz buluruz, aracınız başka kapıda beklemez.</p>
-        <p class="durum" id="durum" role="status"><i aria-hidden="true"></i><span>Pazartesi–Cumartesi 08:00–19:00</span></p>
+        <p class="konum"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg> Yarımburgaz, Küçükçekmece</p>
+        <h1 id="baslik">Parçası da tamiri de <span class="alt-satir">aynı yerde.</span></h1>
+        <p class="ozet">Periyodik bakımdan motor tamirine, şanzımandan kaportaya kadar aracınızın her işi tek serviste. Gereken parçayı da biz buluruz.</p>
+        <div class="eylemler">
+          <a class="btn btn-sari" href="tel:+905421401974"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg> Hemen ara</a>
+          <a class="btn btn-wa" href="https://wa.me/905421401974?text=Merhaba%2C%20web%20sitenizden%20ula%C5%9F%C4%B1yorum." target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .78.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8s-.39-.12-.56.12-.64.8-.78.97-.29.18-.54.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.34a.45.45 0 0 0-.02-.43c-.06-.12-.56-1.34-.76-1.84s-.4-.41-.56-.42h-.48a.92.92 0 0 0-.67.31 2.8 2.8 0 0 0-.87 2.08 4.9 4.9 0 0 0 1.02 2.58 11.1 11.1 0 0 0 4.25 3.76c1.58.68 2.2.74 3 .62a2.55 2.55 0 0 0 1.68-1.18 2.1 2.1 0 0 0 .14-1.18c-.06-.1-.23-.16-.48-.28z"/></svg> WhatsApp'tan yaz</a>
+        </div>
+        <div class="durum-satir">
+          <p class="durum" id="durum" role="status"><i aria-hidden="true"></i><span>Pazartesi–Cumartesi 08:00–19:00</span></p>
+          <span>İkinci hat: <a href="tel:+905354943400">0535 494 34 00</a></span>
+        </div>
       </div>
 
-      <div class="plaka-alan">
-        <p class="plaka-not">Arayın ya da WhatsApp'tan yazın</p>
-        <a class="plaka" href="tel:+905421401974" aria-label="Telefonla ara: 0542 140 19 74">
-          <span class="tr" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f2b705" stroke-width="2"><circle cx="12" cy="12" r="9" stroke-dasharray="2 3"/></svg>
-            TR
-          </span>
-          <span class="no">0542 140 19 74</span>
-        </a>
-        <div class="butonlar">
-          <a class="btn btn-ara" href="tel:+905421401974">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-            Hemen ara
-          </a>
-          <a class="btn btn-wa" href="https://wa.me/905421401974?text=Merhaba%2C%20web%20sitenizden%20ula%C5%9F%C4%B1yorum." target="_blank" rel="noopener">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .78.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8s-.39-.12-.56.12-.64.8-.78.97-.29.18-.54.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.34a.45.45 0 0 0-.02-.43c-.06-.12-.56-1.34-.76-1.84s-.4-.41-.56-.42h-.48a.92.92 0 0 0-.67.31 2.8 2.8 0 0 0-.87 2.08 4.9 4.9 0 0 0 1.02 2.58 11.1 11.1 0 0 0 4.25 3.76c1.58.68 2.2.74 3 .62a2.55 2.55 0 0 0 1.68-1.18 2.1 2.1 0 0 0 .14-1.18c-.06-.1-.23-.16-.48-.28z"/></svg>
-            WhatsApp
-          </a>
+      <div class="gorsel">
+        <svg class="disk" viewBox="0 0 600 600" aria-hidden="true">
+<defs>
+<radialGradient id="metal" cx="45%" cy="40%" r="65%"><stop offset="0" stop-color="#8a9198"/><stop offset=".55" stop-color="#5d646b"/><stop offset="1" stop-color="#3a4046"/></radialGradient>
+<radialGradient id="hat" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#6b7279"/><stop offset="1" stop-color="#2f3439"/></radialGradient>
+<linearGradient id="kaliper" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd23f"/><stop offset="1" stop-color="#d99a00"/></linearGradient>
+</defs>
+<g class="donen">
+<circle cx="300" cy="300" r="285" fill="url(#metal)"/>
+<circle cx="300" cy="300" r="285" fill="none" stroke="#2a2e33" stroke-width="6"/>
+<circle cx="300" cy="300" r="262" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1.5"/>
+<circle cx="300" cy="300" r="236" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1.5"/>
+<circle cx="300" cy="300" r="210" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1.5"/>
+<circle cx="300" cy="300" r="184" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1.5"/>
+<path d="M467.4 329.5 Q496.2 359.5 519.7 396.7 T534.1 438.6" fill="none" stroke="#2f3439" stroke-width="7" stroke-linecap="round"/>
+<path d="M397.5 439.3 Q396.6 480.8 387.0 523.7 T367.5 563.5" fill="none" stroke="#2f3439" stroke-width="7" stroke-linecap="round"/>
+<path d="M270.5 467.4 Q240.5 496.2 203.3 519.7 T161.4 534.1" fill="none" stroke="#2f3439" stroke-width="7" stroke-linecap="round"/>
+<path d="M160.7 397.5 Q119.2 396.6 76.3 387.0 T36.5 367.5" fill="none" stroke="#2f3439" stroke-width="7" stroke-linecap="round"/>
+<path d="M132.6 270.5 Q103.8 240.5 80.3 203.3 T65.9 161.4" fill="none" stroke="#2f3439" stroke-width="7" stroke-linecap="round"/>
+<path d="M202.5 160.7 Q203.4 119.2 213.0 76.3 T232.5 36.5" fill="none" stroke="#2f3439" stroke-width="7" stroke-linecap="round"/>
+<path d="M329.5 132.6 Q359.5 103.8 396.7 80.3 T438.6 65.9" fill="none" stroke="#2f3439" stroke-width="7" stroke-linecap="round"/>
+<path d="M439.3 202.5 Q480.8 203.4 523.7 213.0 T563.5 232.5" fill="none" stroke="#2f3439" stroke-width="7" stroke-linecap="round"/>
+<circle cx="476.2" cy="371.2" r="7" fill="#24282c"/>
+<circle cx="435.5" cy="433.2" r="7" fill="#24282c"/>
+<circle cx="374.2" cy="474.9" r="7" fill="#24282c"/>
+<circle cx="301.7" cy="490.0" r="7" fill="#24282c"/>
+<circle cx="228.8" cy="476.2" r="7" fill="#24282c"/>
+<circle cx="166.8" cy="435.5" r="7" fill="#24282c"/>
+<circle cx="125.1" cy="374.2" r="7" fill="#24282c"/>
+<circle cx="110.0" cy="301.7" r="7" fill="#24282c"/>
+<circle cx="123.8" cy="228.8" r="7" fill="#24282c"/>
+<circle cx="164.5" cy="166.8" r="7" fill="#24282c"/>
+<circle cx="225.8" cy="125.1" r="7" fill="#24282c"/>
+<circle cx="298.3" cy="110.0" r="7" fill="#24282c"/>
+<circle cx="371.2" cy="123.8" r="7" fill="#24282c"/>
+<circle cx="433.2" cy="164.5" r="7" fill="#24282c"/>
+<circle cx="474.9" cy="225.8" r="7" fill="#24282c"/>
+<circle cx="490.0" cy="298.3" r="7" fill="#24282c"/>
+<circle cx="493.2" cy="409.3" r="7" fill="#24282c"/>
+<circle cx="436.7" cy="474.9" r="7" fill="#24282c"/>
+<circle cx="359.3" cy="513.9" r="7" fill="#24282c"/>
+<circle cx="272.9" cy="520.3" r="7" fill="#24282c"/>
+<circle cx="190.7" cy="493.2" r="7" fill="#24282c"/>
+<circle cx="125.1" cy="436.7" r="7" fill="#24282c"/>
+<circle cx="86.1" cy="359.3" r="7" fill="#24282c"/>
+<circle cx="79.7" cy="272.9" r="7" fill="#24282c"/>
+<circle cx="106.8" cy="190.7" r="7" fill="#24282c"/>
+<circle cx="163.3" cy="125.1" r="7" fill="#24282c"/>
+<circle cx="240.7" cy="86.1" r="7" fill="#24282c"/>
+<circle cx="327.1" cy="79.7" r="7" fill="#24282c"/>
+<circle cx="409.3" cy="106.8" r="7" fill="#24282c"/>
+<circle cx="474.9" cy="163.3" r="7" fill="#24282c"/>
+<circle cx="513.9" cy="240.7" r="7" fill="#24282c"/>
+<circle cx="520.3" cy="327.1" r="7" fill="#24282c"/>
+<circle cx="528.8" cy="410.3" r="7" fill="#24282c"/>
+<circle cx="469.1" cy="489.5" r="7" fill="#24282c"/>
+<circle cx="383.7" cy="539.8" r="7" fill="#24282c"/>
+<circle cx="285.6" cy="553.6" r="7" fill="#24282c"/>
+<circle cx="189.7" cy="528.8" r="7" fill="#24282c"/>
+<circle cx="110.5" cy="469.1" r="7" fill="#24282c"/>
+<circle cx="60.2" cy="383.7" r="7" fill="#24282c"/>
+<circle cx="46.4" cy="285.6" r="7" fill="#24282c"/>
+<circle cx="71.2" cy="189.7" r="7" fill="#24282c"/>
+<circle cx="130.9" cy="110.5" r="7" fill="#24282c"/>
+<circle cx="216.3" cy="60.2" r="7" fill="#24282c"/>
+<circle cx="314.4" cy="46.4" r="7" fill="#24282c"/>
+<circle cx="410.3" cy="71.2" r="7" fill="#24282c"/>
+<circle cx="489.5" cy="130.9" r="7" fill="#24282c"/>
+<circle cx="539.8" cy="216.3" r="7" fill="#24282c"/>
+<circle cx="553.6" cy="314.4" r="7" fill="#24282c"/>
+<circle cx="300" cy="300" r="150" fill="url(#hat)" stroke="#262a2f" stroke-width="5"/>
+<circle cx="300" cy="300" r="128" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="2"/>
+<circle cx="300.0" cy="218.0" r="15" fill="#1e2226"/><circle cx="300.0" cy="218.0" r="15" fill="none" stroke="#7d848b" stroke-width="2"/>
+<circle cx="378.0" cy="274.7" r="15" fill="#1e2226"/><circle cx="378.0" cy="274.7" r="15" fill="none" stroke="#7d848b" stroke-width="2"/>
+<circle cx="348.2" cy="366.3" r="15" fill="#1e2226"/><circle cx="348.2" cy="366.3" r="15" fill="none" stroke="#7d848b" stroke-width="2"/>
+<circle cx="251.8" cy="366.3" r="15" fill="#1e2226"/><circle cx="251.8" cy="366.3" r="15" fill="none" stroke="#7d848b" stroke-width="2"/>
+<circle cx="222.0" cy="274.7" r="15" fill="#1e2226"/><circle cx="222.0" cy="274.7" r="15" fill="none" stroke="#7d848b" stroke-width="2"/>
+<circle cx="300" cy="300" r="44" fill="#1e2226" stroke="#7d848b" stroke-width="3"/>
+</g>
+<path d="M420.6 1.4 A322 322 0 0 1 621.2 277.5 L467.6 288.3 A168 168 0 0 0 362.9 144.2 Z" fill="url(#kaliper)" stroke="#8a6200" stroke-width="3" stroke-linejoin="round"/>
+<path id="kyazi" d="M424.0 85.2 A248 248 0 0 1 544.2 256.9" fill="none"/>
+<text font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="800" font-size="40" letter-spacing="4" fill="#23272b"><textPath href="#kyazi" startOffset="50%" text-anchor="middle">ÇELİKEL</textPath></text>
+<circle cx="434.4" cy="36.3" r="9" fill="#8a6200"/>
+<circle cx="592.4" cy="253.7" r="9" fill="#8a6200"/>
+</svg>
+        <div class="plaka-kart">
+          <small>Bize ulaşın</small>
+          <a class="plaka" href="tel:+905421401974" aria-label="Telefonla ara: 0542 140 19 74"><span class="tr" aria-hidden="true">TR</span><span class="no">0542 140 19 74</span></a>
         </div>
-        <p class="ikinci">İkinci hat: <a href="tel:+905354943400">0535 494 34 00</a></p>
       </div>
+    </div>
+
+    <div class="serit">
+      <ul>
+        <li><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 16V8h11v8M14 11h4l3 3v2h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg><span><strong>Adresten alıyoruz</strong>Aracınızı alıp geri getiriyoruz</span></li>
+        <li><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M7 21h10M12 17v4M7 9l2 2-2 2M12 13h4"/></svg><span><strong>Arıza tespit</strong>Cihazla doğru teşhis</span></li>
+        <li><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg><span><strong>Parça bizden</strong>Orijinal ve muadil</span></li>
+        <li><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><strong>08:00–19:00</strong>Pazartesi–Cumartesi</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="hizmetler" aria-labelledby="h-hizmet">
+    <div class="kap">
+      <div class="bas">
+        <h2 id="h-hizmet">Aracınızın her işi tek serviste</h2>
+        <p>Aracınızı getirin, sorunu birlikte bakalım. Ne yapılacağını ve fiyatı işe başlamadan söyleriz.</p>
+      </div>
+      <ul class="hizmet-izgara">
+        <li class="hizmet"><span class="ikon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg></span><h3>Periyodik bakım</h3><p>Yağ, filtreler, buji ve sıvıların değişimi. Bakım sonrası neyin ne zaman değiştiğini yazılı veririz.</p></li>
+        <li class="hizmet"><span class="ikon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M7 21h10M12 17v4M7 9l2 2-2 2M12 13h4"/></svg></span><h3>Arıza tespit</h3><p>Motor ışığı yandıysa cihazla arıza kodlarını okur, sorunun kaynağını buluruz.</p></li>
+        <li class="hizmet"><span class="ikon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h3l2-3h6l2 3h3v7h-3l-2 2H9l-2-2H4z"/><path d="M10 12h4"/></svg></span><h3>Motor ve mekanik</h3><p>Triger, debriyaj, soğutma sistemi ve motor tamiri.</p></li>
+        <li class="hizmet"><span class="ikon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><path d="M6 7v10M12 7v10M18 7v5H6"/></svg></span><h3>Şanzıman ve vites</h3><p>Manuel ve otomatik şanzıman arızaları, vites geçiş sorunları ve yağ değişimi.</p></li>
+        <li class="hizmet"><span class="ikon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M15 4.5a9 9 0 0 1 4.5 4.5"/></svg></span><h3>Fren ve yürüyen aksam</h3><p>Balata, disk, amortisör, rot ve rotil. Sesi, titremeyi ve çekmeyi gideririz.</p></li>
+        <li class="hizmet"><span class="ikon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><h3>Oto elektrik</h3><p>Akü, şarj dinamosu, marş motoru, farlar ve kablo arızaları.</p></li>
+        <li class="hizmet"><span class="ikon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1L19.1 4.9"/><path d="M9 3l3 2 3-2M9 21l3-2 3 2"/></svg></span><h3>Klima bakımı</h3><p>Gaz dolumu, kaçak kontrolü, polen filtresi ve soğutmayan klimanın onarımı.</p></li>
+        <li class="hizmet"><span class="ikon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 3l3 3-9 9H9v-3z"/><path d="M3 21c2 0 4-1 4-4 0-1.5 1-2.5 2.5-2.5"/></svg></span><h3>Kaporta ve boya</h3><p>Göçük, çizik ve hasar onarımı; boya ve rötuş.</p></li>
+        <li class="hizmet one"><span class="ikon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/></svg></span><h3>Yedek parça satışı</h3><p>Orijinal ve muadil parça. Stokta yoksa kısa sürede getirtiriz; takmasını da biz yaparız.</p><a href="#parca-sor">Parça fiyatı sorun</a></li>
+      </ul>
     </div>
   </section>
 
   <section class="alma" aria-labelledby="h-alma">
     <div class="kap">
-      <span class="ikon-buyuk" aria-hidden="true"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#23272b" stroke-width="1.7"><path d="M3 16V8h11v8M14 11h4l3 3v2h-7"/><circle cx="7" cy="17" r="2" fill="#f2b705"/><circle cx="17" cy="17" r="2" fill="#f2b705"/></svg></span>
-      <div>
-        <h2 id="h-alma">Gelemiyorsanız aracınızı biz alalım</h2>
-        <p>Aracınızı adresinizden alıyor, işi bitince yine adresinize getiriyoruz. Arayın, uygun günü birlikte belirleyelim.</p>
+      <div class="alma-kart">
+        <div>
+          <h2 id="h-alma">Gelemiyorsanız aracınızı biz alalım</h2>
+          <p>Aracınızı adresinizden alıyor, işi bitince yine adresinize getiriyoruz. Arayın ya da yazın, uygun günü birlikte belirleyelim.</p>
+          <div class="eylemler">
+            <a class="btn btn-koyu" href="https://wa.me/905421401974?text=Merhaba%2C%20arac%C4%B1m%C4%B1%20adresimden%20almak%20i%C3%A7in%20g%C3%BCn%20ayarlamak%20istiyorum." target="_blank" rel="noopener">Alma günü ayarla</a>
+            <a class="btn" style="color:var(--grafit);border:2px solid var(--grafit)" href="tel:+905421401974">0542 140 19 74</a>
+          </div>
+        </div>
+        <svg class="yol" viewBox="0 0 520 300" aria-hidden="true" fill="none" stroke="#23272b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M40 250 C 160 250, 180 140, 300 150 S 410 130, 435 84" stroke-dasharray="2 16" stroke-width="7"/>
+<g transform="translate(10 200)"><path d="M10 50V22L40 2l30 20v28z" fill="#fff8de"/><path d="M32 50V32h16v18"/></g>
+<g transform="translate(395 22)"><path d="M0 60V20L40 0l40 20v40z" fill="#23272b"/><path d="M14 60V34h52v26" stroke="#f2b705"/><path d="M14 42h52M14 50h52" stroke="#f2b705" stroke-width="3"/></g>
+<g transform="translate(205 108) rotate(-6)"><path d="M8 40V26l14-14h44l18 14h12v14z" fill="#fff"/><path d="M28 14v12M58 14v12M8 26h88"/><circle cx="28" cy="42" r="10" fill="#23272b"/><circle cx="76" cy="42" r="10" fill="#23272b"/></g>
+</svg>
       </div>
-      <a class="btn" href="https://wa.me/905421401974?text=Merhaba%2C%20arac%C4%B1m%C4%B1%20adresimden%20almak%20i%C3%A7in%20g%C3%BCn%20ayarlamak%20istiyorum." target="_blank" rel="noopener">Alma günü ayarla</a>
-    </div>
-  </section>
-
-  <section class="hizmetler" id="hizmetler" aria-labelledby="h-hizmet">
-    <div class="kap">
-      <h2 id="h-hizmet">Neler yapıyoruz</h2>
-      <p class="giris-metin">Aracınızı getirin, sorunu birlikte bakalım. Ne yapılacağını ve fiyatı işe başlamadan söyleriz.</p>
-      <ul class="liste">
-        <li>
-          <span class="ikon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="5"/></svg></span>
-          <div><h3>Periyodik bakım</h3><p>Yağ, filtreler, buji ve sıvıların değişimi. Bakım sonrası neyin ne zaman değiştiğini yazılı veririz.</p></div>
-        </li>
-        <li>
-          <span class="ikon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h4M7 14h2M15 10l2 2-2 2"/></svg></span>
-          <div><h3>Arıza tespit</h3><p>Motor ışığı yandıysa cihazla arıza kodlarını okur, sorunun kaynağını buluruz.</p></div>
-        </li>
-        <li>
-          <span class="ikon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15l4-8h8l4 8"/><path d="M3 15h18v3H3z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span>
-          <div><h3>Motor ve mekanik</h3><p>Triger, debriyaj, şanzıman, soğutma sistemi ve motor tamiri.</p></div>
-        </li>
-        <li>
-          <span class="ikon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2"/></svg></span>
-          <div><h3>Fren ve yürüyen aksam</h3><p>Balata, disk, amortisör, rot ve rotil. Sesi, titremeyi ve çekmeyi gideririz.</p></div>
-        </li>
-        <li>
-          <span class="ikon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>
-          <div><h3>Oto elektrik</h3><p>Akü, şarj dinamosu, marş motoru, farlar ve kablo arızaları.</p></div>
-        </li>
-        <li>
-          <span class="ikon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="12" cy="18" r="2"/><path d="M6 8v8M12 8v8M18 8v4H6"/></svg></span>
-          <div><h3>Şanzıman ve vites</h3><p>Manuel ve otomatik şanzıman arızaları, vites geçiş sorunları ve yağ değişimi.</p></div>
-        </li>
-        <li>
-          <span class="ikon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1L19.1 4.9"/></svg></span>
-          <div><h3>Klima bakımı</h3><p>Gaz dolumu, kaçak kontrolü, polen filtresi ve soğutmayan klimanın onarımı.</p></div>
-        </li>
-        <li>
-          <span class="ikon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l6-6M14 4l6 6-8 8-6-6z"/><path d="M15 9l-2-2"/></svg></span>
-          <div><h3>Kaporta ve boya</h3><p>Göçük, çizik ve hasar onarımı; boya ve rötuş.</p></div>
-        </li>
-        <li>
-          <span class="ikon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16v13H4z"/><path d="M8 7V4h8v3M9 12h6"/></svg></span>
-          <div><h3>Yedek parça satışı</h3><p>Orijinal ve muadil parça. Stokta yoksa kısa sürede getirtiriz; takmasını da biz yaparız.</p></div>
-        </li>
-      </ul>
     </div>
   </section>
 
@@ -315,12 +424,13 @@
     <div class="kap">
       <div>
         <h2 id="h-usta">Aracınız Sebahattin Usta'ya emanet</h2>
-        <p>Çelikel Oto Servis'i Sebahattin Aksaç yönetiyor. Bakırköy'deki dükkânımızdan beri bize gelen birçok müşterimiz, Yarımburgaz'daki yeni yerimize de gelmeye devam ediyor.</p>
-        <blockquote>Gereksiz parça değiştirmeyiz. Önce sorunu buluruz, sonra ne yapılacağını size söyleriz.</blockquote>
-        <a class="gorus" style="margin-top:18px" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%87elikel%20Oto%20Servis%20Yar%C4%B1mburgaz&amp;query_place_id=ChIJf1T-sSWlyhQR2FDqjvk1wW4" target="_blank" rel="noopener">Müşteri yorumlarını Google'da okuyun</a>
+        <p class="giris-yazi">Çelikel Oto Servis'i Sebahattin Aksaç yönetiyor. Bakırköy'deki dükkânımızdan beri bize gelen birçok müşterimiz, Yarımburgaz'daki yeni yerimize de gelmeye devam ediyor.</p>
+        <figure class="ilke"><p>Gereksiz parça değiştirmeyiz. Önce sorunu buluruz, sonra ne yapılacağını size söyleriz.</p></figure>
+        <a class="google" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%87elikel%20Oto%20Servis%20Yar%C4%B1mburgaz&amp;query_place_id=ChIJf1T-sSWlyhQR2FDqjvk1wW4" target="_blank" rel="noopener">Müşteri yorumlarını Google'da okuyun</a>
       </div>
       <div>
-        <ol class="adimlar" aria-label="Nasıl çalışıyoruz">
+        <h3 class="adimlar-baslik">Nasıl çalışıyoruz</h3>
+        <ol class="adimlar">
           <li><div><h3>Arayın ya da yazın</h3><p>Sorunu kısaca anlatın, size uygun bir gün ayarlayalım.</p></div></li>
           <li><div><h3>Aracı getirin ya da biz alalım</h3><p>Vaktiniz yoksa aracınızı adresinizden alırız.</p></div></li>
           <li><div><h3>Sorunu bulup fiyatı söyleriz</h3><p>Arıza tespitinden sonra ne yapılacağını ve tutarını işe başlamadan bildiririz.</p></div></li>
@@ -334,11 +444,11 @@
     <div class="kap">
       <div>
         <h2 id="h-sor">Parça sorun, randevu alın</h2>
-        <p class="giris-metin">Formu doldurun, mesajınız WhatsApp'ta hazır açılsın. Gönder'e basmanız yeterli.</p>
-        <ul>
-          <li>Doğru parça için aracın marka, model ve yılını yazın.</li>
-          <li>Ruhsattaki şasi numarası varsa işimiz daha da kolaylaşır.</li>
-          <li>Mesai saatlerinde genelde kısa sürede dönüyoruz.</li>
+        <p class="aciklama">Formu doldurun, mesajınız WhatsApp'ta hazır açılsın. Size sadece gönder'e basmak kalır.</p>
+        <ul class="ipuclari">
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>Doğru parça için aracın marka, model ve yılını yazın.</span></li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>Ruhsattaki şasi numarası varsa işimiz daha da kolaylaşır.</span></li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><span>Mesai saatlerinde genelde kısa sürede dönüyoruz.</span></li>
         </ul>
       </div>
 
@@ -357,11 +467,8 @@
           <textarea name="aciklama" id="aciklama" placeholder="Örn. Ön balata ve disk"></textarea>
         </label>
         <p class="hata" id="hata" role="alert">Aracınızı ve ne istediğinizi yazın, öyle gönderelim.</p>
-        <button class="btn btn-wa" type="submit">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
-          WhatsApp'ta gönder
-        </button>
-        <p class="form-not">WhatsApp yüklü değilse <a href="tel:+905421401974">0542 140 19 74</a> numarasını arayabilirsiniz.</p>
+        <button class="btn btn-wa" type="submit"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .78.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8s-.39-.12-.56.12-.64.8-.78.97-.29.18-.54.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.34a.45.45 0 0 0-.02-.43c-.06-.12-.56-1.34-.76-1.84s-.4-.41-.56-.42h-.48a.92.92 0 0 0-.67.31 2.8 2.8 0 0 0-.87 2.08 4.9 4.9 0 0 0 1.02 2.58 11.1 11.1 0 0 0 4.25 3.76c1.58.68 2.2.74 3 .62a2.55 2.55 0 0 0 1.68-1.18 2.1 2.1 0 0 0 .14-1.18c-.06-.1-.23-.16-.48-.28z"/></svg> WhatsApp'ta gönder</button>
+        <p class="form-not">WhatsApp yüklü değilse <a href="tel:+905421401974">0542 140 19 74</a> numarasını arayın.</p>
       </form>
     </div>
   </section>
@@ -370,16 +477,13 @@
     <div class="kap">
       <div>
         <h2 id="h-ilet">Bize ulaşın</h2>
-        <p class="giris-metin">Gelmeden önce arayın, aracınız için yer ayıralım.</p>
-        <dl>
-          <dt>Telefon</dt><dd><a href="tel:+905421401974">0542 140 19 74</a></dd>
-          <dt>İkinci hat</dt><dd><a href="tel:+905354943400">0535 494 34 00</a></dd>
-          <dt>WhatsApp</dt><dd><a href="https://wa.me/905421401974" target="_blank" rel="noopener">0542 140 19 74</a></dd>
-          <dt>Çalışma saatleri</dt><dd>Pazartesi–Cumartesi 08:00–19:00<br>Pazar kapalı</dd>
-          <dt>Adres</dt><dd id="adres">Yarımburgaz, Selvi Sk. 65/1<br>34303 Küçükçekmece / İstanbul<br><a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%87elikel%20Oto%20Servis%20Yar%C4%B1mburgaz&amp;query_place_id=ChIJf1T-sSWlyhQR2FDqjvk1wW4" target="_blank" rel="noopener">Yol tarifi al</a></dd>
-        </dl>
+        <ul class="bilgi">
+          <li><span class="ikon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg></span><div><b>Telefon ve WhatsApp</b><a href="tel:+905421401974">0542 140 19 74</a><br>İkinci hat: <a href="tel:+905354943400">0535 494 34 00</a></div></li>
+          <li><span class="ikon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>Çalışma saatleri</b>Pazartesi–Cumartesi 08:00–19:00<br>Pazar kapalı</div></li>
+          <li><span class="ikon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><b>Adres</b>Yarımburgaz, Selvi Sk. 65/1<br>34303 Küçükçekmece / İstanbul<br><a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%87elikel%20Oto%20Servis%20Yar%C4%B1mburgaz&amp;query_place_id=ChIJf1T-sSWlyhQR2FDqjvk1wW4" target="_blank" rel="noopener">Yol tarifi al</a></div></li>
+        </ul>
       </div>
-      <div class="harita" id="harita">
+      <div class="harita">
         <iframe title="Çelikel Oto Servis haritada" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://maps.google.com/maps?q=%C3%87elikel%20Oto%20Servis%20Yar%C4%B1mburgaz%2C%20Selvi%20Sk.%2065%2F1%2C%20K%C3%BC%C3%A7%C3%BCk%C3%A7ekmece&amp;z=16&amp;output=embed"></iframe>
       </div>
@@ -389,14 +493,25 @@
 
 <footer>
   <div class="kap">
-    <span>© <span id="yil">2026</span> Çelikel Oto Servis, Yarımburgaz / Küçükçekmece</span>
-    <a href="tel:+905421401974">0542 140 19 74</a>
+    <div>
+      <img src="logo/logo-yatay-beyaz.svg" alt="Çelikel Oto Servis" width="383" height="132">
+      <p style="margin:0;max-width:36ch">Yarımburgaz, Küçükçekmece'de oto bakım, tamir ve yedek parça.</p>
+    </div>
+    <div>
+      <h3>Hizmetler</h3>
+      <ul><li><a href="#hizmetler">Periyodik bakım</a></li><li><a href="#hizmetler">Arıza tespit</a></li><li><a href="#hizmetler">Motor ve şanzıman</a></li><li><a href="#parca-sor">Yedek parça</a></li></ul>
+    </div>
+    <div>
+      <h3>İletişim</h3>
+      <ul><li><a href="tel:+905421401974">0542 140 19 74</a></li><li><a href="tel:+905354943400">0535 494 34 00</a></li><li>Pazartesi–Cumartesi 08:00–19:00</li><li>Selvi Sk. 65/1, Yarımburgaz</li></ul>
+    </div>
+    <p class="telif">© <span id="yil">2026</span> Çelikel Oto Servis</p>
   </div>
 </footer>
 
 <div class="alt-cubuk">
-  <a class="btn btn-ara" href="tel:+905421401974">Ara</a>
-  <a class="btn btn-wa" href="https://wa.me/905421401974?text=Merhaba%2C%20web%20sitenizden%20ula%C5%9F%C4%B1yorum." target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn-sari" href="tel:+905421401974"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg> Ara</a>
+  <a class="btn btn-wa" href="https://wa.me/905421401974?text=Merhaba%2C%20web%20sitenizden%20ula%C5%9F%C4%B1yorum." target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3 .78.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.25-.12-1.47-.72-1.7-.8s-.39-.12-.56.12-.64.8-.78.97-.29.18-.54.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.34a.45.45 0 0 0-.02-.43c-.06-.12-.56-1.34-.76-1.84s-.4-.41-.56-.42h-.48a.92.92 0 0 0-.67.31 2.8 2.8 0 0 0-.87 2.08 4.9 4.9 0 0 0 1.02 2.58 11.1 11.1 0 0 0 4.25 3.76c1.58.68 2.2.74 3 .62a2.55 2.55 0 0 0 1.68-1.18 2.1 2.1 0 0 0 .14-1.18c-.06-.1-.23-.16-.48-.28z"/></svg> WhatsApp</a>
 </div>
 
 <script>
@@ -405,7 +520,6 @@
 
   document.getElementById("yil").textContent = new Date().getFullYear();
 
-  // Şu an açık mı? (Türkiye saatine göre)
   (function(){
     var el = document.getElementById("durum"), yazi = el.querySelector("span");
     try{
@@ -413,17 +527,17 @@
       var g = {}; p.forEach(function(x){ g[x.type]=x.value; });
       var gunler = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
       var saat = parseInt(g.hour,10) % 24 + parseInt(g.minute,10)/60;
-      var acik = AYAR.kapaliGunler.indexOf(gunler[g.weekday]) === -1 && saat >= AYAR.acilis && saat < AYAR.kapanis;
-      el.classList.add(acik ? "acik" : "kapali");
-      var bugun = gunler[g.weekday], sonraki;
+      var bugun = gunler[g.weekday];
+      var acik = AYAR.kapaliGunler.indexOf(bugun) === -1 && saat >= AYAR.acilis && saat < AYAR.kapanis;
+      var sonraki;
       if(saat < AYAR.acilis && AYAR.kapaliGunler.indexOf(bugun) === -1) sonraki = "bugün 08:00'de";
       else { var d = (bugun + 1) % 7; while(AYAR.kapaliGunler.indexOf(d) !== -1) d = (d + 1) % 7;
         sonraki = (d === (bugun + 1) % 7 ? "yarın" : ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"][d]) + " 08:00'de"; }
+      el.classList.add(acik ? "acik" : "kapali");
       yazi.textContent = acik ? "Şu an açığız, 19:00'a kadar" : "Şu an kapalıyız, " + sonraki + " açılıyoruz";
     }catch(e){}
   })();
 
-  // Form → WhatsApp mesajı
   (function(){
     var form = document.getElementById("form"), etiket = document.getElementById("aciklama-etiket"),
         aciklama = document.getElementById("aciklama"), hata = document.getElementById("hata");

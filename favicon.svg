@@ -1,1 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#23272b"/><rect x="0" y="0" width="16" height="64" rx="0" fill="#0b3a8c"/><text x="40" y="45" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="36" fill="#f2b705" text-anchor="middle">Ç</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><g transform="translate(0 0) scale(1.0)">
+<rect width="120" height="120" rx="26" fill="#23272b"/>
+<circle cx="60" cy="60" r="41" fill="#7a8188"/>
+<circle cx="60" cy="60" r="41" fill="none" stroke="#4a5056" stroke-width="2"/>
+<circle cx="89.9" cy="68.0" r="3" fill="#23272b"/>
+<circle cx="81.9" cy="81.9" r="3" fill="#23272b"/>
+<circle cx="68.0" cy="89.9" r="3" fill="#23272b"/>
+<circle cx="52.0" cy="89.9" r="3" fill="#23272b"/>
+<circle cx="38.1" cy="81.9" r="3" fill="#23272b"/>
+<circle cx="30.1" cy="68.0" r="3" fill="#23272b"/>
+<circle cx="30.1" cy="52.0" r="3" fill="#23272b"/>
+<circle cx="38.1" cy="38.1" r="3" fill="#23272b"/>
+<circle cx="52.0" cy="30.1" r="3" fill="#23272b"/>
+<circle cx="68.0" cy="30.1" r="3" fill="#23272b"/>
+<circle cx="81.9" cy="38.1" r="3" fill="#23272b"/>
+<circle cx="89.9" cy="52.0" r="3" fill="#23272b"/>
+<circle cx="60" cy="60" r="19" fill="#4a5056"/>
+<circle cx="60.0" cy="49.0" r="2.4" fill="#23272b"/>
+<circle cx="70.5" cy="56.6" r="2.4" fill="#23272b"/>
+<circle cx="66.5" cy="68.9" r="2.4" fill="#23272b"/>
+<circle cx="53.5" cy="68.9" r="2.4" fill="#23272b"/>
+<circle cx="49.5" cy="56.6" r="2.4" fill="#23272b"/>
+<circle cx="60" cy="60" r="4.5" fill="#23272b"/>
+<path d="M70.8 9.1 A52 52 0 0 1 110.9 49.2 L84.5 54.8 A25 25 0 0 0 65.2 35.5Z" fill="#f2b705" stroke="#23272b" stroke-width="2.5" stroke-linejoin="round"/>
+</g></svg>
