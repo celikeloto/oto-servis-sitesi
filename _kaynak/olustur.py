@@ -80,6 +80,8 @@ HIZMETLER = [
       belirti=["Belirli bir parçanın fiyatını öğrenmek istiyorsunuz","Doğru parçadan emin değilsiniz","Parçayı takacak bir usta arıyorsunuz"]),
 ]
 MARKALAR = ["Fiat","Renault","Dacia","Volkswagen","Ford","Opel","Peugeot","Citroën","Toyota","Hyundai"]
+LOGO_CDN = "https://cdn.jsdelivr.net/npm/simple-icons@16.16.0/icons/"   # Simple Icons, sürüm sabit
+def logo(m, boy=28): return f'<img class="marka-logo" src="{LOGO_CDN}{mslug(m)}.svg" alt="" width="{boy}" height="{boy}" loading="lazy" onerror="this.remove()">'
 def mslug(m): return m.lower().replace("ë","e").replace("ç","c").replace("ü","u").replace("ö","o").replace("ş","s").replace("ı","i").replace("ğ","g").replace(" ","-")
 SSS = [
  ("Çalışma saatleriniz nedir?", "Pazartesiden cumartesiye 08:00–19:00 arası açığız. Pazar günü kapalıyız."),
@@ -92,7 +94,7 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "5"
+CSS_SURUM = "6"
 # ---------------- parçalar ----------------
 def ust(aktif=""):
     hl = "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],20)}{h["ad"]}</a></li>' for h in HIZMETLER)
@@ -214,7 +216,7 @@ def hizmet_kartlari(liste, one_son=True):
     return "\n".join(o)
 
 def marka_kartlari():
-    return "".join(f'<li><a href="marka-{mslug(m)}.html"><span class="harf" aria-hidden="true">{m[0]}</span><b>{m}</b><span>Bakım ve onarım</span></a></li>' for m in MARKALAR)
+    return "".join(f'<li><a href="marka-{mslug(m)}.html"><span class="harf" aria-hidden="true">{logo(m, 30)}</span><b>{m}</b><span>Bakım ve onarım</span></a></li>' for m in MARKALAR)
 
 def sss_bolum():
     q = "".join(f'<details><summary>{s}</summary><p>{c}</p></details>' for s, c in SSS)
@@ -248,7 +250,7 @@ def kirinti_ld(yol):
 # ---------------- ana sayfa ----------------
 def ana():
     yildiz5 = YILDIZ * 5
-    seritler = "".join(f'<li><a href="marka-{mslug(m)}.html">{m}</a></li>' for m in MARKALAR)
+    seritler = "".join(f'<li><a href="marka-{mslug(m)}.html">{logo(m)}<span>{m}</span></a></li>' for m in MARKALAR)
     sss, sss_ld = sss_bolum()
     govde = f'''<section class="giris giris-videolu tek-sutun" aria-labelledby="baslik" style="padding-bottom:72px">
   <video class="giris-video" autoplay muted loop playsinline preload="metadata" poster="assets/video/giris-kapak.jpg" aria-hidden="true">

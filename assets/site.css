@@ -584,3 +584,13 @@ footer h3{font-family:var(--baslik);font-size:.78rem;letter-spacing:.18em;text-t
 }
 .tek-sutun .kap{grid-template-columns:1fr;min-height:560px}
 .tek-sutun .kap > div:first-child{max-width:720px}
+
+/* Marka logoları (Simple Icons, tek renk) */
+.kayan li a{display:flex;align-items:center;gap:12px;padding:12px 24px 12px 18px}
+.kayan .marka-logo{width:28px;height:28px;opacity:.55;transition:opacity .2s ease}
+.kayan li a:hover .marka-logo{opacity:1}
+.marka-izgara .harf{background:var(--beton)}
+.marka-izgara .marka-logo{width:30px;height:30px;opacity:.75}
+.marka-izgara a:hover .harf{background:var(--altin-acik)}
+.marka-izgara a:hover .marka-logo{opacity:1}
+@media (prefers-reduced-motion:reduce){.kayan .marka-logo{transition:none}}
