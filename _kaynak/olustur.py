@@ -8,6 +8,7 @@ K = KOK / "_kaynak"
 TEL, TEL_YAZI = "+905421401974", "0542 140 19 74"
 TEL2, TEL2_YAZI = "+905354943400", "0535 494 34 00"
 WA = "905421401974"
+YOL, YOL_YAZI = "+905380648205", "0538 064 82 05"   # yol yardım / acil hat
 ADRES1, ADRES2 = "Yarımburgaz, Selvi Sk. 65/1", "34303 Küçükçekmece / İstanbul"
 HARITA = "https://www.google.com/maps/search/?api=1&amp;query=%C3%87elikel%20Oto%20Servis%20Yar%C4%B1mburgaz&amp;query_place_id=ChIJf1T-sSWlyhQR2FDqjvk1wW4"
 def wa(m):
@@ -23,6 +24,7 @@ SAAT_I = I('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>', 18)
 TIK_I = I('<path d="M4 12l5 5L20 6"/>', 18, 2.6)
 OK_I = I('<path d="M6 9l6 6 6-6"/>', 16, 2.4)
 YILDIZ = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.8 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z"/></svg>'
+CEKICI_I = I('<path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/>', 20)
 KAMYON_I = I('<path d="M3 16V8h11v8M14 11h4l3 3v2h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>', 28, 1.8)
 EKRAN_I = I('<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M7 21h10M12 17v4M7 9l2 2-2 2M12 13h4"/>', 28, 1.8)
 KUTU_I = I('<path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>', 28, 1.8)
@@ -91,10 +93,11 @@ SSS = [
  ("Motor arıza ışığı yandı, ne yapmalıyım?", "Işık sabit yanıyorsa aracı en kısa sürede getirin; yanıp sönüyorsa ya da araç çekişten düştüyse yola devam etmeden bizi arayın. Cihazla hata kodlarını okuyup sorunun kaynağını buluruz."),
  ("Yedek parçayı siz mi temin ediyorsunuz?", "Evet. Orijinal ve muadil parça seçeneklerini fiyatlarıyla birlikte size söyleriz. Stokta olmayan parçayı kısa sürede getirtiriz."),
  ("Hangi markalara bakıyorsunuz?", "Binek araçların büyük çoğunluğuna bakıyoruz: " + ", ".join(MARKALAR) + " ve diğer markalar. Aracınızdan emin değilseniz arayıp sorabilirsiniz."),
+ ("Aracım yolda kaldı, ne yapmalıyım?", f"Güvenli bir yere çekilip dörtlüleri yakın ve yol yardım hattımızı arayın: {YOL_YAZI}. Durumu dinleyip size en hızlı çözümü söyleyelim."),
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "6"
+CSS_SURUM = "7"
 # ---------------- parçalar ----------------
 def ust(aktif=""):
     hl = "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],20)}{h["ad"]}</a></li>' for h in HIZMETLER)
@@ -106,7 +109,7 @@ def ust(aktif=""):
     <li class="gizle-mobil">{KONUM_I}<a href="{HARITA}" target="_blank" rel="noopener">Yarımburgaz, Küçükçekmece</a></li>
     <li>{SAAT_I}Pzt–Cmt 08:00–19:00</li>
   </ul>
-  <ul class="gizle-mobil"><li>{WA_I}<a href="https://wa.me/{WA}" target="_blank" rel="noopener">WhatsApp'tan yazın</a></li></ul>
+  <ul><li class="acil">{CEKICI_I}<a href="tel:{YOL}">Yol yardım: <b>{YOL_YAZI}</b></a></li><li class="gizle-mobil">{WA_I}<a href="https://wa.me/{WA}" target="_blank" rel="noopener">WhatsApp</a></li></ul>
 </div></div>
 <header class="ust">
   <div class="kap">
@@ -158,6 +161,7 @@ def alt():
   <div><h3>Hizmetler</h3><ul>{hl}<li><a href="hizmetler.html">Tümü</a></li></ul></div>
   <div><h3>Markalar</h3><ul>{ml}<li><a href="markalar.html">Tümü</a></li></ul></div>
   <div><h3>İletişim</h3><ul><li><a href="tel:{TEL}">{TEL_YAZI}</a></li><li><a href="tel:{TEL2}">{TEL2_YAZI}</a></li>
+    <li><a href="tel:{YOL}">Yol yardım: {YOL_YAZI}</a></li>
     <li>Pzt–Cmt 08:00–19:00</li><li><a href="{HARITA}" target="_blank" rel="noopener">{ADRES1}</a></li></ul></div>
   <p class="telif">© <span id="yil">2026</span> Çelikel Oto Servis</p>
 </div></footer>
@@ -166,7 +170,7 @@ def alt():
 <script src="assets/site.js?v={CSS_SURUM}"></script>'''
 
 LD = {"@context":"https://schema.org","@type":"AutoRepair","name":"Çelikel Oto Servis",
- "telephone":TEL,"contactPoint":[{"@type":"ContactPoint","telephone":TEL2,"contactType":"customer service"}],
+ "telephone":TEL,"contactPoint":[{"@type":"ContactPoint","telephone":TEL2,"contactType":"customer service"},{"@type":"ContactPoint","telephone":YOL,"contactType":"emergency"}],
  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"19:00"}],
  "address":{"@type":"PostalAddress","streetAddress":ADRES1,"postalCode":"34303","addressLocality":"Küçükçekmece","addressRegion":"İstanbul","addressCountry":"TR"},
  "geo":{"@type":"GeoCoordinates","latitude":41.0456607,"longitude":28.7519682},
@@ -230,6 +234,7 @@ def harita_bolum(sinif=""):
   <div><span class="etiket">İletişim</span><h2 id="h-ilet">Bize <span class="vurgu">ulaşın</span></h2>
   <ul class="bilgi">
     <li><span class="ikon">{TEL_I}</span><div><b>Telefon ve WhatsApp</b><a href="tel:{TEL}">{TEL_YAZI}</a><br>İkinci hat: <a href="tel:{TEL2}">{TEL2_YAZI}</a></div></li>
+    <li><span class="ikon acil-ikon">{CEKICI_I}</span><div><b>Yol yardım / acil</b><a href="tel:{YOL}">{YOL_YAZI}</a></div></li>
     <li><span class="ikon">{SAAT_I}</span><div><b>Çalışma saatleri</b>Pazartesi–Cumartesi 08:00–19:00<br>Pazar kapalı</div></li>
     <li><span class="ikon">{KONUM_I}</span><div><b>Adres</b>{ADRES1}<br>{ADRES2}<br><a href="{HARITA}" target="_blank" rel="noopener">Yol tarifi al</a></div></li>
   </ul></div>
@@ -266,6 +271,7 @@ def ana():
         <a class="btn btn-sari" href="tel:{TEL}">{TEL_I} Hemen ara</a>
         <a class="btn btn-wa" href="{wa("Merhaba, web sitenizden ulaşıyorum.")}" target="_blank" rel="noopener">{WA_I} WhatsApp'tan yaz</a>
       </div>
+      <a class="acil-serit" href="tel:{YOL}">{CEKICI_I}<span>Yolda mı kaldınız? <b>Yol yardım hattı: {YOL_YAZI}</b></span></a>
       <ul class="guven"><li>{TIK_I}Fiyat işe başlamadan</li><li>{TIK_I}Adresten araç alma</li><li>{TIK_I}Cihazla arıza tespit</li></ul>
       <div class="durum-satir" style="margin-top:18px"><p class="durum" id="durum" role="status"><i aria-hidden="true"></i><span>Pazartesi–Cumartesi 08:00–19:00</span></p>
         <span>İkinci hat: <a href="tel:{TEL2}">{TEL2_YAZI}</a></span></div>
@@ -356,7 +362,8 @@ def hizmet_sayfasi(h):
   <aside class="yan-kutu">
     <div class="kutu"><h2>Fiyat ve randevu</h2><p>Aracınızı ve sorunu yazın, size dönelim. Gelemiyorsanız aracınızı adresinizden alırız.</p>
       <a class="btn btn-sari" href="tel:{TEL}">{TEL_I} {TEL_YAZI}</a>
-      <a class="btn btn-wa" href="{wa("Merhaba, " + h["ad"].lower() + " hakkında bilgi almak istiyorum.")}" target="_blank" rel="noopener">{WA_I} WhatsApp'tan yaz</a></div>
+      <a class="btn btn-wa" href="{wa("Merhaba, " + h["ad"].lower() + " hakkında bilgi almak istiyorum.")}" target="_blank" rel="noopener">{WA_I} WhatsApp'tan yaz</a>
+      <p class="yan-acil">Yolda mı kaldınız? <a href="tel:{YOL}">{YOL_YAZI}</a></p></div>
     <div class="liste-kutu"><h3>Diğer hizmetler</h3><ul>{diger}</ul></div>
   </aside>
 </div></section>

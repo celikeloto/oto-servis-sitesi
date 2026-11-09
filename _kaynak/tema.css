@@ -215,3 +215,17 @@ footer h3{font-family:var(--baslik);font-size:.78rem;letter-spacing:.18em;text-t
 .marka-izgara a:hover .harf{background:var(--altin-acik)}
 .marka-izgara a:hover .marka-logo{opacity:1}
 @media (prefers-reduced-motion:reduce){.kayan .marka-logo{transition:none}}
+
+/* Yol yardım / acil hat */
+.bilgi-cubuk .acil a{color:#fff}
+.bilgi-cubuk .acil b{color:#ff6b6b;font-weight:700}
+.bilgi-cubuk .acil svg{color:#ff6b6b}
+.acil-serit{display:inline-flex;align-items:center;gap:10px;margin:0 0 18px;padding:10px 16px;border-radius:12px;background:rgba(212,42,42,.14);border:1px solid rgba(212,42,42,.45);color:#fff;text-decoration:none;font-size:.95rem}
+.acil-serit svg{color:#ff6b6b;flex:none}
+.acil-serit b{color:#fff}
+.acil-serit:hover{background:rgba(212,42,42,.24)}
+.bilgi .acil-ikon{background:#fde8e8;color:var(--kirmizi)}
+.yan-acil{margin:14px 0 0 !important;font-size:.92rem;color:var(--soluk-koyu)}
+.yan-acil a{color:#ff8a8a;font-weight:700}
+@media (max-width:820px){.bilgi-cubuk .kap{justify-content:center}.bilgi-cubuk ul:first-child li:nth-child(3){display:none}}
+@media (max-width:820px){.bilgi-cubuk ul:first-child{display:none}.bilgi-cubuk .kap{min-height:38px}}
