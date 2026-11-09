@@ -68,7 +68,7 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "19"
+CSS_SURUM = "20"
 GORSELLER = {"yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
 GORSEL_ALT = {"lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
 def gorsel(ad, oncelik=False):
@@ -140,8 +140,8 @@ def alt():
   <div><h3>İletişim</h3><ul><li><a href="tel:{TEL}">{TEL_YAZI}</a></li><li><a href="tel:{TEL2}">{TEL2_YAZI}</a></li>
     <li><a href="tel:{YOL}">Yol yardım 7/24: {YOL_YAZI}</a></li>
     <li>Pzt–Cmt 08:00–19:00</li><li><a href="{HARITA}" target="_blank" rel="noopener">{ADRES1}</a></li></ul></div>
-  <p class="telif">© <span id="yil">2026</span> Çelikel Oto Servis · <a href="gizlilik.html">Gizlilik ve KVKK</a></p>
-  <p class="telif imza">Website Design by <a href="https://wa.me/905458506838" target="_blank" rel="noopener">Yalçın Kır · Yapay Zeka Koçu</a></p>
+  <div class="telif telif-satir"><span>© <span id="yil">2026</span> Çelikel Oto Servis · <a href="gizlilik.html">Gizlilik ve KVKK</a></span>
+    <span class="imza">Website Design by <a href="https://wa.me/905458506838" target="_blank" rel="noopener">Yalçın Kır · Yapay Zeka Koçu</a></span></div>
 </div></footer>
 <div class="alt-cubuk"><a class="btn btn-sari" href="tel:{TEL}">{TEL_I} Ara</a><a class="btn btn-wa" href="{wa("Merhaba, web sitenizden ulaşıyorum.")}" target="_blank" rel="noopener">{WA_I} WhatsApp</a></div>
 <button class="yukari" type="button" aria-label="Sayfanın başına dön">{I('<path d="M18 15l-6-6-6 6"/>',20,2.6)}</button>
