@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Çelikel Oto Servis | Yarımburgaz, Küçükçekmece</title>
-<meta name="description" content="Çelikel Oto Servis: Yarımburgaz, Küçükçekmece'de periyodik bakım, arıza tespit, tamir ve oto yedek parça. Pazartesi–Cumartesi 08:00–19:00. Telefon ve WhatsApp: 0542 140 19 74.">
+<meta name="description" content="Çelikel Oto Servis: Yarımburgaz, Küçükçekmece'de periyodik bakım, arıza tespit, motor, şanzıman, klima, kaporta boya ve oto yedek parça. Aracınızı adresinizden alıyoruz. Pazartesi–Cumartesi 08:00–19:00. Telefon ve WhatsApp: 0542 140 19 74.">
 <meta name="theme-color" content="#0b3a8c">
 <meta property="og:title" content="Çelikel Oto Servis | Yarımburgaz, Küçükçekmece">
 <meta property="og:description" content="Parçası da tamiri de aynı yerde. Arayın ya da WhatsApp'tan yazın: 0542 140 19 74.">
@@ -21,6 +21,7 @@
   "name": "Çelikel Oto Servis",
   "description": "Oto yedek parça satışı, periyodik bakım, arıza tespit ve tamir servisi.",
   "telephone": "+905421401974",
+  "contactPoint": [{"@type":"ContactPoint","telephone":"+905354943400","contactType":"customer service"}],
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
@@ -63,6 +64,7 @@
     -webkit-font-smoothing:antialiased;
   }
   a{color:inherit}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   :focus-visible{outline:3px solid var(--ikaz);outline-offset:3px;border-radius:2px}
   .kap{max-width:1080px;margin:0 auto;padding:0 20px}
 
@@ -126,11 +128,37 @@
 
   .hizmetler{background:#fff}
   .liste{display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px;margin:0;padding:0;list-style:none}
+  @media (min-width:980px){.liste{grid-template-columns:repeat(3,1fr);gap:0 40px}}
   @media (max-width:720px){.liste{grid-template-columns:1fr}}
   .liste li{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:22px 0;border-top:2px solid var(--beton)}
   .liste h3{font-family:var(--baslik);font-weight:700;font-size:1.45rem;margin:0 0 4px;line-height:1.1}
   .liste p{margin:0;color:var(--metin-soluk)}
   .ikon{width:44px;height:44px;border-radius:8px;background:var(--grafit);color:var(--ikaz);display:grid;place-items:center}
+
+  .ikinci{margin:4px 0 0;font-size:.98rem;color:var(--metin-soluk)}
+  .ikinci a{font-weight:600;color:var(--grafit)}
+
+  /* Adresten alma şeridi */
+  .alma{background:var(--ikaz);padding:30px 0;border-bottom:3px solid var(--grafit)}
+  .alma .kap{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center}
+  .alma svg{flex:none}
+  .alma h2{font-size:clamp(1.6rem,3vw,2.1rem);margin:0 0 4px}
+  .alma p{margin:0;max-width:60ch}
+  .alma .btn{background:var(--grafit);color:#fff;white-space:nowrap}
+  @media (max-width:720px){.alma .kap{grid-template-columns:1fr;gap:12px}.alma .ikon-buyuk{display:none}}
+
+  /* Usta */
+  .usta .kap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  @media (max-width:860px){.usta .kap{grid-template-columns:1fr;gap:32px}}
+  .usta blockquote{margin:0;font-family:var(--baslik);font-weight:600;font-size:clamp(1.6rem,3vw,2.2rem);line-height:1.15;border-left:8px solid var(--ikaz);padding-left:22px}
+  .usta .imza{margin:14px 0 0 30px;font-weight:600;color:var(--metin-soluk)}
+  .usta p{max-width:60ch}
+  .adimlar{list-style:none;margin:0;padding:0;counter-reset:adim}
+  .adimlar li{counter-increment:adim;display:grid;grid-template-columns:48px 1fr;gap:16px;padding:16px 0;border-top:2px solid var(--beton-koyu)}
+  .adimlar li::before{content:counter(adim);width:48px;height:48px;border-radius:50%;border:3px solid var(--grafit);display:grid;place-items:center;font-family:var(--baslik);font-weight:800;font-size:1.5rem;background:#fff}
+  .adimlar h3{font-family:var(--baslik);font-weight:700;font-size:1.35rem;margin:0 0 2px;line-height:1.15}
+  .adimlar p{margin:0;color:var(--metin-soluk)}
+  .gorus{display:inline-block;margin-top:8px;font-weight:600}
 
   /* Parça / randevu formu */
   .sor{background:var(--grafit);color:#fff}
@@ -187,6 +215,7 @@
     <a class="marka" href="#">ÇELİKEL <span>OTO SERVİS</span></a>
     <nav aria-label="Sayfa içi">
       <a href="#hizmetler">Hizmetler</a>
+      <a href="#hakkimizda">Hakkımızda</a>
       <a href="#parca-sor">Parça sor</a>
       <a href="#iletisim">İletişim</a>
     </nav>
@@ -221,7 +250,19 @@
             WhatsApp
           </a>
         </div>
+        <p class="ikinci">İkinci hat: <a href="tel:+905354943400">0535 494 34 00</a></p>
       </div>
+    </div>
+  </section>
+
+  <section class="alma" aria-labelledby="h-alma">
+    <div class="kap">
+      <span class="ikon-buyuk" aria-hidden="true"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#23272b" stroke-width="1.7"><path d="M3 16V8h11v8M14 11h4l3 3v2h-7"/><circle cx="7" cy="17" r="2" fill="#f2b705"/><circle cx="17" cy="17" r="2" fill="#f2b705"/></svg></span>
+      <div>
+        <h2 id="h-alma">Gelemiyorsanız aracınızı biz alalım</h2>
+        <p>Aracınızı adresinizden alıyor, işi bitince yine adresinize getiriyoruz. Arayın, uygun günü birlikte belirleyelim.</p>
+      </div>
+      <a class="btn" href="https://wa.me/905421401974?text=Merhaba%2C%20arac%C4%B1m%C4%B1%20adresimden%20almak%20i%C3%A7in%20g%C3%BCn%20ayarlamak%20istiyorum." target="_blank" rel="noopener">Alma günü ayarla</a>
     </div>
   </section>
 
@@ -251,10 +292,41 @@
           <div><h3>Oto elektrik</h3><p>Akü, şarj dinamosu, marş motoru, farlar ve kablo arızaları.</p></div>
         </li>
         <li>
+          <span class="ikon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2"/><circle cx="12" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="12" cy="18" r="2"/><path d="M6 8v8M12 8v8M18 8v4H6"/></svg></span>
+          <div><h3>Şanzıman ve vites</h3><p>Manuel ve otomatik şanzıman arızaları, vites geçiş sorunları ve yağ değişimi.</p></div>
+        </li>
+        <li>
+          <span class="ikon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1L19.1 4.9"/></svg></span>
+          <div><h3>Klima bakımı</h3><p>Gaz dolumu, kaçak kontrolü, polen filtresi ve soğutmayan klimanın onarımı.</p></div>
+        </li>
+        <li>
+          <span class="ikon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20l6-6M14 4l6 6-8 8-6-6z"/><path d="M15 9l-2-2"/></svg></span>
+          <div><h3>Kaporta ve boya</h3><p>Göçük, çizik ve hasar onarımı; boya ve rötuş.</p></div>
+        </li>
+        <li>
           <span class="ikon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16v13H4z"/><path d="M8 7V4h8v3M9 12h6"/></svg></span>
           <div><h3>Yedek parça satışı</h3><p>Orijinal ve muadil parça. Stokta yoksa kısa sürede getirtiriz; takmasını da biz yaparız.</p></div>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <section class="usta" id="hakkimizda" aria-labelledby="h-usta">
+    <div class="kap">
+      <div>
+        <h2 id="h-usta">Aracınız Sebahattin Usta'ya emanet</h2>
+        <p>Çelikel Oto Servis'i Sebahattin Aksaç yönetiyor. Bakırköy'deki dükkânımızdan beri bize gelen birçok müşterimiz, Yarımburgaz'daki yeni yerimize de gelmeye devam ediyor.</p>
+        <blockquote>Gereksiz parça değiştirmeyiz. Önce sorunu buluruz, sonra ne yapılacağını size söyleriz.</blockquote>
+        <a class="gorus" style="margin-top:18px" href="https://www.google.com/maps/search/?api=1&amp;query=%C3%87elikel%20Oto%20Servis%20Yar%C4%B1mburgaz&amp;query_place_id=ChIJf1T-sSWlyhQR2FDqjvk1wW4" target="_blank" rel="noopener">Müşteri yorumlarını Google'da okuyun</a>
+      </div>
+      <div>
+        <ol class="adimlar" aria-label="Nasıl çalışıyoruz">
+          <li><div><h3>Arayın ya da yazın</h3><p>Sorunu kısaca anlatın, size uygun bir gün ayarlayalım.</p></div></li>
+          <li><div><h3>Aracı getirin ya da biz alalım</h3><p>Vaktiniz yoksa aracınızı adresinizden alırız.</p></div></li>
+          <li><div><h3>Sorunu bulup fiyatı söyleriz</h3><p>Arıza tespitinden sonra ne yapılacağını ve tutarını işe başlamadan bildiririz.</p></div></li>
+          <li><div><h3>Onayınızla tamir ederiz</h3><p>İş bitince aracınızı teslim eder, neyin değiştiğini gösteririz.</p></div></li>
+        </ol>
+      </div>
     </div>
   </section>
 
@@ -301,6 +373,7 @@
         <p class="giris-metin">Gelmeden önce arayın, aracınız için yer ayıralım.</p>
         <dl>
           <dt>Telefon</dt><dd><a href="tel:+905421401974">0542 140 19 74</a></dd>
+          <dt>İkinci hat</dt><dd><a href="tel:+905354943400">0535 494 34 00</a></dd>
           <dt>WhatsApp</dt><dd><a href="https://wa.me/905421401974" target="_blank" rel="noopener">0542 140 19 74</a></dd>
           <dt>Çalışma saatleri</dt><dd>Pazartesi–Cumartesi 08:00–19:00<br>Pazar kapalı</dd>
           <dt>Adres</dt><dd id="adres">Yarımburgaz, Selvi Sk. 65/1<br>34303 Küçükçekmece / İstanbul<br><a href="https://www.google.com/maps/search/?api=1&amp;query=%C3%87elikel%20Oto%20Servis%20Yar%C4%B1mburgaz&amp;query_place_id=ChIJf1T-sSWlyhQR2FDqjvk1wW4" target="_blank" rel="noopener">Yol tarifi al</a></dd>
