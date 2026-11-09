@@ -25,6 +25,10 @@ TIK_I = I('<path d="M4 12l5 5L20 6"/>', 18, 2.6)
 OK_I = I('<path d="M6 9l6 6 6-6"/>', 16, 2.4)
 YILDIZ = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.8 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z"/></svg>'
 CEKICI_I = I('<path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/>', 20)
+KALKAN_I = I('<path d="M12 2l8 3v6c0 5-3.5 9.3-8 11-4.5-1.7-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>', 26, 1.8)
+YILDIZ_I = I('<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>', 26, 1.8)
+ARABA_I = I('<path d="M5 16l1.5-5a2 2 0 0 1 1.9-1.4h7.2a2 2 0 0 1 1.9 1.4L19 16"/><rect x="3" y="16" width="18" height="4" rx="1.5"/><path d="M7 20v1M17 20v1"/>', 26, 1.8)
+CEKICI_I2 = I('<path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/>', 26, 1.8)
 KAMYON_I = I('<path d="M3 16V8h11v8M14 11h4l3 3v2h-7"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>', 28, 1.8)
 EKRAN_I = I('<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M7 21h10M12 17v4M7 9l2 2-2 2M12 13h4"/>', 28, 1.8)
 KUTU_I = I('<path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>', 28, 1.8)
@@ -97,7 +101,7 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "7"
+CSS_SURUM = "8"
 # ---------------- parçalar ----------------
 def ust(aktif=""):
     hl = "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],20)}{h["ad"]}</a></li>' for h in HIZMETLER)
@@ -255,6 +259,7 @@ def kirinti_ld(yol):
 # ---------------- ana sayfa ----------------
 def ana():
     yildiz5 = YILDIZ * 5
+    YILDIZ5 = yildiz5
     seritler = "".join(f'<li><a href="marka-{mslug(m)}.html">{logo(m)}<span>{m}</span></a></li>' for m in MARKALAR)
     sss, sss_ld = sss_bolum()
     govde = f'''<section class="giris giris-videolu tek-sutun" aria-labelledby="baslik" style="padding-bottom:72px">
@@ -279,9 +284,19 @@ def ana():
   </div>
 </section>
 <section class="one-kartlar" style="padding:0"><div class="kap"><div class="izgara">
-  <div class="one-kart"><span class="ikon">{KAMYON_I}</span><div><h3>Adresten alıyoruz</h3><p>Aracınızı alıp iş bitince geri getiriyoruz.</p></div></div>
-  <div class="one-kart"><span class="ikon">{EKRAN_I}</span><div><h3>Doğru teşhis</h3><p>Cihazla arıza tespit, gereksiz parça değişimi yok.</p></div></div>
-  <div class="one-kart"><span class="ikon">{KUTU_I}</span><div><h3>Parça bizden</h3><p>Orijinal ve muadil seçenekler, takması da bizde.</p></div></div>
+  <div class="one-kart gorselli">
+    <div class="mini mini-liste"><span class="mini-ikon">{KALKAN_I}</span>
+      <ul><li>Fiyat önceden</li><li>Onayınızla işlem</li><li>Değişen parça teslim</li></ul></div>
+    <h3>Şeffaf servis</h3><p>Ne yapılacağını ve tutarını işe başlamadan söyleriz.</p>
+  </div>
+  <a class="one-kart gorselli acil-kart" href="tel:{YOL}">
+    <div class="mini mini-canli"><span class="nabiz" aria-hidden="true"></span><div><b>ACİL</b><small>YOL YARDIM HATTI</small></div></div>
+    <h3>Yol yardım</h3><p>Yolda kaldıysanız arayın: <span class="no">{YOL_YAZI}</span></p>
+  </a>
+  <div class="one-kart gorselli">
+    <div class="mini mini-grafik" aria-hidden="true"><i style="height:30%"></i><i style="height:48%"></i><i style="height:40%"></i><i style="height:66%"></i><i class="tam" style="height:92%"></i></div>
+    <h3>Cihazla arıza tespit</h3><p>Hata kodlarını okur, sorunun kaynağını buluruz.</p>
+  </div>
 </div></div></section>
 
 <section class="marka-serit" style="padding-top:56px;padding-bottom:0" aria-label="Bakımını yaptığımız markalar">
@@ -289,27 +304,37 @@ def ana():
   <div class="kayan"><ul>{seritler}</ul><ul aria-hidden="true">{seritler.replace('<a ','<a tabindex="-1" ')}</ul></div>
 </section>
 
-<section class="rakamlar" aria-label="Rakamlarla biz"><div class="kap"><div class="izgara">
-  <div class="rakam"><b>5,0</b><span>Google puanı</span></div>
-  <div class="rakam"><b>9</b><span>hizmet alanı</span></div>
-  <div class="rakam"><b>6 gün</b><span>08:00–19:00 açık</span></div>
-  <div class="rakam"><b>Kapıdan</b><span>araç alma ve teslim</span></div>
-</div></div></section>
-
 <section id="hizmetler" aria-labelledby="h-hizmet" style="padding-top:40px"><div class="kap">
   {bas_orta("Hizmetlerimiz", 'Aracınızın her işi <span class="vurgu">tek serviste</span>', "Aracınızı getirin, sorunu birlikte bakalım. Ne yapılacağını ve fiyatı işe başlamadan söyleriz.", "h-hizmet")}
   <ul class="hizmet-izgara">{hizmet_kartlari(HIZMETLER)}</ul>
 </div></section>
 
 <section class="neden" aria-labelledby="h-neden"><div class="kap">
-  {bas_orta("Farkımız", 'Neden <span class="vurgu">Çelikel</span>?', "Bakırköy'deki dükkânımızdan beri bize gelen müşterilerimiz, yeni yerimize de gelmeye devam ediyor. Nedeni basit:", "h-neden")}
-  <ul class="neden-izgara">
-    <li><span class="ikon">{USTA_I}</span><h3>Aracınız ustaya emanet</h3><p>İşinizle Sebahattin Usta ve ekibi birebir ilgilenir.</p></li>
-    <li class="altin"><span class="ikon">{FIYAT_I}</span><h3>Sürpriz fatura yok</h3><p>Ne yapılacağını ve tutarını işe başlamadan söyleriz.</p></li>
-    <li><span class="ikon">{EKRAN_I}</span><h3>Önce teşhis</h3><p>Sorunu bulmadan parça değiştirmeyiz.</p></li>
-    <li><span class="ikon">{KAMYON_I}</span><h3>Kapınızdan alırız</h3><p>Vaktiniz yoksa aracınızı adresinizden alıp geri getiririz.</p></li>
-    <li><span class="ikon">{KUTU_I}</span><h3>Parça için koşturmazsınız</h3><p>Gereken parçayı biz bulur, serviste takarız.</p></li>
-    <li><span class="ikon">{GOZ_I}</span><h3>Neyin değiştiğini görürsünüz</h3><p>Teslimde yapılan işi ve değişen parçaları gösteririz.</p></li>
+  {bas_orta("Farkımız", 'Neden <span class="vurgu">Çelikel Oto</span>?', "", "h-neden")}
+  <ul class="rakam-kartlar">
+    <li><span class="yuvarlak">{YILDIZ_I}</span><b>5,0</b><em>Google puanı</em><p>Müşterilerimizin değerlendirmeleriyle</p></li>
+    <li><span class="yuvarlak">{USTA_I}</span><b class="kucuk-b">Usta işçiliği</b><p>İşinizle Sebahattin Usta ve ekibi birebir ilgilenir</p></li>
+    <li><span class="yuvarlak">{ARABA_I}</span><b>10+</b><em>Araç markası</em><p>Fiat'tan Toyota'ya, binek araçların çoğuna bakıyoruz</p></li>
+    <li><span class="yuvarlak">{CEKICI_I2}</span><b class="kucuk-b">Acil hat</b><em>Yol yardım</em><p><a href="tel:{YOL}">{YOL_YAZI}</a></p></li>
+  </ul>
+</div></section>
+
+<section class="alti-neden" aria-labelledby="h-alti"><div class="kap">
+  <div class="alti-bas">
+    <div>
+      <h2 id="h-alti">Aracınızı bize bırakmanız için <span class="vurgu">6 neden</span></h2>
+      <p>Bakırköy'deki dükkânımızdan beri bize gelen müşterilerimiz, yeni yerimize de gelmeye devam ediyor. Sadece tamir etmiyoruz, aracınızla gerçekten ilgileniyoruz.</p>
+    </div>
+    <figure class="alti-foto"><img src="assets/img/motor.jpg" srcset="assets/img/motor-kucuk.jpg 800w, assets/img/motor.jpg 1600w" sizes="(max-width: 900px) 100vw, 520px" alt="Motor bölümünde çalışan usta" loading="lazy" width="1600" height="900">
+      <figcaption><span class="yildiz">{YILDIZ5}</span><b>5,0</b> Google puanı</figcaption></figure>
+  </div>
+  <ul class="neden-kartlar">
+    <li><span class="kare">{USTA_I}</span><div><h3>Usta kadro</h3><em>Sebahattin Usta</em><p>İşinizle deneyimli ustamız birebir ilgilenir, sorunun kaynağını doğru bulur.</p></div></li>
+    <li><span class="kare">{FIYAT_I}</span><div><h3>Sürpriz fatura yok</h3><em>Fiyat önceden</em><p>Ne yapılacağını ve tutarını işe başlamadan söyleriz; onayınız olmadan başlamayız.</p></div></li>
+    <li><span class="kare">{YILDIZ_I}</span><div><h3>Müşteri memnuniyeti</h3><em>Google'da 5,0</em><p>Bize gelen müşterilerimizin yorumlarını Google'da okuyabilirsiniz.</p></div></li>
+    <li><span class="kare">{CEKICI_I2}</span><div><h3>Yol yardım hattı</h3><em>Acil</em><p>Aracınız yolda kaldıysa <a href="tel:{YOL}">{YOL_YAZI}</a> numarasını arayın.</p></div></li>
+    <li><span class="kare">{EKRAN_I}</span><div><h3>Cihazla teşhis</h3><em>Önce teşhis</em><p>Arıza tespit cihazıyla hata kodlarını okur, gereksiz parça değiştirmeyiz.</p></div></li>
+    <li><span class="kare">{KAMYON_I}</span><div><h3>Kapınızdan alırız</h3><em>Adresten alma</em><p>Vaktiniz yoksa aracınızı adresinizden alır, iş bitince geri getiririz.</p></div></li>
   </ul>
 </div></section>
 
