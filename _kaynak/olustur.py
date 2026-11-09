@@ -152,7 +152,7 @@ def alt():
     ml = "".join(f'<li><a href="marka-{mslug(m)}.html">{m} servisi</a></li>' for m in MARKALAR[:6])
     return f'''<footer><div class="kap">
   <div><a class="logo-yazi" href="index.html"><b>ÇELİKEL <span>OTO</span></b><small>SERVİS</small></a>
-    <p style="margin:0;max-width:36ch">Yarımburgaz, Küçükçekmece'de oto bakım, tamir ve yedek parça. Aracınızı adresinizden alıyoruz.</p></div>
+    <p style="margin:0;max-width:36ch">Oto bakım, tamir ve yedek parça. Aracınızı adresinizden alıyoruz.</p></div>
   <div><h3>Hizmetler</h3><ul>{hl}<li><a href="hizmetler.html">Tümü</a></li></ul></div>
   <div><h3>Markalar</h3><ul>{ml}<li><a href="markalar.html">Tümü</a></li></ul></div>
   <div><h3>İletişim</h3><ul><li><a href="tel:{TEL}">{TEL_YAZI}</a></li><li><a href="tel:{TEL2}">{TEL2_YAZI}</a></li>
@@ -258,7 +258,7 @@ def ana():
   <div class="kap">
     <div>
       <a class="puan-rozet" href="{HARITA}" target="_blank" rel="noopener"><span class="yildiz">{yildiz5}</span> Google'da 5,0 <small>müşteri yorumları</small></a>
-      <h1 id="baslik">Yarımburgaz'da güvenilir <span class="alt-satir">oto servis.</span></h1>
+      <h1 id="baslik">Aracınız için <span class="alt-satir">güvenilir oto servis.</span></h1>
       <p class="ozet">Periyodik bakımdan motor tamirine, şanzımandan kaportaya kadar aracınızın her işi tek serviste. Gereken parçayı da biz buluruz.</p>
       <div class="eylemler">
         <a class="btn btn-sari" href="tel:{TEL}">{TEL_I} Hemen ara</a>
@@ -297,7 +297,7 @@ def ana():
 </div></section>
 
 <section class="neden" aria-labelledby="h-neden"><div class="kap">
-  {bas_orta("Farkımız", 'Neden <span class="vurgu">Çelikel</span>?', "Bakırköy'deki dükkânımızdan beri bize gelen müşterilerimiz, Yarımburgaz'daki yeni yerimize de gelmeye devam ediyor. Nedeni basit:", "h-neden")}
+  {bas_orta("Farkımız", 'Neden <span class="vurgu">Çelikel</span>?', "Bakırköy'deki dükkânımızdan beri bize gelen müşterilerimiz, yeni yerimize de gelmeye devam ediyor. Nedeni basit:", "h-neden")}
   <ul class="neden-izgara">
     <li><span class="ikon">{USTA_I}</span><h3>Aracınız ustaya emanet</h3><p>İşinizle Sebahattin Usta ve ekibi birebir ilgilenir.</p></li>
     <li class="altin"><span class="ikon">{FIYAT_I}</span><h3>Sürpriz fatura yok</h3><p>Ne yapılacağını ve tutarını işe başlamadan söyleriz.</p></li>
@@ -335,8 +335,8 @@ def ana():
 {sss}
 {form_bolum()}
 {harita_bolum()}'''
-    sayfa("index.html", "Çelikel Oto Servis | Yarımburgaz, Küçükçekmece Oto Tamir ve Bakım",
-          f"Yarımburgaz, Küçükçekmece'de oto servis: periyodik bakım, arıza tespit, motor, şanzıman, fren, klima, kaporta ve yedek parça. Aracınızı adresinizden alıyoruz. {TEL_YAZI}",
+    sayfa("index.html", "Çelikel Oto Servis | Oto Tamir, Bakım ve Yedek Parça",
+          f"Çelikel Oto Servis: periyodik bakım, arıza tespit, motor, şanzıman, fren, klima, kaporta ve yedek parça. Aracınızı adresinizden alıyoruz. {TEL_YAZI}",
           govde, "ana", sss_ld)
 
 # ---------------- hizmet sayfaları ----------------
@@ -345,7 +345,7 @@ def hizmet_sayfasi(h):
     neler = "".join(f"<li>{TIK_I}<span>{n}</span></li>" for n in h["neler"])
     bel = "".join(f"<li>{b}</li>" for b in h["belirti"])
     diger = "".join(f'<li><a href="hizmet-{x["slug"]}.html"{" aria-current=\"page\"" if x is h else ""}>{x["ad"]} <span aria-hidden="true">›</span></a></li>' for x in HIZMETLER)
-    govde = f'''{sayfa_bas(yol, h["ad"] + " <span class=\"alt-satir\" style=\"display:inline;color:var(--ikaz)\">Yarımburgaz</span>", h["giris"])}
+    govde = f'''{sayfa_bas(yol, h["ad"], h["giris"])}
 <section class="icerik"><div class="kap">
   <div class="metin">
     <h2>Bu belirtiler varsa bize gelin</h2><ul class="belirti">{bel}</ul>
@@ -364,22 +364,22 @@ def hizmet_sayfasi(h):
 {cagri()}
 {harita_bolum()}'''
     ld = {"@context":"https://schema.org","@type":"Service","name":h["ad"],"serviceType":h["ad"],"provider":{"@type":"AutoRepair","name":"Çelikel Oto Servis","telephone":TEL},"areaServed":"Küçükçekmece, İstanbul","description":h["giris"]}
-    sayfa(f'hizmet-{h["slug"]}.html', f'{h["ad"]} | Çelikel Oto Servis Yarımburgaz',
-          f'{h["ad"]} Yarımburgaz, Küçükçekmece: {h["kisa"]} Fiyatı işe başlamadan söyleriz. {TEL_YAZI}', govde, "", [ld, kirinti_ld(yol)])
+    sayfa(f'hizmet-{h["slug"]}.html', f'{h["ad"]} | Çelikel Oto Servis',
+          f'{h["ad"]}: {h["kisa"]} Fiyatı işe başlamadan söyleriz. {TEL_YAZI}', govde, "", [ld, kirinti_ld(yol)])
 
 def hizmetler_sayfasi():
     yol = [("Ana sayfa","index.html"),("Hizmetlerimiz",None)]
     govde = f'''{sayfa_bas(yol, "Hizmetlerimiz", "Bakımdan motor tamirine, elektrikten kaportaya kadar aracınızın her işini tek serviste yapıyoruz. Gereken parçayı da biz buluyoruz.")}
 <section aria-label="Hizmet listesi"><div class="kap"><ul class="hizmet-izgara">{hizmet_kartlari(HIZMETLER)}</ul></div></section>
 {cagri()}{form_bolum()}'''
-    sayfa("hizmetler.html", "Hizmetlerimiz | Çelikel Oto Servis Yarımburgaz", "Çelikel Oto Servis hizmetleri: periyodik bakım, arıza tespit, motor, şanzıman, fren, oto elektrik, klima, kaporta boya ve yedek parça.", govde, "", kirinti_ld(yol))
+    sayfa("hizmetler.html", "Hizmetlerimiz | Çelikel Oto Servis", "Çelikel Oto Servis hizmetleri: periyodik bakım, arıza tespit, motor, şanzıman, fren, oto elektrik, klima, kaporta boya ve yedek parça.", govde, "", kirinti_ld(yol))
 
 # ---------------- marka sayfaları ----------------
 def marka_sayfasi(m):
     yol = [("Ana sayfa","index.html"),("Markalar","markalar.html"),(f"{m} servisi",None)]
     hk = hizmet_kartlari(HIZMETLER[:6], one_son=False)
     diger = "".join(f'<li><a href="marka-{mslug(x)}.html"{" aria-current=\"page\"" if x==m else ""}>{x} <span aria-hidden="true">›</span></a></li>' for x in MARKALAR)
-    govde = f'''{sayfa_bas(yol, f"{m} servisi <span style=\"color:var(--ikaz)\">Yarımburgaz</span>", f"{m} aracınızın bakımını, arıza tespitini ve onarımını Yarımburgaz'da yapıyoruz. Gereken {m} parçasını orijinal ya da muadil seçenekleriyle biz temin ediyoruz.")}
+    govde = f'''{sayfa_bas(yol, f"{m} <span style=\"color:var(--ikaz)\">servisi</span>", f"{m} aracınızın bakımını, arıza tespitini ve onarımını yapıyoruz. Gereken {m} parçasını orijinal ya da muadil seçenekleriyle biz temin ediyoruz.")}
 <section class="icerik"><div class="kap">
   <div class="metin">
     <h2>{m} aracınız için neler yapıyoruz?</h2>
@@ -404,8 +404,8 @@ def marka_sayfasi(m):
 </div></section>
 <section aria-labelledby="h-mh" style="padding-top:0"><div class="kap">{bas_orta("Hizmetler", f'{m} için <span class="vurgu">hizmetlerimiz</span>', "Hizmete tıklayın, ayrıntıları görün.", "h-mh")}<ul class="hizmet-izgara">{hk}</ul></div></section>
 {cagri()}'''
-    sayfa(f"marka-{mslug(m)}.html", f"{m} Servisi Yarımburgaz, Küçükçekmece | Çelikel Oto Servis",
-          f"{m} bakım, arıza tespit ve onarım Yarımburgaz, Küçükçekmece. {m} yedek parça temini, fiyat işe başlamadan. {TEL_YAZI}", govde, "", kirinti_ld(yol))
+    sayfa(f"marka-{mslug(m)}.html", f"{m} Servisi | Çelikel Oto Servis",
+          f"{m} bakım, arıza tespit ve onarım. {m} yedek parça temini, fiyat işe başlamadan. {TEL_YAZI}", govde, "", kirinti_ld(yol))
 
 def markalar_sayfasi():
     yol = [("Ana sayfa","index.html"),("Markalar",None)]
@@ -413,11 +413,11 @@ def markalar_sayfasi():
 <section aria-label="Marka listesi"><div class="kap"><ul class="marka-izgara">{marka_kartlari()}</ul>
 <p class="diger">Listede olmayan bir marka mı? <a href="tel:{TEL}">Arayıp sorun</a>, büyük ihtimalle bakıyoruz.</p></div></section>
 {cagri()}'''
-    sayfa("markalar.html", "Markalar | Çelikel Oto Servis Yarımburgaz", "Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai ve diğer markalar için bakım ve onarım.", govde, "marka", kirinti_ld(yol))
+    sayfa("markalar.html", "Markalar | Çelikel Oto Servis", "Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai ve diğer markalar için bakım ve onarım.", govde, "marka", kirinti_ld(yol))
 
 def hakkimizda():
     yol = [("Ana sayfa","index.html"),("Hakkımızda",None)]
-    govde = f'''{sayfa_bas(yol, "Aracınız Sebahattin Usta'ya emanet", "Çelikel Oto Servis'i Sebahattin Aksaç yönetiyor. Bakırköy'deki dükkânımızdan beri bize gelen birçok müşterimiz, Yarımburgaz'daki yeni yerimize de gelmeye devam ediyor.")}
+    govde = f'''{sayfa_bas(yol, "Aracınız Sebahattin Usta'ya emanet", "Çelikel Oto Servis'i Sebahattin Aksaç yönetiyor. Bakırköy'deki dükkânımızdan beri bize gelen birçok müşterimiz, yeni yerimize de gelmeye devam ediyor.")}
 <section class="usta"><div class="kap">
   <div><h2>Nasıl çalıştığımız</h2><p class="giris-yazi">Bir servise aracınızı bırakırken içinizin rahat olması gerekir. Bu yüzden her adımda ne yaptığımızı size anlatırız.</p>
     <figure class="ilke"><p>Gereksiz parça değiştirmeyiz. Önce sorunu buluruz, sonra ne yapılacağını size söyleriz.</p></figure>
@@ -430,14 +430,14 @@ def hakkimizda():
   </ol></div></section>
 {cagri()}
 {harita_bolum()}'''
-    sayfa("hakkimizda.html", "Hakkımızda | Çelikel Oto Servis Yarımburgaz", "Çelikel Oto Servis'i Sebahattin Aksaç yönetiyor. Bakırköy'den Yarımburgaz'a, müşterilerimizin güvendiği oto servis.", govde, "hak", kirinti_ld(yol))
+    sayfa("hakkimizda.html", "Hakkımızda | Çelikel Oto Servis", "Çelikel Oto Servis'i Sebahattin Aksaç yönetiyor. Bakırköy'den bu yana müşterilerimizin güvendiği oto servis.", govde, "hak", kirinti_ld(yol))
 
 def iletisim():
     yol = [("Ana sayfa","index.html"),("İletişim",None)]
     govde = f'''{sayfa_bas(yol, "İletişim", "Arayın, WhatsApp'tan yazın ya da servisimize gelin. Gelemiyorsanız aracınızı adresinizden alırız.")}
 {harita_bolum("iletisim-sayfa")}
 {form_bolum()}'''
-    sayfa("iletisim.html", "İletişim | Çelikel Oto Servis Yarımburgaz", f"Çelikel Oto Servis iletişim: {TEL_YAZI}, {ADRES1}, {ADRES2}. Pazartesi–Cumartesi 08:00–19:00.", govde, "ilet", kirinti_ld(yol))
+    sayfa("iletisim.html", "İletişim | Çelikel Oto Servis", f"Çelikel Oto Servis iletişim: {TEL_YAZI}, {ADRES1}, {ADRES2}. Pazartesi–Cumartesi 08:00–19:00.", govde, "ilet", kirinti_ld(yol))
 
 def css():
     (KOK / "assets" / "site.css").write_text((K / "temel.css").read_text(encoding="utf-8") + (K / "ek.css").read_text(encoding="utf-8") + (K / "tema.css").read_text(encoding="utf-8"), encoding="utf-8")
