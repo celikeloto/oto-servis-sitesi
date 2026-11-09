@@ -69,8 +69,6 @@ footer .logo-yazi{color:#fff}
 .guven{font-size:.95rem}
 .guven svg{color:var(--ikaz)}
 .durum-satir{font-size:.95rem}
-.disk{opacity:.92}
-.disk path[fill="url(#kaliper)"]{filter:hue-rotate(-8deg) saturate(.85)}
 @media (max-width:960px){
   .giris .kap > div:first-child{text-align:center}
   .giris .eylemler{flex-direction:column;align-items:stretch;max-width:420px;margin-left:auto;margin-right:auto}

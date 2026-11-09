@@ -247,7 +247,6 @@ def kirinti_ld(yol):
 
 # ---------------- ana sayfa ----------------
 def ana():
-    disk = (K / "disk.svg").read_text(encoding="utf-8")
     yildiz5 = YILDIZ * 5
     seritler = "".join(f'<li><a href="marka-{mslug(m)}.html">{m}</a></li>' for m in MARKALAR)
     sss, sss_ld = sss_bolum()
