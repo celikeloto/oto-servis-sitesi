@@ -250,7 +250,7 @@ def ana():
     yildiz5 = YILDIZ * 5
     seritler = "".join(f'<li><a href="marka-{mslug(m)}.html">{m}</a></li>' for m in MARKALAR)
     sss, sss_ld = sss_bolum()
-    govde = f'''<section class="giris giris-videolu" aria-labelledby="baslik" style="padding-bottom:72px">
+    govde = f'''<section class="giris giris-videolu tek-sutun" aria-labelledby="baslik" style="padding-bottom:72px">
   <video class="giris-video" autoplay muted loop playsinline preload="metadata" poster="assets/video/giris-kapak.jpg" aria-hidden="true">
     <source src="assets/video/giris-mobil.mp4" type="video/mp4" media="(max-width: 720px)">
     <source src="assets/video/giris.mp4" type="video/mp4">
@@ -267,9 +267,6 @@ def ana():
       <ul class="guven"><li>{TIK_I}Fiyat işe başlamadan</li><li>{TIK_I}Adresten araç alma</li><li>{TIK_I}Cihazla arıza tespit</li></ul>
       <div class="durum-satir" style="margin-top:18px"><p class="durum" id="durum" role="status"><i aria-hidden="true"></i><span>Pazartesi–Cumartesi 08:00–19:00</span></p>
         <span>İkinci hat: <a href="tel:{TEL2}">{TEL2_YAZI}</a></span></div>
-    </div>
-    <div class="gorsel gorsel-plaka">
-      <div class="plaka-kart"><small>Bize ulaşın</small><a class="plaka" href="tel:{TEL}" aria-label="Telefonla ara: {TEL_YAZI}"><span class="tr" aria-hidden="true">TR</span><span class="no">{TEL_YAZI}</span></a></div>
     </div>
   </div>
 </section>

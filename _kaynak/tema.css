@@ -203,3 +203,5 @@ footer h3{font-family:var(--baslik);font-size:.78rem;letter-spacing:.18em;text-t
   .giris-videolu::before{background:linear-gradient(180deg, rgba(10,10,12,.75) 0%, rgba(10,10,12,.88) 100%)}
   .gorsel-plaka{justify-content:center;margin:10px 0 0}
 }
+.tek-sutun .kap{grid-template-columns:1fr;min-height:560px}
+.tek-sutun .kap > div:first-child{max-width:720px}
