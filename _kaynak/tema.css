@@ -1,0 +1,193 @@
+
+/* ================= Tema: siyah + altın, yuvarlak butonlar ================= */
+:root{
+  --grafit:#141416; --grafit-2:#1c1d20; --grafit-3:#2a2b2f;
+  --ikaz:#d4a52b; --ikaz-koyu:#a87f14; --altin-acik:#fbf3dc;
+  --kirmizi:#d42a2a; --kirmizi-koyu:#a81e1e;
+  --beton:#f3f2ef; --beton-koyu:#e4e2dd; --kagit:#fafaf8;
+  --soluk:#6b6f75; --soluk-koyu:#a3a7ad;
+  --wa:#22b55a;
+  --govde:"Poppins", system-ui, sans-serif;
+  --baslik:"Poppins", system-ui, sans-serif;
+}
+body{font-size:1rem;line-height:1.65}
+h1,h2,.hizmet h3,.one-kart h3,.neden-izgara h3,.adimlar h3,.sss summary{letter-spacing:-.015em}
+h1{font-weight:800;font-size:clamp(2.3rem,5.4vw,4.2rem);line-height:1.08}
+h2{font-weight:800;font-size:clamp(1.9rem,3.8vw,2.9rem);line-height:1.12}
+h1 .alt-satir,h2 .vurgu,.vurgu{color:var(--ikaz)}
+
+/* Butonlar: yuvarlak */
+.btn{border-radius:999px;font-family:var(--govde);font-weight:600;font-size:1.02rem;letter-spacing:0;min-height:54px;padding:12px 28px;box-shadow:none !important}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn-sari{background:var(--kirmizi);color:#fff}
+.btn-sari:hover{background:#e13434}
+.btn-wa{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn-wa:hover{border-color:#fff}
+.btn-altin{background:linear-gradient(180deg,#e2b53c,#c39320);color:#141416}
+.btn-koyu{background:var(--grafit);color:#fff}
+.btn-mavi{background:#1d3a8a;color:#fff}
+/* açık zeminde WhatsApp butonu dolu yeşil */
+form .btn-wa,.kutu .btn-wa,.yan-kutu .btn-wa{background:var(--wa);border-color:var(--wa)}
+
+/* Üst kısım */
+.bilgi-cubuk{background:#0b0b0c;color:#b9bcc1}
+.ust{background:#fff;border-bottom:1px solid var(--beton-koyu);backdrop-filter:none}
+.ust .kap{min-height:76px}
+.logo-yazi{color:var(--grafit)}
+.logo-yazi b{font-family:var(--baslik);font-weight:800;font-size:1.6rem;letter-spacing:.02em}
+.logo-yazi b span{color:var(--ikaz)}
+.logo-yazi small{color:var(--soluk);letter-spacing:.5em;font-size:.66rem}
+.ust nav > a:not(.btn), .acilir > button{color:var(--grafit);font-weight:500}
+.ust nav > a:not(.btn):hover, .acilir > button:hover, .ust nav a[aria-current="page"]{color:var(--ikaz-koyu)}
+.menu-dugme{border:0;color:var(--grafit);width:44px}
+@media (max-width:1020px){
+  .ust nav{background:#fff;inset:76px 0 auto 0;border-top:1px solid var(--beton-koyu);box-shadow:0 20px 40px rgba(0,0,0,.15)}
+  .ust nav > a:not(.btn), .acilir > button{border-bottom:1px solid var(--beton)}
+  .acilir ul a{color:var(--grafit)}
+  .acilir ul a:hover{background:var(--beton)}
+  .acilir ul svg{color:var(--ikaz-koyu)}
+}
+footer .logo-yazi{color:#fff}
+
+/* Etiket (başlık üstü) */
+.etiket{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ikaz-koyu);background:var(--altin-acik);border:1px solid #efdfae;padding:6px 14px;border-radius:999px;margin-bottom:16px}
+.koyu-bolum .etiket,.neden .etiket,.sor .etiket{color:var(--ikaz);background:rgba(212,165,43,.1);border-color:rgba(212,165,43,.3)}
+
+/* Ortalanmış bölüm başlığı */
+.bas-orta{text-align:center;max-width:720px;margin:0 auto 46px}
+.bas-orta p{color:var(--soluk);margin:14px auto 0;font-size:1.05rem;max-width:56ch}
+.neden .bas-orta p,.koyu-bolum .bas-orta p{color:var(--soluk-koyu)}
+
+/* Giriş */
+.giris{background:
+   radial-gradient(800px 520px at 80% 30%, rgba(212,165,43,.14), transparent 60%),
+   radial-gradient(600px 400px at 10% 90%, rgba(212,42,42,.10), transparent 60%),
+   linear-gradient(180deg,#1a1b1e 0%, #0e0e10 100%)}
+.giris::before{opacity:.18}
+.puan-rozet{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);font-size:.92rem}
+.giris p.ozet{color:#c9ccd0;font-size:1.08rem}
+.guven{font-size:.95rem}
+.guven svg{color:var(--ikaz)}
+.durum-satir{font-size:.95rem}
+.disk{opacity:.92}
+.disk path[fill="url(#kaliper)"]{filter:hue-rotate(-8deg) saturate(.85)}
+@media (max-width:960px){
+  .giris .kap > div:first-child{text-align:center}
+  .giris .eylemler{flex-direction:column;align-items:stretch;max-width:420px;margin-left:auto;margin-right:auto}
+  .guven,.durum-satir{justify-content:center}
+  .puan-rozet{margin-left:auto;margin-right:auto}
+  .giris p.ozet{margin-left:auto;margin-right:auto}
+}
+
+/* Hero altı kartlar: koyu cam kartlar */
+.one-kartlar{background:linear-gradient(180deg,#0e0e10 0 50%, var(--kagit) 50% 100%)}
+.one-kart{background:#1c1d20;border:1px solid rgba(255,255,255,.08);color:#fff;box-shadow:0 20px 40px -18px rgba(0,0,0,.6)}
+.one-kart .ikon{background:rgba(212,165,43,.12);color:var(--ikaz);border:1px solid rgba(212,165,43,.3)}
+.one-kart p{color:var(--soluk-koyu)}
+@media (max-width:900px){.one-kartlar{background:#0e0e10;padding-bottom:40px !important}.one-kartlar .izgara{margin-top:0}}
+
+/* Marka şeridi */
+.kayan li a{font-family:var(--govde);font-weight:600;font-size:1rem;padding:10px 22px;border-radius:12px}
+
+/* Rakamlar */
+.rakamlar .izgara{background:#141416}
+.rakam b{font-family:var(--baslik);font-weight:800}
+
+/* Hizmet kartları */
+.hizmet{border-radius:20px;border:1px solid var(--beton-koyu);box-shadow:0 2px 0 rgba(0,0,0,.02)}
+.hizmet:hover{border-color:#e7d39a;box-shadow:0 24px 50px -24px rgba(20,20,22,.35)}
+.hizmet .ikon{width:54px;height:54px;border-radius:14px;background:var(--altin-acik);color:var(--ikaz-koyu);border:1px solid #efdfae}
+.hizmet:hover .ikon{background:var(--ikaz);color:#141416}
+.hizmet h3{font-family:var(--baslik);font-weight:700;font-size:1.22rem;margin:0 0 8px}
+.hizmet p{font-size:.95rem}
+.hizmet .detay{border:0;color:var(--ikaz-koyu);font-weight:600;font-size:.95rem}
+.hizmet .detay::before{content:"";order:2;width:14px;height:14px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat}
+.hizmet.one{background:linear-gradient(160deg,#1f2023,#0f0f11);border-color:#1f2023}
+.hizmet.one .ikon{background:rgba(212,165,43,.14);color:var(--ikaz);border-color:rgba(212,165,43,.35)}
+.hizmet.one .detay{color:var(--ikaz)}
+
+/* Neden biz: koyu kartlar, biri altın */
+.neden{background:#0f0f11}
+.neden-izgara{gap:16px;background:none;border-radius:0}
+.neden-izgara li{background:#1a1b1e;border:1px solid rgba(255,255,255,.07);border-radius:18px}
+.neden-izgara .ikon{background:rgba(212,165,43,.1);border:1px solid rgba(212,165,43,.3)}
+.neden-izgara h3{font-family:var(--baslik);font-weight:700;font-size:1.15rem}
+.neden-izgara p{font-size:.95rem}
+.neden-izgara li.altin{background:linear-gradient(150deg,#e2b53c,#b8891a);border-color:#e2b53c}
+.neden-izgara li.altin h3{color:#141416}
+.neden-izgara li.altin p{color:#3a2f10}
+.neden-izgara li.altin .ikon{background:#141416;color:var(--ikaz);border-color:#141416}
+
+/* Yorum kartı: koyu */
+.yorum-kart{background:#141416;color:#fff;border-color:#141416}
+.yorum-kart p{color:var(--soluk-koyu)}
+.yorum-kart .btn-koyu{background:#fff;color:#141416}
+
+/* Süreç */
+.ilke{background:#141416}
+.ilke::before{background:var(--ikaz)}
+.adimlar li::before{font-family:var(--baslik);font-size:1.2rem;border-color:#141416}
+.adimlar li:last-child::before{background:var(--ikaz)}
+.adimlar h3{font-family:var(--baslik);font-weight:700;font-size:1.12rem}
+
+/* Marka kartları */
+.marka-izgara a{border-radius:18px;align-items:center;text-align:center;padding:26px 16px}
+.marka-izgara b{font-family:var(--baslik);font-weight:700;font-size:1.15rem}
+.marka-izgara span{font-size:.82rem}
+.marka-izgara a::after{content:"";width:16px;height:16px;margin-top:10px;background:var(--soluk);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat}
+.marka-izgara .harf{width:54px;height:54px;border-radius:50%;background:var(--beton);display:grid;place-items:center;font-weight:800;font-size:1.3rem;color:var(--grafit);margin-bottom:10px}
+
+/* Çağrı bandı: koyu, ortalı */
+.cagri-kart{background:radial-gradient(600px 300px at 50% 0%, rgba(212,165,43,.18), transparent 70%), #0f0f11;text-align:center;grid-template-columns:1fr;justify-items:center}
+.cagri-kart::before{display:none}
+.cagri-kart p{margin:0 auto}
+.cagri-kart .eylemler{justify-content:center}
+.cagri-kart .btn-sari{background:linear-gradient(180deg,#e2b53c,#c39320);color:#141416}
+
+/* SSS: numaralı */
+.sss{counter-reset:soru}
+.sss details{counter-increment:soru;border:1px solid var(--beton-koyu) !important;border-radius:14px;background:#fff;margin-bottom:10px;padding:0 6px}
+.sss summary{font-family:var(--baslik);font-weight:600;font-size:1rem;padding:18px 10px;justify-content:flex-start}
+.sss summary::before{content:counter(soru, decimal-leading-zero);flex:none;font-size:.78rem;font-weight:700;color:var(--soluk);width:28px}
+.sss summary::after{margin-left:auto;background-color:var(--beton);width:28px;height:28px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23141416' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")}
+.sss details[open] summary::after{transform:rotate(180deg);background-color:var(--ikaz)}
+.sss details p{margin:0 10px 18px 38px;font-size:.96rem}
+.sss .yan .btn-koyu{background:#1d3a8a}
+
+/* Form bölümü */
+.sor{background:#0f0f11}
+.secim label:has(input:checked){background:var(--altin-acik);border-color:var(--ikaz-koyu);box-shadow:none}
+.secim input{accent-color:var(--ikaz-koyu)}
+form{border-radius:22px}
+
+/* İletişim */
+.bilgi .ikon{background:var(--altin-acik);color:var(--ikaz-koyu)}
+.bilgi b{font-family:var(--baslik);font-size:1.02rem}
+
+/* Alt sayfa başlığı */
+.sayfa-bas{background:radial-gradient(700px 400px at 85% 20%, rgba(212,165,43,.14), transparent 60%), linear-gradient(180deg,#1a1b1e,#0e0e10)}
+.sayfa-bas h1{font-size:clamp(2.1rem,5vw,3.6rem)}
+.belirti li{border-left-color:var(--ikaz);border-radius:12px}
+.yan-kutu .kutu{background:#141416;border-radius:20px}
+.yan-kutu .kutu .btn-sari{background:var(--kirmizi)}
+.yan-kutu .liste-kutu{border-radius:20px}
+.metin ul.tik svg{color:var(--ikaz-koyu)}
+
+/* Alt bilgi */
+footer{background:#0b0b0c}
+footer h3{font-family:var(--baslik);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ikaz)}
+
+/* Mobil alt çubuk: siyah Ara + yeşil WhatsApp, düz */
+.alt-cubuk{padding:0;gap:0;background:#000;box-shadow:none}
+.alt-cubuk .btn{border-radius:0;min-height:56px;font-size:1rem}
+.alt-cubuk .btn-sari{background:#000;color:#fff}
+.alt-cubuk .btn-wa{background:#25d366;color:#fff;border:0}
+@media (max-width:720px){body{padding-bottom:56px}}
+
+/* Yukarı çık düğmesi */
+.yukari{position:fixed;right:16px;bottom:20px;z-index:25;width:44px;height:44px;border-radius:50%;border:0;background:#141416;color:#fff;display:grid;place-items:center;cursor:pointer;opacity:0;visibility:hidden;transition:opacity .2s ease, visibility .2s;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+.yukari.goster{opacity:1;visibility:visible}
+@media (max-width:720px){.yukari{bottom:72px}}
+@media (prefers-reduced-motion:reduce){.yukari{transition:none}}
+.puan-rozet{white-space:nowrap}
+@media (max-width:480px){.puan-rozet small{display:none}.puan-rozet{font-size:.88rem}}

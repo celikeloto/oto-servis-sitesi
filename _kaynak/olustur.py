@@ -92,7 +92,7 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "3"
+CSS_SURUM = "4"
 # ---------------- parçalar ----------------
 def ust(aktif=""):
     hl = "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],20)}{h["ad"]}</a></li>' for h in HIZMETLER)
@@ -124,7 +124,7 @@ def ust(aktif=""):
 
 def form_bolum():
     return f'''<section class="sor" id="parca-sor" aria-labelledby="h-sor"><div class="kap">
-  <div><h2 id="h-sor">Parça sorun, randevu alın</h2>
+  <div><span class="etiket">Hızlı iletişim</span><h2 id="h-sor">Parça sorun, <span class="vurgu">randevu alın</span></h2>
     <p class="aciklama">Formu doldurun, mesajınız WhatsApp'ta hazır açılsın. Size sadece gönder'e basmak kalır.</p>
     <ul class="ipuclari"><li>{TIK_I}<span>Doğru parça için aracın marka, model ve yılını yazın.</span></li>
     <li>{TIK_I}<span>Ruhsattaki şasi numarası varsa işimiz daha da kolaylaşır.</span></li>
@@ -142,7 +142,7 @@ def form_bolum():
 
 def cagri(baslik="Gelemiyorsanız aracınızı biz alalım", metin="Aracınızı adresinizden alıyor, işi bitince yine adresinize getiriyoruz. Arayın, uygun günü birlikte belirleyelim."):
     return f'''<section class="cagri"><div class="kap"><div class="cagri-kart">
-  <div><h2>{baslik}</h2><p>{metin}</p></div>
+  <div><span class="etiket">Adresten alma</span><h2>{baslik}</h2><p>{metin}</p></div>
   <div class="eylemler"><a class="btn btn-sari" href="tel:{TEL}">{TEL_I} {TEL_YAZI}</a>
   <a class="btn btn-wa" href="{wa("Merhaba, aracım için gün ayarlamak istiyorum.")}" target="_blank" rel="noopener">{WA_I} WhatsApp</a></div>
 </div></div></section>'''
@@ -160,6 +160,7 @@ def alt():
   <p class="telif">© <span id="yil">2026</span> Çelikel Oto Servis</p>
 </div></footer>
 <div class="alt-cubuk"><a class="btn btn-sari" href="tel:{TEL}">{TEL_I} Ara</a><a class="btn btn-wa" href="{wa("Merhaba, web sitenizden ulaşıyorum.")}" target="_blank" rel="noopener">{WA_I} WhatsApp</a></div>
+<button class="yukari" type="button" aria-label="Sayfanın başına dön">{I('<path d="M18 15l-6-6-6 6"/>',20,2.6)}</button>
 <script src="assets/site.js?v={CSS_SURUM}"></script>'''
 
 LD = {"@context":"https://schema.org","@type":"AutoRepair","name":"Çelikel Oto Servis",
@@ -186,7 +187,7 @@ def sayfa(dosya, baslik, aciklama, govde, aktif="", ek_ld=None):
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css?v={CSS_SURUM}">
 <script type="application/ld+json">{ld}</script>{ek}
 </head>
@@ -201,6 +202,10 @@ def sayfa(dosya, baslik, aciklama, govde, aktif="", ek_ld=None):
 '''
     (KOK / dosya).write_text(h, encoding="utf-8")
 
+def bas_orta(etiket, baslik, metin="", hid=""):
+    m = f"<p>{metin}</p>" if metin else ""
+    return f'<div class="bas-orta"><span class="etiket">{etiket}</span><h2 id="{hid}">{baslik}</h2>{m}</div>'
+
 def hizmet_kartlari(liste, one_son=True):
     o = []
     for i, h in enumerate(liste):
@@ -209,18 +214,18 @@ def hizmet_kartlari(liste, one_son=True):
     return "\n".join(o)
 
 def marka_kartlari():
-    return "".join(f'<li><a href="marka-{mslug(m)}.html"><b>{m}</b><span>Bakım ve onarım</span></a></li>' for m in MARKALAR)
+    return "".join(f'<li><a href="marka-{mslug(m)}.html"><span class="harf" aria-hidden="true">{m[0]}</span><b>{m}</b><span>Bakım ve onarım</span></a></li>' for m in MARKALAR)
 
 def sss_bolum():
     q = "".join(f'<details><summary>{s}</summary><p>{c}</p></details>' for s, c in SSS)
     return f'''<section class="sss" aria-labelledby="h-sss"><div class="kap">
-  <div class="yan"><h2 id="h-sss">Sık sorulan sorular</h2><p>Aradığınız cevabı bulamadıysanız arayın ya da WhatsApp'tan yazın, hemen yardımcı olalım.</p>
+  <div class="yan"><span class="etiket">SSS</span><h2 id="h-sss">Sık sorulan <span class="vurgu">sorular</span></h2><p>Aradığınız cevabı bulamadıysanız arayın ya da WhatsApp'tan yazın, hemen yardımcı olalım.</p>
   <a class="btn btn-koyu" href="{wa("Merhaba, bir sorum var.")}" target="_blank" rel="noopener">Soru sorun</a></div>
   <div>{q}</div></div></section>''', {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":s,"acceptedAnswer":{"@type":"Answer","text":c}} for s,c in SSS]}
 
 def harita_bolum(sinif=""):
     return f'''<section class="iletisim {sinif}" id="iletisim" aria-labelledby="h-ilet"><div class="kap">
-  <div><h2 id="h-ilet">Bize ulaşın</h2>
+  <div><span class="etiket">İletişim</span><h2 id="h-ilet">Bize <span class="vurgu">ulaşın</span></h2>
   <ul class="bilgi">
     <li><span class="ikon">{TEL_I}</span><div><b>Telefon ve WhatsApp</b><a href="tel:{TEL}">{TEL_YAZI}</a><br>İkinci hat: <a href="tel:{TEL2}">{TEL2_YAZI}</a></div></li>
     <li><span class="ikon">{SAAT_I}</span><div><b>Çalışma saatleri</b>Pazartesi–Cumartesi 08:00–19:00<br>Pazar kapalı</div></li>
@@ -284,15 +289,15 @@ def ana():
 </div></div></section>
 
 <section id="hizmetler" aria-labelledby="h-hizmet" style="padding-top:40px"><div class="kap">
-  <div class="bas"><h2 id="h-hizmet">Aracınızın her işi tek serviste</h2><p>Aracınızı getirin, sorunu birlikte bakalım. Ne yapılacağını ve fiyatı işe başlamadan söyleriz.</p></div>
+  {bas_orta("Hizmetlerimiz", 'Aracınızın her işi <span class="vurgu">tek serviste</span>', "Aracınızı getirin, sorunu birlikte bakalım. Ne yapılacağını ve fiyatı işe başlamadan söyleriz.", "h-hizmet")}
   <ul class="hizmet-izgara">{hizmet_kartlari(HIZMETLER)}</ul>
 </div></section>
 
 <section class="neden" aria-labelledby="h-neden"><div class="kap">
-  <div class="bas"><h2 id="h-neden">Neden Çelikel?</h2><p>Bakırköy'deki dükkânımızdan beri bize gelen müşterilerimiz, Yarımburgaz'daki yeni yerimize de gelmeye devam ediyor. Nedeni basit:</p></div>
+  {bas_orta("Farkımız", 'Neden <span class="vurgu">Çelikel</span>?', "Bakırköy'deki dükkânımızdan beri bize gelen müşterilerimiz, Yarımburgaz'daki yeni yerimize de gelmeye devam ediyor. Nedeni basit:", "h-neden")}
   <ul class="neden-izgara">
     <li><span class="ikon">{USTA_I}</span><h3>Aracınız ustaya emanet</h3><p>İşinizle Sebahattin Usta ve ekibi birebir ilgilenir.</p></li>
-    <li><span class="ikon">{FIYAT_I}</span><h3>Sürpriz fatura yok</h3><p>Ne yapılacağını ve tutarını işe başlamadan söyleriz.</p></li>
+    <li class="altin"><span class="ikon">{FIYAT_I}</span><h3>Sürpriz fatura yok</h3><p>Ne yapılacağını ve tutarını işe başlamadan söyleriz.</p></li>
     <li><span class="ikon">{EKRAN_I}</span><h3>Önce teşhis</h3><p>Sorunu bulmadan parça değiştirmeyiz.</p></li>
     <li><span class="ikon">{KAMYON_I}</span><h3>Kapınızdan alırız</h3><p>Vaktiniz yoksa aracınızı adresinizden alıp geri getiririz.</p></li>
     <li><span class="ikon">{KUTU_I}</span><h3>Parça için koşturmazsınız</h3><p>Gereken parçayı biz bulur, serviste takarız.</p></li>
@@ -307,7 +312,7 @@ def ana():
 </div></div></section>
 
 <section class="usta" aria-labelledby="h-surec"><div class="kap">
-  <div><h2 id="h-surec">Nasıl çalışıyoruz</h2><p class="giris-yazi">Aradığınız andan aracınızı teslim alana kadar her adımda ne olduğunu bilirsiniz.</p>
+  <div><span class="etiket">Süreç</span><h2 id="h-surec">Nasıl <span class="vurgu">çalışıyoruz</span></h2><p class="giris-yazi">Aradığınız andan aracınızı teslim alana kadar her adımda ne olduğunu bilirsiniz.</p>
   <figure class="ilke"><p>Gereksiz parça değiştirmeyiz. Önce sorunu buluruz, sonra ne yapılacağını size söyleriz.</p></figure></div>
   <ol class="adimlar">
     <li><div><h3>Arayın ya da yazın</h3><p>Sorunu kısaca anlatın, size uygun bir gün ayarlayalım.</p></div></li>
@@ -318,7 +323,7 @@ def ana():
 </div></section>
 
 <section aria-labelledby="h-marka" style="padding-top:0"><div class="kap">
-  <div class="bas"><h2 id="h-marka">Markaya göre servis</h2><p>Binek araçların büyük çoğunluğuna bakıyoruz. Markanızı seçin, o markada en sık yaptığımız işleri görün.</p></div>
+  {bas_orta("Markalar", 'Servis verdiğimiz <span class="vurgu">markalar</span>', "Binek araçların büyük çoğunluğuna bakıyoruz. Markanızı seçin, o markada en sık yaptığımız işleri görün.", "h-marka")}
   <ul class="marka-izgara">{marka_kartlari()}</ul>
   <p class="diger">Listede olmayan bir marka mı? <a href="tel:{TEL}">Arayıp sorun</a>, büyük ihtimalle bakıyoruz.</p>
 </div></section>
@@ -394,7 +399,7 @@ def marka_sayfasi(m):
     <div class="liste-kutu"><h3>Diğer markalar</h3><ul>{diger}</ul></div>
   </aside>
 </div></section>
-<section aria-labelledby="h-mh" style="padding-top:0"><div class="kap"><div class="bas"><h2 id="h-mh">{m} için hizmetlerimiz</h2><p>Hizmete tıklayın, ayrıntıları görün.</p></div><ul class="hizmet-izgara">{hk}</ul></div></section>
+<section aria-labelledby="h-mh" style="padding-top:0"><div class="kap">{bas_orta("Hizmetler", f'{m} için <span class="vurgu">hizmetlerimiz</span>', "Hizmete tıklayın, ayrıntıları görün.", "h-mh")}<ul class="hizmet-izgara">{hk}</ul></div></section>
 {cagri()}'''
     sayfa(f"marka-{mslug(m)}.html", f"{m} Servisi Yarımburgaz, Küçükçekmece | Çelikel Oto Servis",
           f"{m} bakım, arıza tespit ve onarım Yarımburgaz, Küçükçekmece. {m} yedek parça temini, fiyat işe başlamadan. {TEL_YAZI}", govde, "", kirinti_ld(yol))
@@ -432,7 +437,7 @@ def iletisim():
     sayfa("iletisim.html", "İletişim | Çelikel Oto Servis Yarımburgaz", f"Çelikel Oto Servis iletişim: {TEL_YAZI}, {ADRES1}, {ADRES2}. Pazartesi–Cumartesi 08:00–19:00.", govde, "ilet", kirinti_ld(yol))
 
 def css():
-    (KOK / "assets" / "site.css").write_text((K / "temel.css").read_text(encoding="utf-8") + (K / "ek.css").read_text(encoding="utf-8"), encoding="utf-8")
+    (KOK / "assets" / "site.css").write_text((K / "temel.css").read_text(encoding="utf-8") + (K / "ek.css").read_text(encoding="utf-8") + (K / "tema.css").read_text(encoding="utf-8"), encoding="utf-8")
 
 if __name__ == "__main__":
     css(); ana(); hizmetler_sayfasi(); markalar_sayfasi(); hakkimizda(); iletisim()

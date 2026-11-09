@@ -60,3 +60,14 @@ var AYAR = { acilis: 8, kapanis: 19, kapaliGunler: [0] /* 0 = Pazar */, wa: "905
     });
   }
 })();
+
+// Yukarı çık düğmesi
+(function(){
+  var b = document.querySelector(".yukari"); if (!b) return;
+  var guncelle = function(){ b.classList.toggle("goster", window.scrollY > 600); };
+  window.addEventListener("scroll", guncelle, {passive:true}); guncelle();
+  b.addEventListener("click", function(){
+    var azHareket = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({top:0, behavior: azHareket ? "auto" : "smooth"});
+  });
+})();
