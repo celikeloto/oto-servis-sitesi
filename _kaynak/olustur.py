@@ -68,7 +68,7 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "15"
+CSS_SURUM = "16"
 # ---------------- parçalar ----------------
 def ust(aktif=""):
     hl = "".join(f'<li class="grup-bas" role="presentation">{g}</li>' + "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],18)}{h["ad"]}</a></li>' for h in HIZMETLER if h["grup"]==g) for g in GRUPLAR)
@@ -136,6 +136,7 @@ def alt():
     <li><a href="tel:{YOL}">Yol yardım 7/24: {YOL_YAZI}</a></li>
     <li>Pzt–Cmt 08:00–19:00</li><li><a href="{HARITA}" target="_blank" rel="noopener">{ADRES1}</a></li></ul></div>
   <p class="telif">© <span id="yil">2026</span> Çelikel Oto Servis · <a href="gizlilik.html">Gizlilik ve KVKK</a></p>
+  <p class="telif imza">Website Design by <a href="https://wa.me/905458506838" target="_blank" rel="noopener">Yalçın Kır · Yapay Zeka Koçu</a></p>
 </div></footer>
 <div class="alt-cubuk"><a class="btn btn-sari" href="tel:{TEL}">{TEL_I} Ara</a><a class="btn btn-wa" href="{wa("Merhaba, web sitenizden ulaşıyorum.")}" target="_blank" rel="noopener">{WA_I} WhatsApp</a></div>
 <button class="yukari" type="button" aria-label="Sayfanın başına dön">{I('<path d="M18 15l-6-6-6 6"/>',20,2.6)}</button>

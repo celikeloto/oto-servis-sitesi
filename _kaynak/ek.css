@@ -184,3 +184,5 @@ footer .kap{grid-template-columns:1.3fr 1fr 1fr 1fr}
 @media (max-width:900px){footer .kap{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){footer .kap{grid-template-columns:1fr}}
 footer .logo-yazi{margin-bottom:16px}
+
+.telif.imza{margin-top:-8px;font-size:.82rem;opacity:.75}.telif.imza a{color:var(--ikaz);text-decoration:none}.telif.imza a:hover{text-decoration:underline}

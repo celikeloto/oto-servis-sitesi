@@ -378,6 +378,8 @@ footer .kap{grid-template-columns:1.3fr 1fr 1fr 1fr}
 @media (max-width:560px){footer .kap{grid-template-columns:1fr}}
 footer .logo-yazi{margin-bottom:16px}
 
+.telif.imza{margin-top:-8px;font-size:.82rem;opacity:.75}.telif.imza a{color:var(--ikaz);text-decoration:none}.telif.imza a:hover{text-decoration:underline}
+
 /* ================= Tema: siyah + altın, yuvarlak butonlar ================= */
 :root{
   --grafit:#141416; --grafit-2:#1c1d20; --grafit-3:#2a2b2f;
