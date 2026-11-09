@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://celikeloto.github.io/oto-servis-sitesi/sitemap.xml

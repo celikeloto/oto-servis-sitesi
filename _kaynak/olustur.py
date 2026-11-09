@@ -40,6 +40,9 @@ GOZ_I = I('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle c
 # ---------------- içerik ----------------
 import sys; sys.path.insert(0, str(K))
 from hizmetler import HIZMETLER, GRUPLAR
+from bolgeler import KUCUKCEKMECE_MAHALLELER, ILCELER
+SITE_URL = "https://celikeloto.github.io/oto-servis-sitesi/"   # domain bağlanınca değiştirin
+TARIH, TARIH_YAZI = "2026-11-09", "9 Kasım 2026"
 ANA_HIZMETLER = [h for h in HIZMETLER if h.get("ana")]
 MARKALAR = ["Fiat","Renault","Dacia","Volkswagen","Ford","Opel","Peugeot","Citroën","Toyota","Hyundai"]
 LOGO_CDN = "https://cdn.jsdelivr.net/npm/simple-icons@16.16.0/icons/"   # Simple Icons, sürüm sabit
@@ -59,7 +62,7 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "11"
+CSS_SURUM = "14"
 # ---------------- parçalar ----------------
 def ust(aktif=""):
     hl = "".join(f'<li class="grup-bas" role="presentation">{g}</li>' + "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],18)}{h["ad"]}</a></li>' for h in HIZMETLER if h["grup"]==g) for g in GRUPLAR)
@@ -78,10 +81,11 @@ def ust(aktif=""):
     <a class="logo" href="index.html" aria-label="Çelikel Oto Servis ana sayfa"><img src="assets/logo/logo-yatay.svg" alt="Çelikel Oto Servis" width="460" height="120"></a>
     <button class="menu-dugme" type="button" aria-controls="ana-menu" aria-expanded="false" aria-label="Menüyü aç">{I('<path d="M4 7h16M4 12h16M4 17h16"/>',24)}</button>
     <nav id="ana-menu" aria-label="Ana menü">
-      {a("index.html","Ana sayfa","ana")}
       <div class="acilir"><button type="button" aria-expanded="false">Hizmetlerimiz {OK_I}</button>
         <ul class="mega">{hl}<li class="tumu-li"><a class="tumu" href="hizmetler.html">Tüm hizmetler</a></li></ul></div>
       {a("markalar.html","Markalar","marka")}
+      {a("rehber.html","Rehber","rehber")}
+      {a("bolgeler.html","Bölgeler","bolge")}
       {a("hakkimizda.html","Hakkımızda","hak")}
       {a("iletisim.html","İletişim","ilet")}
       <a class="btn btn-sari" href="tel:{TEL}">{TEL_I}<span>Hemen ara</span></a>
@@ -121,7 +125,7 @@ def alt():
   <div><a class="logo alt-logo" href="index.html" aria-label="Çelikel Oto Servis ana sayfa"><img src="assets/logo/logo-yatay-acik.svg" alt="Çelikel Oto Servis" width="460" height="120"></a>
     <p style="margin:0;max-width:36ch">Oto bakım, tamir ve yedek parça. Aracınızı adresinizden alıyoruz.</p></div>
   <div><h3>Hizmetler</h3><ul>{hl}<li><a href="hizmetler.html">Tümü</a></li></ul></div>
-  <div><h3>Markalar</h3><ul>{ml}<li><a href="markalar.html">Tümü</a></li></ul></div>
+  <div><h3>Rehber ve bölgeler</h3><ul><li><a href="rehber.html">Oto tamir rehberi</a></li><li><a href="kucukcekmece-yol-yardim-lastik-tamiri.html">Küçükçekmece yol yardım</a></li>{"".join(f'<li><a href="{i["slug"]}-oto-servis.html">{i["ad"]} oto servis</a></li>' for i in ILCELER[:4])}<li><a href="bolgeler.html">Tüm bölgeler</a></li></ul></div>
   <div><h3>İletişim</h3><ul><li><a href="tel:{TEL}">{TEL_YAZI}</a></li><li><a href="tel:{TEL2}">{TEL2_YAZI}</a></li>
     <li><a href="tel:{YOL}">Yol yardım: {YOL_YAZI}</a></li>
     <li>Pzt–Cmt 08:00–19:00</li><li><a href="{HARITA}" target="_blank" rel="noopener">{ADRES1}</a></li></ul></div>
@@ -138,7 +142,8 @@ LD = {"@context":"https://schema.org","@type":"AutoRepair","name":"Çelikel Oto 
  "geo":{"@type":"GeoCoordinates","latitude":41.0456607,"longitude":28.7519682},
  "areaServed":["Küçükçekmece","Başakşehir","Avcılar","Beylikdüzü","Esenyurt","Bakırköy"],"priceRange":"₺₺"}
 
-def sayfa(dosya, baslik, aciklama, govde, aktif="", ek_ld=None):
+URLLER = []
+def sayfa(dosya, baslik, aciklama, govde, aktif="", ek_ld=None, og_tur="website"):
     ld = json.dumps(LD, ensure_ascii=False)
     ek = f'\n<script type="application/ld+json">{json.dumps(ek_ld, ensure_ascii=False)}</script>' if ek_ld else ""
     h = f'''<!DOCTYPE html>
@@ -151,7 +156,10 @@ def sayfa(dosya, baslik, aciklama, govde, aktif="", ek_ld=None):
 <meta name="theme-color" content="#23272b">
 <meta property="og:title" content="{html.escape(baslik)}">
 <meta property="og:description" content="{html.escape(aciklama)}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{og_tur}">
+<meta property="og:url" content="{SITE_URL}{"" if dosya=="index.html" else dosya}">
+<meta property="og:locale" content="tr_TR">
+<link rel="canonical" href="{SITE_URL}{"" if dosya=="index.html" else dosya}">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -169,6 +177,7 @@ def sayfa(dosya, baslik, aciklama, govde, aktif="", ek_ld=None):
 </html>
 '''
     (KOK / dosya).write_text(h, encoding="utf-8")
+    URLLER.append(dosya)
 
 def bas_orta(etiket, baslik, metin="", hid=""):
     m = f"<p>{metin}</p>" if metin else ""
@@ -467,8 +476,5 @@ f"- Yol yardım / acil hat: {YOL_YAZI}",
     (KOK / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")
 
 if __name__ == "__main__":
-    llms()
-    css(); ana(); hizmetler_sayfasi(); markalar_sayfasi(); hakkimizda(); iletisim()
-    for h in HIZMETLER: hizmet_sayfasi(h)
-    for m in MARKALAR: marka_sayfasi(m)
-    print("Sayfalar üretildi:", len(list(KOK.glob("*.html"))))
+    import ek_sayfalar
+    ek_sayfalar.calistir()

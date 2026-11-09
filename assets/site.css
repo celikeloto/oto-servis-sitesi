@@ -698,3 +698,55 @@ footer h3{font-family:var(--baslik);font-size:.78rem;letter-spacing:.18em;text-t
 .grup-bolum:last-of-type{padding-bottom:40px}
 .grup-baslik{font-size:clamp(1.5rem,2.6vw,2rem);margin:0 0 22px;padding-left:16px;border-left:5px solid var(--ikaz)}
 .tum-hizmet{text-align:center;margin:36px 0 0}
+
+/* ---- Rehber makaleleri ---- */
+.makale .kap{display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:start}
+@media (max-width:960px){.makale .kap{grid-template-columns:1fr}}
+.makale-govde{min-width:0}
+.makale-govde h2{font-size:clamp(1.5rem,2.6vw,1.9rem);margin:42px 0 12px;scroll-margin-top:110px}
+.makale-govde p,.makale-govde li{font-size:1.04rem;color:#33373c;max-width:70ch}
+.makale-govde ul,.makale-govde ol{padding-left:1.2em}
+.makale-govde li{margin:6px 0}
+.makale-bilgi{font-size:.9rem !important;color:var(--soluk) !important;margin:0 0 18px}
+.kisaca{background:var(--altin-acik);border:1px solid #efdfae;border-left:5px solid var(--ikaz);border-radius:14px;padding:18px 22px;margin:0 0 24px}
+.kisaca b{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ikaz-koyu);margin-bottom:6px}
+.kisaca p{margin:0;font-size:1.08rem !important;color:var(--grafit) !important;font-weight:500}
+.icindekiler{background:#fff;border:1px solid var(--beton-koyu);border-radius:14px;padding:18px 22px;margin:0 0 10px}
+.icindekiler b{display:block;margin-bottom:8px}
+.icindekiler ol{margin:0;padding-left:1.3em;columns:2;column-gap:28px}
+.icindekiler li{font-size:.95rem !important;margin:4px 0;break-inside:avoid}
+.icindekiler a{color:var(--grafit);text-decoration:none;border-bottom:1px solid #e7d39a}
+@media (max-width:620px){.icindekiler ol{columns:1}}
+.tablo-sar{overflow-x:auto;margin:16px 0;border:1px solid var(--beton-koyu);border-radius:14px;background:#fff}
+.tablo-sar table{width:100%;border-collapse:collapse;font-size:.95rem;min-width:520px}
+.tablo-sar th{background:#141416;color:#fff;text-align:left;padding:12px 14px;font-weight:600}
+.tablo-sar td{padding:11px 14px;border-top:1px solid var(--beton);vertical-align:top;color:#33373c}
+.tablo-sar tr:nth-child(even) td{background:#fafaf8}
+.makale-sss{padding:0;margin-top:30px}
+.makale-sss details{margin-bottom:8px}
+.uyari-not{font-size:.88rem !important;color:var(--soluk) !important;border-top:1px solid var(--beton-koyu);padding-top:16px;margin-top:30px}
+
+/* ---- Rehber ve bölge kartları ---- */
+.rehber-izgara{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rehber-izgara a{display:flex;flex-direction:column;height:100%;background:#fff;border:1px solid var(--beton-koyu);border-radius:18px;padding:22px 22px 20px;text-decoration:none;color:var(--grafit);transition:border-color .2s ease, box-shadow .2s ease}
+.rehber-izgara a:hover{border-color:#e7d39a;box-shadow:0 20px 40px -24px rgba(20,20,22,.3)}
+.rehber-izgara h3{font-size:1.08rem;line-height:1.3;margin:0 0 8px}
+.rehber-izgara p{margin:0 0 14px;color:var(--soluk);font-size:.92rem;flex:1}
+.rehber-izgara .oku{font-weight:700;color:var(--ikaz-koyu);font-size:.92rem}
+@media (max-width:960px){.rehber-izgara{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.rehber-izgara{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.rehber-izgara a{transition:none}}
+
+/* ---- Küçükçekmece sayfası ---- */
+.acil-buyuk{display:flex;align-items:center;gap:16px;background:#141416;color:#fff;border-radius:18px;padding:18px 22px;text-decoration:none;margin-bottom:10px}
+.acil-buyuk svg{color:#ff5a5a;width:34px;height:34px}
+.acil-buyuk small{display:block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#ff8a8a;font-weight:700}
+.acil-buyuk b{font-size:1.8rem;font-weight:800}
+.mahalle-izgara{list-style:none;margin:16px 0 0;padding:0 !important;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mahalle-izgara li{background:#fff;border:1px solid var(--beton-koyu);border-radius:12px;padding:12px 14px;margin:0 !important}
+.mahalle-izgara h3{font-size:1rem;margin:0 0 2px}
+.mahalle-izgara p{margin:0;font-size:.82rem !important;color:var(--soluk) !important}
+@media (max-width:760px){.mahalle-izgara{grid-template-columns:1fr 1fr}}
+.makale-govde section{padding:0}
+.makale-govde section + section{margin-top:8px}
+.metin .sss.makale-sss{padding:0}
