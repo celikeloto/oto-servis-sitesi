@@ -299,3 +299,9 @@ footer h3{font-family:var(--baslik);font-size:.78rem;letter-spacing:.18em;text-t
   .hizmet-izgara .hizmet.one .detay{grid-column:3;grid-row:1 / span 2;margin:0}
 }
 @media (min-width:601px) and (max-width:960px){.hizmet-izgara .hizmet.one{grid-column:1/-1}}
+
+/* Logo */
+.ust .logo img{height:58px;width:auto;display:block}
+.alt-logo{display:inline-block;margin-bottom:16px}
+.alt-logo img{height:64px;width:auto;display:block}
+@media (max-width:520px){.ust .logo img{height:46px}}

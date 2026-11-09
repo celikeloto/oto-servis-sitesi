@@ -106,7 +106,7 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "9"
+CSS_SURUM = "10"
 # ---------------- parçalar ----------------
 def ust(aktif=""):
     hl = "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],20)}{h["ad"]}</a></li>' for h in HIZMETLER)
@@ -122,7 +122,7 @@ def ust(aktif=""):
 </div></div>
 <header class="ust">
   <div class="kap">
-    <a class="logo-yazi" href="index.html" aria-label="Çelikel Oto Servis ana sayfa"><b>ÇELİKEL <span>OTO</span></b><small>SERVİS</small></a>
+    <a class="logo" href="index.html" aria-label="Çelikel Oto Servis ana sayfa"><img src="assets/logo/logo-yatay.svg" alt="Çelikel Oto Servis" width="460" height="120"></a>
     <button class="menu-dugme" type="button" aria-controls="ana-menu" aria-expanded="false" aria-label="Menüyü aç">{I('<path d="M4 7h16M4 12h16M4 17h16"/>',24)}</button>
     <nav id="ana-menu" aria-label="Ana menü">
       {a("index.html","Ana sayfa","ana")}
@@ -165,7 +165,7 @@ def alt():
     hl = "".join(f'<li><a href="hizmet-{h["slug"]}.html">{h["ad"]}</a></li>' for h in HIZMETLER[:6])
     ml = "".join(f'<li><a href="marka-{mslug(m)}.html">{m} servisi</a></li>' for m in MARKALAR[:6])
     return f'''<footer><div class="kap">
-  <div><a class="logo-yazi" href="index.html"><b>ÇELİKEL <span>OTO</span></b><small>SERVİS</small></a>
+  <div><a class="logo alt-logo" href="index.html" aria-label="Çelikel Oto Servis ana sayfa"><img src="assets/logo/logo-yatay-acik.svg" alt="Çelikel Oto Servis" width="460" height="120"></a>
     <p style="margin:0;max-width:36ch">Oto bakım, tamir ve yedek parça. Aracınızı adresinizden alıyoruz.</p></div>
   <div><h3>Hizmetler</h3><ul>{hl}<li><a href="hizmetler.html">Tümü</a></li></ul></div>
   <div><h3>Markalar</h3><ul>{ml}<li><a href="markalar.html">Tümü</a></li></ul></div>
