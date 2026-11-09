@@ -79,6 +79,11 @@ HIZMETLER = [
       giris="Küçük bir çizikten hasarlı bir parçaya kadar aracınızın görünümünü yeniden düzeltiriz. Ne yapılacağını ve tutarı işe başlamadan söyleriz.",
       neler=["Göçük düzeltme","Çizik ve rötuş boya","Hasarlı parça onarımı ve değişimi","Tampon onarımı","Boya sonrası pasta ve cila"],
       belirti=["Park ya da kaza sonrası göçük","Çizilen ya da solan boya","Paslanmaya başlayan bölgeler","Kırık ya da çatlak tampon"]),
+ dict(slug="lastik-balans", ad="Lastik ve balans", kisa="Lastik tamiri, satışı ve değişimi; balans ayarı.",
+      ikon='<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>',
+      giris="Patlayan ya da hava kaçıran lastiğinizi tamir eder, gerekiyorsa yenisini temin edip takarız. Değişimden sonra balans ayarını yapar, aracınızın yolda titremeden gitmesini sağlarız.",
+      neler=["Lastik tamiri (patlak ve hava kaçağı)","Lastik satışı","Lastik söküm, takım ve değişimi","Balans ayarı","Lastik hava basıncı ve diş derinliği kontrolü"],
+      belirti=["Lastik patladı ya da sürekli hava kaçırıyor","Belli hızlarda direksiyon titriyor","Lastik dişleri azaldı ya da düzensiz aşınmış","Mevsim lastiği değişim zamanı geldi"]),
  dict(slug="yedek-parca", ad="Yedek parça", kisa="Orijinal ve muadil parça. Stokta yoksa kısa sürede getirtiriz; takmasını da biz yaparız.",
       ikon='<path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>',
       giris="Aracınız için gereken parçayı biz buluruz; başka kapıda beklemezsiniz. Orijinal ya da muadil seçenekleri ve fiyatlarını size söyler, onayınızla takarız.",
@@ -101,7 +106,7 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "8"
+CSS_SURUM = "9"
 # ---------------- parçalar ----------------
 def ust(aktif=""):
     hl = "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],20)}{h["ad"]}</a></li>' for h in HIZMETLER)
