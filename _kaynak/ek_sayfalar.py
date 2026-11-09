@@ -10,6 +10,7 @@ from rehber3 import MAKALELER_3
 from bolgeler import KUCUKCEKMECE_MAHALLELER, ILCELER
 
 from rehber4 import MAKALELER_4
+MAKALE_GORSEL = {"yolda-kalinca-ne-yapmali":"yol-yardim-lastik","lastik-rehberi":"yol-yardim-lastik"}
 MAKALELER = MAKALELER_1 + MAKALELER_2 + MAKALELER_3 + MAKALELER_4
 REHBER_GRUPLAR = ["Motor", "Aktarma organları", "Fren, süspansiyon ve direksiyon", "Elektrik ve konfor", "Bakım ve muayene"]
 NAV_OK = '<span aria-hidden="true">›</span>'
@@ -55,6 +56,7 @@ def rehber_sayfasi(m):
 <section class="makale"><div class="kap">
   <article class="metin makale-govde">
     <p class="makale-bilgi">{m["grup"]} · {dk} dakikalık okuma · Güncelleme: <time datetime="{TARIH}">{TARIH_YAZI}</time></p>
+    {O.gorsel(MAKALE_GORSEL[m["slug"]], True) if m["slug"] in MAKALE_GORSEL else ""}
     <div class="kisaca"><b>Kısaca</b><p>{m["ozet"]}</p></div>
     <nav class="icindekiler" aria-label="İçindekiler"><b>İçindekiler</b><ol>{toc}<li><a href="#sss">Sık sorulan sorular</a></li></ol></nav>
     {bolumler}
@@ -115,6 +117,7 @@ def kucukcekmece_sayfasi():
         f"Küçükçekmece'nin {n} mahallesinin tamamına 7/24 yol yardım veriyoruz. Lastiğiniz patladıysa ya da aracınız yolda kaldıysa arayın; lastik tamiri, lastik değişimi ve balans için de servisimizdeyiz.", eylem=False)}
 <section class="icerik"><div class="kap">
   <div class="metin">
+    {O.gorsel("yol-yardim-lastik", True)}
     <a class="acil-buyuk" href="tel:{YOL}">{CEKICI_I2}<span><small>Yol yardım hattı</small><b>{YOL_YAZI}</b></span></a>
     <h2>Küçükçekmece'de yolda mı kaldınız?</h2>
     <p>Lastik patlaması, aracın çalışmaması ya da yolda kalma durumunda yol yardım hattımızı arayın. Konumunuzu, aracınızın markasını ve modelini, sorunun ne olduğunu söyleyin; Küçükçekmece içinde bulunduğunuz yere ulaşalım. Halkalı, Atakent, Sefaköy, Kanarya ve Cennet gibi semtler de dahil, ilçenin her noktasındayız.</p>

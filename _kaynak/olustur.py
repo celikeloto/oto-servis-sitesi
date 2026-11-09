@@ -68,7 +68,12 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "16"
+CSS_SURUM = "17"
+GORSELLER = {"yol-yardim":"yol-yardim-lastik","lastik-balans":"yol-yardim-lastik"}
+GORSEL_ALT = {"yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
+def gorsel(ad, oncelik=False):
+    yuk = 'fetchpriority="high"' if oncelik else 'loading="lazy"'
+    return f'<figure class="icerik-gorsel"><img src="assets/img/{ad}.jpg" srcset="assets/img/{ad}-kucuk.jpg 800w, assets/img/{ad}.jpg 1200w" sizes="(max-width: 900px) 100vw, 760px" alt="{GORSEL_ALT[ad]}" width="1200" height="600" {yuk}></figure>'
 # ---------------- parçalar ----------------
 def ust(aktif=""):
     hl = "".join(f'<li class="grup-bas" role="presentation">{g}</li>' + "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],18)}{h["ad"]}</a></li>' for h in HIZMETLER if h["grup"]==g) for g in GRUPLAR)
@@ -353,6 +358,7 @@ def hizmet_sayfasi(h):
     govde = f'''{sayfa_bas(yol, h["ad"], h["giris"])}
 <section class="icerik"><div class="kap">
   <div class="metin">
+    {gorsel(GORSELLER[h["slug"]], True) if h["slug"] in GORSELLER else ""}
     <h2>Bu belirtiler varsa bize gelin</h2><ul class="belirti">{bel}</ul>
     <h2>Neler yapıyoruz?</h2><ul class="tik">{neler}</ul>
     <h2>Nasıl ilerliyoruz?</h2>
