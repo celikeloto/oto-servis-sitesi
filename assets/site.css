@@ -684,3 +684,17 @@ footer h3{font-family:var(--baslik);font-size:.78rem;letter-spacing:.18em;text-t
 .alt-logo{display:inline-block;margin-bottom:16px}
 .alt-logo img{height:64px;width:auto;display:block}
 @media (max-width:520px){.ust .logo img{height:46px}}
+
+/* Gruplu açılır menü */
+.acilir ul.mega{min-width:620px;display:grid;grid-template-columns:1fr 1fr;column-gap:8px;padding:14px;left:-120px}
+.acilir ul.mega .grup-bas{grid-column:1/-1;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ikaz-koyu);padding:10px 12px 4px;border-top:1px solid var(--beton)}
+.acilir ul.mega .grup-bas:first-child{border-top:0;padding-top:2px}
+.acilir ul.mega a{font-size:.92rem;padding:8px 12px}
+.acilir ul.mega .tumu-li{grid-column:1/-1}
+@media (max-width:1020px){.acilir ul.mega{min-width:0;display:none;left:auto;padding:0 0 8px 10px}.acilir.acik ul.mega{display:block}.acilir ul.mega .grup-bas{border:0;padding:12px 8px 2px}}
+
+/* Hizmetler sayfası grupları */
+.grup-bolum{padding:56px 0 0}
+.grup-bolum:last-of-type{padding-bottom:40px}
+.grup-baslik{font-size:clamp(1.5rem,2.6vw,2rem);margin:0 0 22px;padding-left:16px;border-left:5px solid var(--ikaz)}
+.tum-hizmet{text-align:center;margin:36px 0 0}

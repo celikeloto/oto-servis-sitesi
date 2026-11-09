@@ -38,58 +38,9 @@ KALP_I = I('<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7
 GOZ_I = I('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>', 28, 1.8)
 
 # ---------------- içerik ----------------
-HIZMETLER = [
- dict(slug="periyodik-bakim", ad="Periyodik bakım", kisa="Yağ, filtreler, buji ve sıvıların değişimi. Bakım sonrası neyin değiştiğini yazılı veririz.",
-      ikon='<path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="4"/>',
-      giris="Düzenli bakım, aracınızın ömrünü uzatır ve büyük masrafları önler. Üreticinin önerdiği aralıklara göre bakımınızı yapar, yapılan her işi size yazılı olarak bildiririz.",
-      neler=["Motor yağı ve yağ filtresi değişimi","Hava, polen ve yakıt filtresi değişimi","Buji kontrolü ve değişimi","Fren hidroliği, antifriz ve cam suyu kontrolü","Akü, lastik ve fren balatası kontrolü","Bakım sonrası yazılı kayıt ve bir sonraki bakım hatırlatması"],
-      belirti=["Bakım zamanı geldi ya da geçti","Motor yağı ışığı yanıyor","Yakıt tüketimi arttı","Araç ilk çalıştırmada zorlanıyor"]),
- dict(slug="ariza-tespit", ad="Arıza tespit", kisa="Motor ışığı yandıysa cihazla arıza kodlarını okur, sorunun kaynağını buluruz.",
-      ikon='<rect x="3" y="5" width="18" height="12" rx="2"/><path d="M7 21h10M12 17v4M7 9l2 2-2 2M12 13h4"/>',
-      giris="Gösterge panelinde bir ışık yandığında ya da araçta alışılmadık bir şey hissettiğinizde, önce doğru teşhis gerekir. Arıza tespit cihazıyla kayıtlı hata kodlarını okur, ardından sorunu yerinde kontrol ederiz.",
-      neler=["Arıza tespit cihazıyla hata kodlarının okunması","Sensör ve elektronik sistem kontrolü","Sorunun kaynağının yerinde doğrulanması","Ne yapılması gerektiğinin ve tutarın işe başlamadan söylenmesi"],
-      belirti=["Motor arıza ışığı yanıyor","Araç çekişten düştü","Rölantide titreme var","Göstergede uyarı mesajı çıkıyor"]),
- dict(slug="motor-mekanik", ad="Motor ve mekanik", kisa="Triger, debriyaj, soğutma sistemi ve motor tamiri.",
-      ikon='<path d="M4 10h3l2-3h6l2 3h3v7h-3l-2 2H9l-2-2H4z"/><path d="M10 12h4"/>',
-      giris="Motor ve mekanik arızalar ihmal edildiğinde büyür. Sesin, titremenin ya da kaçağın nereden geldiğini bulur, gereken onarımı yapar ve parçayı da biz temin ederiz.",
-      neler=["Triger seti ve devirdaim değişimi","Debriyaj seti değişimi","Radyatör, termostat ve soğutma sistemi onarımı","Conta ve yağ kaçağı onarımları","Motor revizyonu"],
-      belirti=["Motordan tıkırtı ya da vuruntu sesi","Hararet göstergesi yükseliyor","Araç altında yağ ya da su lekesi","Debriyaj kaçırıyor ya da sertleşti"]),
- dict(slug="sanziman", ad="Şanzıman ve vites", kisa="Manuel ve otomatik şanzıman arızaları, vites geçiş sorunları ve yağ değişimi.",
-      ikon='<circle cx="6" cy="5" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="12" cy="19" r="2"/><path d="M6 7v10M12 7v10M18 7v5H6"/>',
-      giris="Vites geçişlerinde zorlanma, vuruntu ya da kayma şanzımanın bakım istediğini gösterir. Manuel ve otomatik şanzımanlarda arızayı tespit eder, onarım ya da bakımını yaparız.",
-      neler=["Şanzıman yağı değişimi","Vites geçiş sorunlarının tespiti","Manuel şanzıman onarımı","Otomatik şanzıman kontrolü ve bakımı","Vites halatı ve bağlantı parçaları değişimi"],
-      belirti=["Vites geçerken zorlanma ya da ses","Otomatik vites vuruntu yapıyor","Araç viteste kayıyor","Şanzımandan uğultu geliyor"]),
- dict(slug="fren-yuruyen", ad="Fren ve yürüyen aksam", kisa="Balata, disk, amortisör, rot ve rotil. Sesi, titremeyi ve çekmeyi gideririz.",
-      ikon='<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M15 4.5a9 9 0 0 1 4.5 4.5"/>',
-      giris="Fren ve yürüyen aksam doğrudan güvenliğinizi ilgilendirir. Fren sisteminizi ve süspansiyonu kontrol eder, aşınan parçaları değiştiririz.",
-      neler=["Fren balatası ve disk değişimi","Fren hidroliği değişimi","Amortisör ve takoz değişimi","Rot, rotil ve salıncak değişimi","Rulman ve aks onarımları"],
-      belirti=["Fren yaparken ses ya da titreme","Direksiyon bir tarafa çekiyor","Çukurlarda vuruntu sesi","Fren pedalı derine gidiyor"]),
- dict(slug="oto-elektrik", ad="Oto elektrik", kisa="Akü, şarj dinamosu, marş motoru, farlar ve kablo arızaları.",
-      ikon='<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
-      giris="Aracın çalışmaması, akünün sık bitmesi ya da elektrikli donanımların arızalanması çoğu zaman elektrik sisteminden kaynaklanır. Arızanın kaynağını bulur, onarırız.",
-      neler=["Akü testi ve değişimi","Şarj dinamosu ve marş motoru onarımı","Far, stop ve sinyal arızaları","Kablo ve sigorta arızaları","Cam, ayna ve merkezi kilit arızaları"],
-      belirti=["Araç zor çalışıyor ya da hiç çalışmıyor","Akü sık sık bitiyor","Farlar zayıf yanıyor","Göstergede akü ışığı yanıyor"]),
- dict(slug="klima", ad="Klima bakımı", kisa="Gaz dolumu, kaçak kontrolü, polen filtresi ve soğutmayan klimanın onarımı.",
-      ikon='<path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1L19.1 4.9"/><path d="M9 3l3 2 3-2M9 21l3-2 3 2"/>',
-      giris="Klima yeterince soğutmuyorsa ya da kötü koku geliyorsa bakım zamanı gelmiştir. Sistemi kontrol eder, gaz dolumunu ve gerekli onarımları yaparız.",
-      neler=["Klima gazı dolumu","Kaçak kontrolü","Polen filtresi değişimi","Kompresör ve fan arızaları","Kötü koku için sistem temizliği"],
-      belirti=["Klima soğutmuyor","Havalandırmadan kötü koku geliyor","Klima açınca ses geliyor","Camlar buğulanıyor"]),
- dict(slug="kaporta-boya", ad="Kaporta ve boya", kisa="Göçük, çizik ve hasar onarımı; boya ve rötuş.",
-      ikon='<path d="M18 3l3 3-9 9H9v-3z"/><path d="M3 21c2 0 4-1 4-4 0-1.5 1-2.5 2.5-2.5"/>',
-      giris="Küçük bir çizikten hasarlı bir parçaya kadar aracınızın görünümünü yeniden düzeltiriz. Ne yapılacağını ve tutarı işe başlamadan söyleriz.",
-      neler=["Göçük düzeltme","Çizik ve rötuş boya","Hasarlı parça onarımı ve değişimi","Tampon onarımı","Boya sonrası pasta ve cila"],
-      belirti=["Park ya da kaza sonrası göçük","Çizilen ya da solan boya","Paslanmaya başlayan bölgeler","Kırık ya da çatlak tampon"]),
- dict(slug="lastik-balans", ad="Lastik ve balans", kisa="Lastik tamiri, satışı ve değişimi; balans ayarı.",
-      ikon='<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>',
-      giris="Patlayan ya da hava kaçıran lastiğinizi tamir eder, gerekiyorsa yenisini temin edip takarız. Değişimden sonra balans ayarını yapar, aracınızın yolda titremeden gitmesini sağlarız.",
-      neler=["Lastik tamiri (patlak ve hava kaçağı)","Lastik satışı","Lastik söküm, takım ve değişimi","Balans ayarı","Lastik hava basıncı ve diş derinliği kontrolü"],
-      belirti=["Lastik patladı ya da sürekli hava kaçırıyor","Belli hızlarda direksiyon titriyor","Lastik dişleri azaldı ya da düzensiz aşınmış","Mevsim lastiği değişim zamanı geldi"]),
- dict(slug="yedek-parca", ad="Yedek parça", kisa="Orijinal ve muadil parça. Stokta yoksa kısa sürede getirtiriz; takmasını da biz yaparız.",
-      ikon='<path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8M12 13v8"/>',
-      giris="Aracınız için gereken parçayı biz buluruz; başka kapıda beklemezsiniz. Orijinal ya da muadil seçenekleri ve fiyatlarını size söyler, onayınızla takarız.",
-      neler=["Orijinal ve muadil parça seçenekleri","Stokta olmayan parçaların kısa sürede temini","Şasi numarasıyla doğru parça eşleştirme","Parçanın serviste takılması"],
-      belirti=["Belirli bir parçanın fiyatını öğrenmek istiyorsunuz","Doğru parçadan emin değilsiniz","Parçayı takacak bir usta arıyorsunuz"]),
-]
+import sys; sys.path.insert(0, str(K))
+from hizmetler import HIZMETLER, GRUPLAR
+ANA_HIZMETLER = [h for h in HIZMETLER if h.get("ana")]
 MARKALAR = ["Fiat","Renault","Dacia","Volkswagen","Ford","Opel","Peugeot","Citroën","Toyota","Hyundai"]
 LOGO_CDN = "https://cdn.jsdelivr.net/npm/simple-icons@16.16.0/icons/"   # Simple Icons, sürüm sabit
 def logo(m, boy=28): return f'<img class="marka-logo" src="{LOGO_CDN}{mslug(m)}.svg" alt="" width="{boy}" height="{boy}" loading="lazy" onerror="this.remove()">'
@@ -103,13 +54,15 @@ SSS = [
  ("Yedek parçayı siz mi temin ediyorsunuz?", "Evet. Orijinal ve muadil parça seçeneklerini fiyatlarıyla birlikte size söyleriz. Stokta olmayan parçayı kısa sürede getirtiriz."),
  ("Hangi markalara bakıyorsunuz?", "Binek araçların büyük çoğunluğuna bakıyoruz: " + ", ".join(MARKALAR) + " ve diğer markalar. Aracınızdan emin değilseniz arayıp sorabilirsiniz."),
  ("Aracım yolda kaldı, ne yapmalıyım?", f"Güvenli bir yere çekilip dörtlüleri yakın ve yol yardım hattımızı arayın: {YOL_YAZI}. Durumu dinleyip size en hızlı çözümü söyleyelim."),
+ ("Aracın hangi parçalarına bakıyorsunuz?", "Aracın bütün parçalarına bakım ve onarım yapıyoruz: motor, triger, debriyaj, şanzıman, soğutma ve yakıt sistemi, turbo, egzoz, fren, süspansiyon ve direksiyon, lastik ve balans, elektrik, klima ve kaporta. Gereken yedek parçayı da biz temin ediyoruz."),
+ ("Ustanız ne kadar tecrübeli?", "Servisimizi yöneten Sebahattin Usta 40 yıldır bu işi yapıyor. Aracınızla bizzat ilgilenir."),
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "10"
+CSS_SURUM = "11"
 # ---------------- parçalar ----------------
 def ust(aktif=""):
-    hl = "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],20)}{h["ad"]}</a></li>' for h in HIZMETLER)
+    hl = "".join(f'<li class="grup-bas" role="presentation">{g}</li>' + "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],18)}{h["ad"]}</a></li>' for h in HIZMETLER if h["grup"]==g) for g in GRUPLAR)
     def a(href, ad, k): return f'<a href="{href}"{" aria-current=\"page\"" if aktif==k else ""}>{ad}</a>'
     return f'''<a class="atla sr-only" href="#icerik">İçeriğe geç</a>
 <div class="bilgi-cubuk"><div class="kap">
@@ -127,7 +80,7 @@ def ust(aktif=""):
     <nav id="ana-menu" aria-label="Ana menü">
       {a("index.html","Ana sayfa","ana")}
       <div class="acilir"><button type="button" aria-expanded="false">Hizmetlerimiz {OK_I}</button>
-        <ul>{hl}<li><a class="tumu" href="hizmetler.html">Tüm hizmetler</a></li></ul></div>
+        <ul class="mega">{hl}<li class="tumu-li"><a class="tumu" href="hizmetler.html">Tüm hizmetler</a></li></ul></div>
       {a("markalar.html","Markalar","marka")}
       {a("hakkimizda.html","Hakkımızda","hak")}
       {a("iletisim.html","İletişim","ilet")}
@@ -162,7 +115,7 @@ def cagri(baslik="Gelemiyorsanız aracınızı biz alalım", metin="Aracınızı
 </div></div></section>'''
 
 def alt():
-    hl = "".join(f'<li><a href="hizmet-{h["slug"]}.html">{h["ad"]}</a></li>' for h in HIZMETLER[:6])
+    hl = "".join(f'<li><a href="hizmet-{h["slug"]}.html">{h["ad"]}</a></li>' for h in ANA_HIZMETLER[:6])
     ml = "".join(f'<li><a href="marka-{mslug(m)}.html">{m} servisi</a></li>' for m in MARKALAR[:6])
     return f'''<footer><div class="kap">
   <div><a class="logo alt-logo" href="index.html" aria-label="Çelikel Oto Servis ana sayfa"><img src="assets/logo/logo-yatay-acik.svg" alt="Çelikel Oto Servis" width="460" height="120"></a>
@@ -311,14 +264,15 @@ def ana():
 
 <section id="hizmetler" aria-labelledby="h-hizmet" style="padding-top:40px"><div class="kap">
   {bas_orta("Hizmetlerimiz", 'Aracınızın her işi <span class="vurgu">tek serviste</span>', "Aracınızı getirin, sorunu birlikte bakalım. Ne yapılacağını ve fiyatı işe başlamadan söyleriz.", "h-hizmet")}
-  <ul class="hizmet-izgara">{hizmet_kartlari(HIZMETLER)}</ul>
+  <ul class="hizmet-izgara">{hizmet_kartlari(ANA_HIZMETLER)}</ul>
+  <p class="tum-hizmet"><a class="btn btn-koyu" href="hizmetler.html">Tüm hizmetleri görün ({len(HIZMETLER)} hizmet)</a></p>
 </div></section>
 
 <section class="neden" aria-labelledby="h-neden"><div class="kap">
   {bas_orta("Farkımız", 'Neden <span class="vurgu">Çelikel Oto</span>?', "", "h-neden")}
   <ul class="rakam-kartlar">
     <li><span class="yuvarlak">{YILDIZ_I}</span><b>5,0</b><em>Google puanı</em><p>Müşterilerimizin değerlendirmeleriyle</p></li>
-    <li><span class="yuvarlak">{USTA_I}</span><b class="kucuk-b">Usta işçiliği</b><p>İşinizle Sebahattin Usta ve ekibi birebir ilgilenir</p></li>
+    <li><span class="yuvarlak">{USTA_I}</span><b>40</b><em>Yıllık tecrübe</em><p>Sebahattin Usta 40 yıldır bu işi yapıyor</p></li>
     <li><span class="yuvarlak">{ARABA_I}</span><b>10+</b><em>Araç markası</em><p>Fiat'tan Toyota'ya, binek araçların çoğuna bakıyoruz</p></li>
     <li><span class="yuvarlak">{CEKICI_I2}</span><b class="kucuk-b">Acil hat</b><em>Yol yardım</em><p><a href="tel:{YOL}">{YOL_YAZI}</a></p></li>
   </ul>
@@ -334,7 +288,7 @@ def ana():
       <figcaption><span class="yildiz">{YILDIZ5}</span><b>5,0</b> Google puanı</figcaption></figure>
   </div>
   <ul class="neden-kartlar">
-    <li><span class="kare">{USTA_I}</span><div><h3>Usta kadro</h3><em>Sebahattin Usta</em><p>İşinizle deneyimli ustamız birebir ilgilenir, sorunun kaynağını doğru bulur.</p></div></li>
+    <li><span class="kare">{USTA_I}</span><div><h3>Usta kadro</h3><em>40 yıllık tecrübe</em><p>İşinizle 40 yıldır bu işi yapan Sebahattin Usta birebir ilgilenir, sorunun kaynağını doğru bulur.</p></div></li>
     <li><span class="kare">{FIYAT_I}</span><div><h3>Sürpriz fatura yok</h3><em>Fiyat önceden</em><p>Ne yapılacağını ve tutarını işe başlamadan söyleriz; onayınız olmadan başlamayız.</p></div></li>
     <li><span class="kare">{YILDIZ_I}</span><div><h3>Müşteri memnuniyeti</h3><em>Google'da 5,0</em><p>Bize gelen müşterilerimizin yorumlarını Google'da okuyabilirsiniz.</p></div></li>
     <li><span class="kare">{CEKICI_I2}</span><div><h3>Yol yardım hattı</h3><em>Acil</em><p>Aracınız yolda kaldıysa <a href="tel:{YOL}">{YOL_YAZI}</a> numarasını arayın.</p></div></li>
@@ -379,7 +333,7 @@ def hizmet_sayfasi(h):
     yol = [("Ana sayfa","index.html"),("Hizmetlerimiz","hizmetler.html"),(h["ad"],None)]
     neler = "".join(f"<li>{TIK_I}<span>{n}</span></li>" for n in h["neler"])
     bel = "".join(f"<li>{b}</li>" for b in h["belirti"])
-    diger = "".join(f'<li><a href="hizmet-{x["slug"]}.html"{" aria-current=\"page\"" if x is h else ""}>{x["ad"]} <span aria-hidden="true">›</span></a></li>' for x in HIZMETLER)
+    diger = "".join(f'<li><a href="hizmet-{x["slug"]}.html"{" aria-current=\"page\"" if x is h else ""}>{x["ad"]} <span aria-hidden="true">›</span></a></li>' for x in HIZMETLER if x["grup"]==h["grup"]) + '<li><a href="hizmetler.html">Tüm hizmetler <span aria-hidden="true">›</span></a></li>'
     govde = f'''{sayfa_bas(yol, h["ad"], h["giris"])}
 <section class="icerik"><div class="kap">
   <div class="metin">
@@ -394,7 +348,7 @@ def hizmet_sayfasi(h):
       <a class="btn btn-sari" href="tel:{TEL}">{TEL_I} {TEL_YAZI}</a>
       <a class="btn btn-wa" href="{wa("Merhaba, " + h["ad"].lower() + " hakkında bilgi almak istiyorum.")}" target="_blank" rel="noopener">{WA_I} WhatsApp'tan yaz</a>
       <p class="yan-acil">Yolda mı kaldınız? <a href="tel:{YOL}">{YOL_YAZI}</a></p></div>
-    <div class="liste-kutu"><h3>Diğer hizmetler</h3><ul>{diger}</ul></div>
+    <div class="liste-kutu"><h3>{h["grup"]}</h3><ul>{diger}</ul></div>
   </aside>
 </div></section>
 {cagri()}
@@ -405,15 +359,15 @@ def hizmet_sayfasi(h):
 
 def hizmetler_sayfasi():
     yol = [("Ana sayfa","index.html"),("Hizmetlerimiz",None)]
-    govde = f'''{sayfa_bas(yol, "Hizmetlerimiz", "Bakımdan motor tamirine, elektrikten kaportaya kadar aracınızın her işini tek serviste yapıyoruz. Gereken parçayı da biz buluyoruz.")}
-<section aria-label="Hizmet listesi"><div class="kap"><ul class="hizmet-izgara">{hizmet_kartlari(HIZMETLER)}</ul></div></section>
+    govde = f'''{sayfa_bas(yol, "Hizmetlerimiz", "Aracınızın motorundan frenine, elektriğinden kaportasına kadar bütün parçalarının bakımını ve onarımını tek serviste yapıyoruz. Gereken parçayı da biz buluyoruz.")}
+{"".join(f'<section class="grup-bolum" aria-label="{g}"><div class="kap"><h2 class="grup-baslik">{g}</h2><ul class="hizmet-izgara">{hizmet_kartlari([h for h in HIZMETLER if h["grup"]==g], one_son=False)}</ul></div></section>' for g in GRUPLAR)}
 {cagri()}{form_bolum()}'''
     sayfa("hizmetler.html", "Hizmetlerimiz | Çelikel Oto Servis", "Çelikel Oto Servis hizmetleri: periyodik bakım, arıza tespit, motor, şanzıman, fren, oto elektrik, klima, kaporta boya ve yedek parça.", govde, "", kirinti_ld(yol))
 
 # ---------------- marka sayfaları ----------------
 def marka_sayfasi(m):
     yol = [("Ana sayfa","index.html"),("Markalar","markalar.html"),(f"{m} servisi",None)]
-    hk = hizmet_kartlari(HIZMETLER[:6], one_son=False)
+    hk = hizmet_kartlari(ANA_HIZMETLER[:6], one_son=False)
     diger = "".join(f'<li><a href="marka-{mslug(x)}.html"{" aria-current=\"page\"" if x==m else ""}>{x} <span aria-hidden="true">›</span></a></li>' for x in MARKALAR)
     govde = f'''{sayfa_bas(yol, f"{m} <span style=\"color:var(--ikaz)\">servisi</span>", f"{m} aracınızın bakımını, arıza tespitini ve onarımını yapıyoruz. Gereken {m} parçasını orijinal ya da muadil seçenekleriyle biz temin ediyoruz.")}
 <section class="icerik"><div class="kap">
@@ -453,7 +407,7 @@ def markalar_sayfasi():
 
 def hakkimizda():
     yol = [("Ana sayfa","index.html"),("Hakkımızda",None)]
-    govde = f'''{sayfa_bas(yol, "Aracınız Sebahattin Usta'ya emanet", "Çelikel Oto Servis'i Sebahattin Aksaç yönetiyor. Bakırköy'deki dükkânımızdan beri bize gelen birçok müşterimiz, yeni yerimize de gelmeye devam ediyor.")}
+    govde = f'''{sayfa_bas(yol, "Aracınız Sebahattin Usta'ya emanet", "Çelikel Oto Servis'i 40 yıldır bu işi yapan Sebahattin Aksaç yönetiyor. Bakırköy'deki dükkânımızdan beri bize gelen birçok müşterimiz, yeni yerimize de gelmeye devam ediyor.")}
 <section class="usta"><div class="kap">
   <div><h2>Nasıl çalıştığımız</h2><p class="giris-yazi">Bir servise aracınızı bırakırken içinizin rahat olması gerekir. Bu yüzden her adımda ne yaptığımızı size anlatırız.</p>
     <figure class="ilke"><p>Gereksiz parça değiştirmeyiz. Önce sorunu buluruz, sonra ne yapılacağını size söyleriz.</p></figure>
@@ -478,7 +432,42 @@ def iletisim():
 def css():
     (KOK / "assets" / "site.css").write_text((K / "temel.css").read_text(encoding="utf-8") + (K / "ek.css").read_text(encoding="utf-8") + (K / "tema.css").read_text(encoding="utf-8"), encoding="utf-8")
 
+def llms():
+    satir = [
+"# Çelikel Oto Servis",
+"",
+"> Çelikel Oto Servis; aracın bütün parçalarının bakımını ve onarımını yapan, gereken yedek parçayı da temin eden bir oto servistir. Ne yapılacağını ve tutarını işe başlamadan söyler, aracı müşterinin adresinden alıp geri getirir. Servisi 40 yıllık tecrübeye sahip Sebahattin Aksaç yönetir.",
+"",
+"## İletişim",
+f"- Adres: {ADRES1}, {ADRES2}",
+f"- Telefon ve WhatsApp: {TEL_YAZI}",
+f"- İkinci hat: {TEL2_YAZI}",
+f"- Yol yardım / acil hat: {YOL_YAZI}",
+"- Çalışma saatleri: Pazartesi–Cumartesi 08:00–19:00, pazar kapalı",
+"- Hizmet bölgesi: Küçükçekmece, Başakşehir, Avcılar, Beylikdüzü, Esenyurt, Bakırköy",
+"",
+"## Öne çıkanlar",
+"- Usta: Sebahattin Aksaç, 40 yıllık tecrübe",
+"- Google puanı: 5,0",
+"- Fiyat işe başlamadan söylenir; onay alınmadan işe başlanmaz",
+"- Araç müşterinin adresinden alınıp geri getirilir",
+"- Arıza tespit cihazıyla teşhis",
+"- Orijinal ve muadil yedek parça temini",
+"",
+"## Hizmetler"]
+    for g in GRUPLAR:
+        satir.append(f"### {g}")
+        for h in HIZMETLER:
+            if h["grup"]==g: satir.append(f'- [{h["ad"]}](hizmet-{h["slug"]}.html): {h["kisa"]}')
+        satir.append("")
+    satir += ["## Bakılan markalar", ", ".join(MARKALAR) + " ve diğer binek araç markaları.", "", "## Sık sorulan sorular"]
+    for q,c in SSS: satir += [f"- **{q}** {c}"]
+    satir += ["", "## Sayfalar", "- [Ana sayfa](index.html)", "- [Hizmetlerimiz](hizmetler.html)", "- [Markalar](markalar.html)", "- [Hakkımızda](hakkimizda.html)", "- [İletişim](iletisim.html)"]
+    (KOK / "llms.txt").write_text("\n".join(satir) + "\n", encoding="utf-8")
+    (KOK / "robots.txt").write_text("User-agent: *\nAllow: /\n", encoding="utf-8")
+
 if __name__ == "__main__":
+    llms()
     css(); ana(); hizmetler_sayfasi(); markalar_sayfasi(); hakkimizda(); iletisim()
     for h in HIZMETLER: hizmet_sayfasi(h)
     for m in MARKALAR: marka_sayfasi(m)

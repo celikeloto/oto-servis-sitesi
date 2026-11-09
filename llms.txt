@@ -1,0 +1,71 @@
+# Çelikel Oto Servis
+
+> Çelikel Oto Servis; aracın bütün parçalarının bakımını ve onarımını yapan, gereken yedek parçayı da temin eden bir oto servistir. Ne yapılacağını ve tutarını işe başlamadan söyler, aracı müşterinin adresinden alıp geri getirir. Servisi 40 yıllık tecrübeye sahip Sebahattin Aksaç yönetir.
+
+## İletişim
+- Adres: Yarımburgaz, Selvi Sk. 65/1, 34303 Küçükçekmece / İstanbul
+- Telefon ve WhatsApp: 0542 140 19 74
+- İkinci hat: 0535 494 34 00
+- Yol yardım / acil hat: 0538 064 82 05
+- Çalışma saatleri: Pazartesi–Cumartesi 08:00–19:00, pazar kapalı
+- Hizmet bölgesi: Küçükçekmece, Başakşehir, Avcılar, Beylikdüzü, Esenyurt, Bakırköy
+
+## Öne çıkanlar
+- Usta: Sebahattin Aksaç, 40 yıllık tecrübe
+- Google puanı: 5,0
+- Fiyat işe başlamadan söylenir; onay alınmadan işe başlanmaz
+- Araç müşterinin adresinden alınıp geri getirilir
+- Arıza tespit cihazıyla teşhis
+- Orijinal ve muadil yedek parça temini
+
+## Hizmetler
+### Bakım ve teşhis
+- [Periyodik bakım](hizmet-periyodik-bakim.html): Yağ, filtreler, buji ve sıvıların değişimi. Bakım sonrası neyin değiştiğini yazılı veririz.
+- [Arıza tespit](hizmet-ariza-tespit.html): Motor ışığı yandıysa cihazla arıza kodlarını okur, sorunun kaynağını buluruz.
+- [Muayene öncesi kontrol](hizmet-muayene-oncesi-kontrol.html): Araç muayenesine gitmeden önce muayenede bakılan noktaları kontrol eder, eksikleri gideririz.
+
+### Motor ve aktarma
+- [Motor ve mekanik](hizmet-motor-mekanik.html): Motor revizyonu, conta ve yağ kaçakları, motor içi arızalar.
+- [Triger seti değişimi](hizmet-triger-seti.html): Triger kayışı ya da zinciri, gergi ve devirdaim değişimi; kopmadan önce.
+- [Debriyaj](hizmet-debriyaj.html): Debriyaj seti, volan ve rulman değişimi; kaçıran ya da sertleşen debriyaj.
+- [Şanzıman ve vites](hizmet-sanziman.html): Manuel ve otomatik şanzıman arızaları, vites geçiş sorunları ve yağ değişimi.
+- [Soğutma sistemi](hizmet-sogutma-sistemi.html): Radyatör, termostat, devirdaim ve hortumlar; hararet yapan araç.
+- [Yakıt sistemi ve enjektör](hizmet-yakit-enjektor.html): Enjektör, yakıt pompası, filtre ve gaz kelebeği; tekleme ve yakıt tüketimi.
+- [Turbo](hizmet-turbo.html): Turbo arızaları, yağ kaçağı ve güç kaybı; turbo hortumları ve intercooler.
+- [Egzoz, DPF ve EGR](hizmet-egzoz-dpf-egr.html): Egzoz sistemi, partikül filtresi (DPF), EGR ve katalitik konvertör arızaları.
+
+### Fren, süspansiyon ve lastik
+- [Fren sistemi](hizmet-fren-yuruyen.html): Balata, disk, kaliper ve fren hidroliği. Sesi, titremeyi ve çekmeyi gideririz.
+- [Süspansiyon ve direksiyon](hizmet-suspansiyon-direksiyon.html): Amortisör, rot, rotil, salıncak, rulman ve direksiyon sistemi.
+- [Lastik ve balans](hizmet-lastik-balans.html): Lastik tamiri, satışı ve değişimi; balans ayarı.
+
+### Elektrik, klima ve kaporta
+- [Oto elektrik](hizmet-oto-elektrik.html): Akü, şarj dinamosu, marş motoru, farlar ve kablo arızaları.
+- [Klima bakımı](hizmet-klima.html): Gaz dolumu, kaçak kontrolü, polen filtresi ve soğutmayan klimanın onarımı.
+- [Kaporta ve boya](hizmet-kaporta-boya.html): Göçük, çizik ve hasar onarımı; boya ve rötuş.
+
+### Yedek parça
+- [Yedek parça](hizmet-yedek-parca.html): Orijinal ve muadil parça. Stokta yoksa kısa sürede getirtiriz; takmasını da biz yaparız.
+
+## Bakılan markalar
+Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai ve diğer binek araç markaları.
+
+## Sık sorulan sorular
+- **Çalışma saatleriniz nedir?** Pazartesiden cumartesiye 08:00–19:00 arası açığız. Pazar günü kapalıyız.
+- **Gelmeden önce randevu almam gerekiyor mu?** Aramanızı öneririz; böylece aracınız için yer ayırır, beklemenizi önleriz. 0542 140 19 74 numarasından arayabilir ya da WhatsApp'tan yazabilirsiniz.
+- **Aracımı adresimden alabilir misiniz?** Evet. Aracınızı adresinizden alıyor, iş bitince yine adresinize getiriyoruz. Uygun günü birlikte belirlemek için bizi arayın.
+- **Fiyatı önceden öğrenebilir miyim?** Evet. Arıza tespitinden sonra ne yapılacağını ve tutarını işe başlamadan söyleriz; onayınız olmadan işe başlamayız.
+- **Motor arıza ışığı yandı, ne yapmalıyım?** Işık sabit yanıyorsa aracı en kısa sürede getirin; yanıp sönüyorsa ya da araç çekişten düştüyse yola devam etmeden bizi arayın. Cihazla hata kodlarını okuyup sorunun kaynağını buluruz.
+- **Yedek parçayı siz mi temin ediyorsunuz?** Evet. Orijinal ve muadil parça seçeneklerini fiyatlarıyla birlikte size söyleriz. Stokta olmayan parçayı kısa sürede getirtiriz.
+- **Hangi markalara bakıyorsunuz?** Binek araçların büyük çoğunluğuna bakıyoruz: Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai ve diğer markalar. Aracınızdan emin değilseniz arayıp sorabilirsiniz.
+- **Aracım yolda kaldı, ne yapmalıyım?** Güvenli bir yere çekilip dörtlüleri yakın ve yol yardım hattımızı arayın: 0538 064 82 05. Durumu dinleyip size en hızlı çözümü söyleyelim.
+- **Aracın hangi parçalarına bakıyorsunuz?** Aracın bütün parçalarına bakım ve onarım yapıyoruz: motor, triger, debriyaj, şanzıman, soğutma ve yakıt sistemi, turbo, egzoz, fren, süspansiyon ve direksiyon, lastik ve balans, elektrik, klima ve kaporta. Gereken yedek parçayı da biz temin ediyoruz.
+- **Ustanız ne kadar tecrübeli?** Servisimizi yöneten Sebahattin Usta 40 yıldır bu işi yapıyor. Aracınızla bizzat ilgilenir.
+- **Neredesiniz?** Yarımburgaz, Selvi Sk. 65/1, 34303 Küçükçekmece / İstanbul. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz.
+
+## Sayfalar
+- [Ana sayfa](index.html)
+- [Hizmetlerimiz](hizmetler.html)
+- [Markalar](markalar.html)
+- [Hakkımızda](hakkimizda.html)
+- [İletişim](iletisim.html)
