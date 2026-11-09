@@ -2,9 +2,24 @@
 grup: menüde ve Hizmetlerimiz sayfasında hangi başlık altında görüneceği
 ana: True ise ana sayfadaki hizmet kartlarında da görünür"""
 
-GRUPLAR = ["Bakım ve teşhis", "Motor ve aktarma", "Fren, süspansiyon ve lastik", "Elektrik, klima ve kaporta", "Yedek parça"]
+GRUPLAR = ["Yol yardım ve acil", "Bakım ve teşhis", "Motor ve aktarma", "Fren, süspansiyon ve lastik", "Elektrik, klima ve kaporta", "Yedek parça"]
 
 HIZMETLER = [
+
+ # ---------------- Yol yardım ve acil ----------------
+ dict(slug="yol-yardim", grup="Yol yardım ve acil", ana=False, ad="7/24 yol yardım",
+      kisa="Yolda kalan araca gece gündüz ulaşıyoruz: lastik patlağı, akü bitmesi, çalışmayan araç.",
+      ikon='<path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/>',
+      giris="Aracınız yolda kaldıysa günün her saatinde, hafta sonu dahil yol yardım hattımızı arayabilirsiniz. Küçükçekmece'nin tamamında bulunduğunuz yere geliyor, sorunu yerinde çözmeye çalışıyor, gerekiyorsa aracınızı servisimize alıyoruz.",
+      neler=["Patlak lastik için yerinde müdahale ve lastik değişimi","Akü takviyesi ve gerekiyorsa akü değişimi","Çalışmayan araç için yerinde arıza kontrolü","Yerinde çözülemeyen arızalarda aracın servise alınması","Küçükçekmece'nin 21 mahallesinin tamamında hizmet"],
+      belirti=["Lastiğiniz patladı","Aracınız çalışmıyor ya da akü bitti","Göstergede kırmızı uyarı ışığı yandı, durmak zorunda kaldınız","Gece ya da hafta sonu yolda kaldınız"]),
+ dict(slug="aku", grup="Yol yardım ve acil", ana=False, ad="Akü takviye ve değişimi",
+      kisa="Biten aküye yerinde takviye, akü testi ve aracınıza uygun yeni akü takılması.",
+      ikon='<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M7 7V5h3v2M14 7V5h3v2M7 13h3M15.5 11.5v3M14 13h3"/>',
+      giris="Akünüz bittiyse yol yardım hattımızı arayın; bulunduğunuz yerde takviye yapalım. Akü sık bitiyorsa aküyü ve şarj sistemini test eder, gerekiyorsa aracınıza uygun aküyü takarız. Start-stop özellikli araçlara uygun EFB ve AGM aküleri de temin ediyoruz.",
+      neler=["Yerinde akü takviyesi","Akü ve şarj sistemi testi","Aracınıza uygun akü temini ve değişimi","Start-stop araçlar için EFB/AGM akü","Gerekiyorsa yeni akünün araca tanıtılması"],
+      belirti=["Marşa basınca tık sesi geliyor, motor dönmüyor","Motor zorlanarak, yavaş dönüyor","Akü sık sık bitiyor","Göstergede akü ışığı yanıyor"]),
+
  # ---------------- Bakım ve teşhis ----------------
  dict(slug="periyodik-bakim", grup="Bakım ve teşhis", ana=True, ad="Periyodik bakım",
       kisa="Yağ, filtreler, buji ve sıvıların değişimi. Bakım sonrası neyin değiştiğini yazılı veririz.",
@@ -24,6 +39,19 @@ HIZMETLER = [
       giris="Araç muayenesinden ağır ya da hafif kusurla dönmek hem zaman hem para kaybettirir. Muayeneye gitmeden önce aracınızı kontrol eder, kusur çıkarabilecek noktaları önceden gideririz.",
       neler=["Fren ve el freni kontrolü","Far, sinyal, stop ve plaka lambaları","Lastik diş derinliği ve hasar kontrolü","Rot, rotil, amortisör ve direksiyon boşluğu kontrolü","Egzoz emisyonu ve egzoz sızıntısı kontrolü","Silecek, korna, cam ve ayna kontrolü"],
       belirti=["Muayene tarihi yaklaşıyor","Daha önce muayeneden kusurla döndünüz","Aracı yeni satın aldınız","Göstergede uyarı ışıkları var"]),
+
+ dict(slug="ucretsiz-on-kontrol", grup="Bakım ve teşhis", ana=False, ad="Ücretsiz ön kontrol",
+      kisa="Aracınızın genel durumunu ücretsiz kontrol eder, gereken işleri ve tutarını önceden söyleriz.",
+      ikon='<path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/>',
+      giris="Aracınızda bir sorun olup olmadığını merak ediyor, uzun yola çıkacak ya da ikinci el aldığınız aracın durumunu öğrenmek istiyorsanız aracınızı getirin. Genel durumunu ücretsiz kontrol eder, yapılması gerekenleri ve tutarını size önceden söyleriz.",
+      neler=["Motor yağı, antifriz, fren hidroliği ve diğer sıvı seviyeleri","Fren balatası ve disklerin gözle kontrolü","Lastik diş derinliği ve hava basıncı","Far, stop ve sinyal lambaları","Akü durumu","Görünür kaçak, aşınma ve hasar kontrolü"],
+      belirti=["Uzun yola çıkmadan önce","İkinci el araç aldınız","Bakım zamanı geldi mi emin değilsiniz","Araçta yeni bir ses ya da his fark ettiniz"]),
+ dict(slug="hibrit-elektrikli", grup="Bakım ve teşhis", ana=False, ad="Hibrit ve elektrikli araç servisi",
+      kisa="Hibrit ve elektrikli araç bakımı, fren, lastik, klima, 12 V akü ve arıza tespiti.",
+      ikon='<path d="M5 18V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v10"/><path d="M3 18h14M15 10h2a2 2 0 0 1 2 2v3a1 1 0 0 0 2 0V9l-2-2"/><path d="M10 9l-2 3h3l-2 3"/>',
+      giris="Hibrit ve elektrikli araçların da düzenli bakıma ihtiyacı vardır. Hibrit araçlarda benzinli motorun bakımı, tüm bu araçlarda ise fren, lastik, klima, süspansiyon ve 12 voltluk akü gibi sistemlerin kontrolü gerekir. Arıza tespit cihazıyla sistemleri kontrol eder, bakım ve onarımını yaparız.",
+      neler=["Hibrit araçlarda motor yağı ve filtre bakımı","Fren sistemi kontrolü (rejeneratif frenleme nedeniyle disklerde paslanmaya dikkat)","Lastik, balans ve süspansiyon","Klima ve polen filtresi","12 V akü testi ve değişimi","Arıza tespit cihazıyla sistem kontrolü"],
+      belirti=["Bakım zamanı geldi","Göstergede uyarı mesajı çıktı","Frenden ses ya da titreme geliyor","Klima zayıf soğutuyor"]),
 
  # ---------------- Motor ve aktarma ----------------
  dict(slug="motor-mekanik", grup="Motor ve aktarma", ana=True, ad="Motor ve mekanik",
@@ -114,6 +142,19 @@ HIZMETLER = [
       giris="Küçük bir çizikten hasarlı bir parçaya kadar aracınızın görünümünü yeniden düzeltiriz. Ne yapılacağını ve tutarı işe başlamadan söyleriz.",
       neler=["Göçük düzeltme","Çizik ve rötuş boya","Hasarlı parça onarımı ve değişimi","Tampon onarımı","Far, ayna ve cam değişimi","Boya sonrası pasta ve cila"],
       belirti=["Park ya da kaza sonrası göçük","Çizilen ya da solan boya","Paslanmaya başlayan bölgeler","Kırık ya da çatlak tampon"]),
+
+ dict(slug="hasar-onarimi", grup="Elektrik, klima ve kaporta", ana=False, ad="Kasko ve sigorta hasar onarımı",
+      kisa="Kasko ve trafik sigortası kapsamındaki kaza onarımları, süreç boyunca yönlendirme.",
+      ikon='<path d="M12 2l8 3v6c0 5-3.5 9.3-8 11-4.5-1.7-8-6-8-11V5z"/><path d="M12 8v4M12 16h.01"/>',
+      giris="Kaza sonrası aracınızın onarımını kasko ya da karşı tarafın trafik sigortası kapsamında yapıyoruz. Hasar ihbarından ekspertize, onarımdan teslime kadar süreçte size yol gösteriyor, aracınızı ilk günkü haline getirmeye çalışıyoruz.",
+      neler=["Kasko kapsamındaki hasar onarımları","Karşı tarafın trafik sigortasıyla yapılan onarımlar","Eksper incelemesi için aracın hazırlanması","Kaporta, boya ve mekanik hasar onarımı","Süreç ve evraklar konusunda yönlendirme"],
+      belirti=["Kaza yaptınız, aracınız hasar gördü","Kaskonuz var ve onarım yaptırmak istiyorsunuz","Karşı taraf kusurlu, trafik sigortasından onarım yaptıracaksınız","Hasar sürecinde ne yapacağınızı bilmiyorsunuz"]),
+ dict(slug="boyasiz-gocuk-pasta-cila", grup="Elektrik, klima ve kaporta", ana=False, ad="Boyasız göçük ve pasta cila",
+      kisa="Boyasına zarar gelmemiş göçüklerin boyasız düzeltilmesi; çizik giderme, pasta ve cila.",
+      ikon='<path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15.5l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M19 15l.8 1.7 1.7.8-1.7.8L19 20l-.8-1.7-1.7-.8 1.7-.8z"/>',
+      giris="Boyası çatlamamış göçükler, parçayı boyamadan özel aletlerle içten düzeltilebilir; böylece aracınızın orijinal boyası korunur. Yüzeysel çizikleri, matlaşmayı ve hareleri de pasta ve cila ile gideririz.",
+      neler=["Boyasız göçük düzeltme (dolu, park ve kapı vurması göçükleri)","Yüzeysel çizik giderme","Pasta ve cila","Boya koruma uygulamaları","Far temizliği ve parlatma"],
+      belirti=["Kapı vurması ya da park göçüğü","Dolu hasarı","Boyada matlaşma ve hareler","Yüzeysel çizikler"]),
 
  # ---------------- Yedek parça ----------------
  dict(slug="yedek-parca", grup="Yedek parça", ana=True, ad="Yedek parça",

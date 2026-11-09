@@ -44,9 +44,10 @@ from bolgeler import KUCUKCEKMECE_MAHALLELER, ILCELER
 SITE_URL = "https://celikeloto.github.io/oto-servis-sitesi/"   # domain bağlanınca değiştirin
 TARIH, TARIH_YAZI = "2026-11-09", "9 Kasım 2026"
 ANA_HIZMETLER = [h for h in HIZMETLER if h.get("ana")]
-MARKALAR = ["Fiat","Renault","Dacia","Volkswagen","Ford","Opel","Peugeot","Citroën","Toyota","Hyundai"]
+MARKALAR = ["Fiat","Renault","Dacia","Volkswagen","Ford","Opel","Peugeot","Citroën","Toyota","Hyundai","BMW","Mercedes-Benz","Audi"]
+LOGO_SLUG = {"Mercedes-Benz":"mercedes"}
 LOGO_CDN = "https://cdn.jsdelivr.net/npm/simple-icons@16.16.0/icons/"   # Simple Icons, sürüm sabit
-def logo(m, boy=28): return f'<img class="marka-logo" src="{LOGO_CDN}{mslug(m)}.svg" alt="" width="{boy}" height="{boy}" loading="lazy" onerror="this.remove()">'
+def logo(m, boy=28): return f'<img class="marka-logo" src="{LOGO_CDN}{LOGO_SLUG.get(m, mslug(m))}.svg" alt="" width="{boy}" height="{boy}" loading="lazy" onerror="this.remove()">'
 def mslug(m): return m.lower().replace("ë","e").replace("ç","c").replace("ü","u").replace("ö","o").replace("ş","s").replace("ı","i").replace("ğ","g").replace(" ","-")
 SSS = [
  ("Çalışma saatleriniz nedir?", "Pazartesiden cumartesiye 08:00–19:00 arası açığız. Pazar günü kapalıyız."),
@@ -59,10 +60,15 @@ SSS = [
  ("Aracım yolda kaldı, ne yapmalıyım?", f"Güvenli bir yere çekilip dörtlüleri yakın ve yol yardım hattımızı arayın: {YOL_YAZI}. Durumu dinleyip size en hızlı çözümü söyleyelim."),
  ("Aracın hangi parçalarına bakıyorsunuz?", "Aracın bütün parçalarına bakım ve onarım yapıyoruz: motor, triger, debriyaj, şanzıman, soğutma ve yakıt sistemi, turbo, egzoz, fren, süspansiyon ve direksiyon, lastik ve balans, elektrik, klima ve kaporta. Gereken yedek parçayı da biz temin ediyoruz."),
  ("Ustanız ne kadar tecrübeli?", "Servisimizi yöneten Sebahattin Usta 40 yıldır bu işi yapıyor. Aracınızla bizzat ilgilenir."),
+ ("İşçiliğinize garanti veriyor musunuz?", "Evet. Yaptığımız işçiliğe garanti veriyoruz; ayrıntıları iş öncesinde size söyleriz."),
+ ("Fatura veriyor musunuz?", "Evet, faturalı çalışıyoruz. Yapılan işler ve kullanılan parçalar faturada ayrıntılı yazar."),
+ ("Yol yardım hattınız 7/24 açık mı?", f"Evet. Yol yardım hattımız {YOL_YAZI} günün her saati açıktır ve Küçükçekmece'nin tamamına hizmet veriyoruz."),
+ ("Hibrit ve elektrikli araçlara bakıyor musunuz?", "Evet. Hibrit ve elektrikli araçların bakım, fren, süspansiyon, klima ve elektrik işlerini yapıyoruz."),
+ ("Garantisi devam eden aracımın bakımını yaptırabilir miyim?", "Evet. Bakımı üretici talimatlarına uygun yağ ve parçayla yapar, faturalı olarak belgeleriz. Kesin şartlar için aracınızın garanti kitapçığına da bakmanızı öneririz."),
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "14"
+CSS_SURUM = "15"
 # ---------------- parçalar ----------------
 def ust(aktif=""):
     hl = "".join(f'<li class="grup-bas" role="presentation">{g}</li>' + "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],18)}{h["ad"]}</a></li>' for h in HIZMETLER if h["grup"]==g) for g in GRUPLAR)
@@ -74,7 +80,7 @@ def ust(aktif=""):
     <li class="gizle-mobil">{KONUM_I}<a href="{HARITA}" target="_blank" rel="noopener">Yarımburgaz, Küçükçekmece</a></li>
     <li>{SAAT_I}Pzt–Cmt 08:00–19:00</li>
   </ul>
-  <ul><li class="acil">{CEKICI_I}<a href="tel:{YOL}">Yol yardım: <b>{YOL_YAZI}</b></a></li><li class="gizle-mobil">{WA_I}<a href="https://wa.me/{WA}" target="_blank" rel="noopener">WhatsApp</a></li></ul>
+  <ul><li class="acil">{CEKICI_I}<a href="tel:{YOL}">Yol yardım 7/24: <b>{YOL_YAZI}</b></a></li><li class="gizle-mobil">{WA_I}<a href="https://wa.me/{WA}" target="_blank" rel="noopener">WhatsApp</a></li></ul>
 </div></div>
 <header class="ust">
   <div class="kap">
@@ -127,16 +133,16 @@ def alt():
   <div><h3>Hizmetler</h3><ul>{hl}<li><a href="hizmetler.html">Tümü</a></li></ul></div>
   <div><h3>Rehber ve bölgeler</h3><ul><li><a href="rehber.html">Oto tamir rehberi</a></li><li><a href="kucukcekmece-yol-yardim-lastik-tamiri.html">Küçükçekmece yol yardım</a></li>{"".join(f'<li><a href="{i["slug"]}-oto-servis.html">{i["ad"]} oto servis</a></li>' for i in ILCELER[:4])}<li><a href="bolgeler.html">Tüm bölgeler</a></li></ul></div>
   <div><h3>İletişim</h3><ul><li><a href="tel:{TEL}">{TEL_YAZI}</a></li><li><a href="tel:{TEL2}">{TEL2_YAZI}</a></li>
-    <li><a href="tel:{YOL}">Yol yardım: {YOL_YAZI}</a></li>
+    <li><a href="tel:{YOL}">Yol yardım 7/24: {YOL_YAZI}</a></li>
     <li>Pzt–Cmt 08:00–19:00</li><li><a href="{HARITA}" target="_blank" rel="noopener">{ADRES1}</a></li></ul></div>
-  <p class="telif">© <span id="yil">2026</span> Çelikel Oto Servis</p>
+  <p class="telif">© <span id="yil">2026</span> Çelikel Oto Servis · <a href="gizlilik.html">Gizlilik ve KVKK</a></p>
 </div></footer>
 <div class="alt-cubuk"><a class="btn btn-sari" href="tel:{TEL}">{TEL_I} Ara</a><a class="btn btn-wa" href="{wa("Merhaba, web sitenizden ulaşıyorum.")}" target="_blank" rel="noopener">{WA_I} WhatsApp</a></div>
 <button class="yukari" type="button" aria-label="Sayfanın başına dön">{I('<path d="M18 15l-6-6-6 6"/>',20,2.6)}</button>
 <script src="assets/site.js?v={CSS_SURUM}"></script>'''
 
 LD = {"@context":"https://schema.org","@type":"AutoRepair","name":"Çelikel Oto Servis",
- "telephone":TEL,"contactPoint":[{"@type":"ContactPoint","telephone":TEL2,"contactType":"customer service"},{"@type":"ContactPoint","telephone":YOL,"contactType":"emergency"}],
+ "telephone":TEL,"contactPoint":[{"@type":"ContactPoint","telephone":TEL2,"contactType":"customer service"},{"@type":"ContactPoint","telephone":YOL,"contactType":"emergency","hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"}}],
  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"19:00"}],
  "address":{"@type":"PostalAddress","streetAddress":ADRES1,"postalCode":"34303","addressLocality":"Küçükçekmece","addressRegion":"İstanbul","addressCountry":"TR"},
  "geo":{"@type":"GeoCoordinates","latitude":41.0456607,"longitude":28.7519682},
@@ -243,8 +249,8 @@ def ana():
         <a class="btn btn-sari" href="tel:{TEL}">{TEL_I} Hemen ara</a>
         <a class="btn btn-wa" href="{wa("Merhaba, web sitenizden ulaşıyorum.")}" target="_blank" rel="noopener">{WA_I} WhatsApp'tan yaz</a>
       </div>
-      <a class="acil-serit" href="tel:{YOL}">{CEKICI_I}<span>Yolda mı kaldınız? <b>Yol yardım hattı: {YOL_YAZI}</b></span></a>
-      <ul class="guven"><li>{TIK_I}Fiyat işe başlamadan</li><li>{TIK_I}Adresten araç alma</li><li>{TIK_I}Cihazla arıza tespit</li></ul>
+      <a class="acil-serit" href="tel:{YOL}">{CEKICI_I}<span>Yolda mı kaldınız? <b>7/24 yol yardım: {YOL_YAZI}</b></span></a>
+      <ul class="guven"><li>{TIK_I}Ücretsiz ön kontrol</li><li>{TIK_I}Garantili işçilik</li><li>{TIK_I}Faturalı çalışma</li><li>{TIK_I}Adresten araç alma</li></ul>
       <div class="durum-satir" style="margin-top:18px"><p class="durum" id="durum" role="status"><i aria-hidden="true"></i><span>Pazartesi–Cumartesi 08:00–19:00</span></p>
         <span>İkinci hat: <a href="tel:{TEL2}">{TEL2_YAZI}</a></span></div>
     </div>
@@ -253,12 +259,12 @@ def ana():
 <section class="one-kartlar" style="padding:0"><div class="kap"><div class="izgara">
   <div class="one-kart gorselli">
     <div class="mini mini-liste"><span class="mini-ikon">{KALKAN_I}</span>
-      <ul><li>Fiyat önceden</li><li>Onayınızla işlem</li><li>Değişen parça teslim</li></ul></div>
+      <ul><li>Fiyat önceden</li><li>Garantili işçilik</li><li>Faturalı çalışma</li></ul></div>
     <h3>Şeffaf servis</h3><p>Ne yapılacağını ve tutarını işe başlamadan söyleriz.</p>
   </div>
   <a class="one-kart gorselli acil-kart" href="tel:{YOL}">
-    <div class="mini mini-canli"><span class="nabiz" aria-hidden="true"></span><div><b>ACİL</b><small>YOL YARDIM HATTI</small></div></div>
-    <h3>Yol yardım</h3><p>Yolda kaldıysanız arayın: <span class="no">{YOL_YAZI}</span></p>
+    <div class="mini mini-canli"><span class="nabiz" aria-hidden="true"></span><div><b>7/24</b><small>YOL YARDIM AKTİF</small></div></div>
+    <h3>7/24 yol yardım</h3><p>Gece gündüz arayın: <span class="no">{YOL_YAZI}</span></p>
   </a>
   <div class="one-kart gorselli">
     <div class="mini mini-grafik" aria-hidden="true"><i style="height:30%"></i><i style="height:48%"></i><i style="height:40%"></i><i style="height:66%"></i><i class="tam" style="height:92%"></i></div>
@@ -283,7 +289,7 @@ def ana():
     <li><span class="yuvarlak">{YILDIZ_I}</span><b>5,0</b><em>Google puanı</em><p>Müşterilerimizin değerlendirmeleriyle</p></li>
     <li><span class="yuvarlak">{USTA_I}</span><b>40</b><em>Yıllık tecrübe</em><p>Sebahattin Usta 40 yıldır bu işi yapıyor</p></li>
     <li><span class="yuvarlak">{ARABA_I}</span><b>10+</b><em>Araç markası</em><p>Fiat'tan Toyota'ya, binek araçların çoğuna bakıyoruz</p></li>
-    <li><span class="yuvarlak">{CEKICI_I2}</span><b class="kucuk-b">Acil hat</b><em>Yol yardım</em><p><a href="tel:{YOL}">{YOL_YAZI}</a></p></li>
+    <li><span class="yuvarlak">{CEKICI_I2}</span><b class="kucuk-b">7/24</b><em>Yol yardım</em><p><a href="tel:{YOL}">{YOL_YAZI}</a></p></li>
   </ul>
 </div></section>
 
@@ -299,8 +305,8 @@ def ana():
   <ul class="neden-kartlar">
     <li><span class="kare">{USTA_I}</span><div><h3>Usta kadro</h3><em>40 yıllık tecrübe</em><p>İşinizle 40 yıldır bu işi yapan Sebahattin Usta birebir ilgilenir, sorunun kaynağını doğru bulur.</p></div></li>
     <li><span class="kare">{FIYAT_I}</span><div><h3>Sürpriz fatura yok</h3><em>Fiyat önceden</em><p>Ne yapılacağını ve tutarını işe başlamadan söyleriz; onayınız olmadan başlamayız.</p></div></li>
-    <li><span class="kare">{YILDIZ_I}</span><div><h3>Müşteri memnuniyeti</h3><em>Google'da 5,0</em><p>Bize gelen müşterilerimizin yorumlarını Google'da okuyabilirsiniz.</p></div></li>
-    <li><span class="kare">{CEKICI_I2}</span><div><h3>Yol yardım hattı</h3><em>Acil</em><p>Aracınız yolda kaldıysa <a href="tel:{YOL}">{YOL_YAZI}</a> numarasını arayın.</p></div></li>
+    <li><span class="kare">{YILDIZ_I}</span><div><h3>Garantili ve faturalı</h3><em>Google'da 5,0</em><p>İşçiliğimize garanti veriyor, faturalı çalışıyoruz. Müşteri yorumlarımızı Google'da okuyabilirsiniz.</p></div></li>
+    <li><span class="kare">{CEKICI_I2}</span><div><h3>Yol yardım hattı</h3><em>7/24</em><p>Aracınız yolda kaldıysa <a href="tel:{YOL}">{YOL_YAZI}</a> numarasını arayın.</p></div></li>
     <li><span class="kare">{EKRAN_I}</span><div><h3>Cihazla teşhis</h3><em>Önce teşhis</em><p>Arıza tespit cihazıyla hata kodlarını okur, gereksiz parça değiştirmeyiz.</p></div></li>
     <li><span class="kare">{KAMYON_I}</span><div><h3>Kapınızdan alırız</h3><em>Adresten alma</em><p>Vaktiniz yoksa aracınızı adresinizden alır, iş bitince geri getiririz.</p></div></li>
   </ul>
@@ -451,7 +457,9 @@ def llms():
 f"- Adres: {ADRES1}, {ADRES2}",
 f"- Telefon ve WhatsApp: {TEL_YAZI}",
 f"- İkinci hat: {TEL2_YAZI}",
-f"- Yol yardım / acil hat: {YOL_YAZI}",
+f"- Yol yardım / acil hat (7/24): {YOL_YAZI}",
+"- Garantili işçilik, faturalı çalışma, ücretsiz ön kontrol",
+"- Kasko/sigorta hasar onarımı, akü, boyasız göçük ve pasta cila, hibrit/elektrikli araç bakımı",
 "- Çalışma saatleri: Pazartesi–Cumartesi 08:00–19:00, pazar kapalı",
 "- Hizmet bölgesi: Küçükçekmece, Başakşehir, Avcılar, Beylikdüzü, Esenyurt, Bakırköy",
 "",

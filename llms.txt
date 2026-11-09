@@ -6,7 +6,9 @@
 - Adres: Yarımburgaz, Selvi Sk. 65/1, 34303 Küçükçekmece / İstanbul
 - Telefon ve WhatsApp: 0542 140 19 74
 - İkinci hat: 0535 494 34 00
-- Yol yardım / acil hat: 0538 064 82 05
+- Yol yardım / acil hat (7/24): 0538 064 82 05
+- Garantili işçilik, faturalı çalışma, ücretsiz ön kontrol
+- Kasko/sigorta hasar onarımı, akü, boyasız göçük ve pasta cila, hibrit/elektrikli araç bakımı
 - Çalışma saatleri: Pazartesi–Cumartesi 08:00–19:00, pazar kapalı
 - Hizmet bölgesi: Küçükçekmece, Başakşehir, Avcılar, Beylikdüzü, Esenyurt, Bakırköy
 
@@ -19,10 +21,16 @@
 - Orijinal ve muadil yedek parça temini
 
 ## Hizmetler
+### Yol yardım ve acil
+- [7/24 yol yardım](hizmet-yol-yardim.html): Yolda kalan araca gece gündüz ulaşıyoruz: lastik patlağı, akü bitmesi, çalışmayan araç.
+- [Akü takviye ve değişimi](hizmet-aku.html): Biten aküye yerinde takviye, akü testi ve aracınıza uygun yeni akü takılması.
+
 ### Bakım ve teşhis
 - [Periyodik bakım](hizmet-periyodik-bakim.html): Yağ, filtreler, buji ve sıvıların değişimi. Bakım sonrası neyin değiştiğini yazılı veririz.
 - [Arıza tespit](hizmet-ariza-tespit.html): Motor ışığı yandıysa cihazla arıza kodlarını okur, sorunun kaynağını buluruz.
 - [Muayene öncesi kontrol](hizmet-muayene-oncesi-kontrol.html): Araç muayenesine gitmeden önce muayenede bakılan noktaları kontrol eder, eksikleri gideririz.
+- [Ücretsiz ön kontrol](hizmet-ucretsiz-on-kontrol.html): Aracınızın genel durumunu ücretsiz kontrol eder, gereken işleri ve tutarını önceden söyleriz.
+- [Hibrit ve elektrikli araç servisi](hizmet-hibrit-elektrikli.html): Hibrit ve elektrikli araç bakımı, fren, lastik, klima, 12 V akü ve arıza tespiti.
 
 ### Motor ve aktarma
 - [Motor ve mekanik](hizmet-motor-mekanik.html): Motor revizyonu, conta ve yağ kaçakları, motor içi arızalar.
@@ -43,12 +51,14 @@
 - [Oto elektrik](hizmet-oto-elektrik.html): Akü, şarj dinamosu, marş motoru, farlar ve kablo arızaları.
 - [Klima bakımı](hizmet-klima.html): Gaz dolumu, kaçak kontrolü, polen filtresi ve soğutmayan klimanın onarımı.
 - [Kaporta ve boya](hizmet-kaporta-boya.html): Göçük, çizik ve hasar onarımı; boya ve rötuş.
+- [Kasko ve sigorta hasar onarımı](hizmet-hasar-onarimi.html): Kasko ve trafik sigortası kapsamındaki kaza onarımları, süreç boyunca yönlendirme.
+- [Boyasız göçük ve pasta cila](hizmet-boyasiz-gocuk-pasta-cila.html): Boyasına zarar gelmemiş göçüklerin boyasız düzeltilmesi; çizik giderme, pasta ve cila.
 
 ### Yedek parça
 - [Yedek parça](hizmet-yedek-parca.html): Orijinal ve muadil parça. Stokta yoksa kısa sürede getirtiriz; takmasını da biz yaparız.
 
 ## Bakılan markalar
-Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai ve diğer binek araç markaları.
+Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai, BMW, Mercedes-Benz, Audi ve diğer binek araç markaları.
 
 ## Sık sorulan sorular
 - **Çalışma saatleriniz nedir?** Pazartesiden cumartesiye 08:00–19:00 arası açığız. Pazar günü kapalıyız.
@@ -57,10 +67,15 @@ Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai
 - **Fiyatı önceden öğrenebilir miyim?** Evet. Arıza tespitinden sonra ne yapılacağını ve tutarını işe başlamadan söyleriz; onayınız olmadan işe başlamayız.
 - **Motor arıza ışığı yandı, ne yapmalıyım?** Işık sabit yanıyorsa aracı en kısa sürede getirin; yanıp sönüyorsa ya da araç çekişten düştüyse yola devam etmeden bizi arayın. Cihazla hata kodlarını okuyup sorunun kaynağını buluruz.
 - **Yedek parçayı siz mi temin ediyorsunuz?** Evet. Orijinal ve muadil parça seçeneklerini fiyatlarıyla birlikte size söyleriz. Stokta olmayan parçayı kısa sürede getirtiriz.
-- **Hangi markalara bakıyorsunuz?** Binek araçların büyük çoğunluğuna bakıyoruz: Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai ve diğer markalar. Aracınızdan emin değilseniz arayıp sorabilirsiniz.
+- **Hangi markalara bakıyorsunuz?** Binek araçların büyük çoğunluğuna bakıyoruz: Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai, BMW, Mercedes-Benz, Audi ve diğer markalar. Aracınızdan emin değilseniz arayıp sorabilirsiniz.
 - **Aracım yolda kaldı, ne yapmalıyım?** Güvenli bir yere çekilip dörtlüleri yakın ve yol yardım hattımızı arayın: 0538 064 82 05. Durumu dinleyip size en hızlı çözümü söyleyelim.
 - **Aracın hangi parçalarına bakıyorsunuz?** Aracın bütün parçalarına bakım ve onarım yapıyoruz: motor, triger, debriyaj, şanzıman, soğutma ve yakıt sistemi, turbo, egzoz, fren, süspansiyon ve direksiyon, lastik ve balans, elektrik, klima ve kaporta. Gereken yedek parçayı da biz temin ediyoruz.
 - **Ustanız ne kadar tecrübeli?** Servisimizi yöneten Sebahattin Usta 40 yıldır bu işi yapıyor. Aracınızla bizzat ilgilenir.
+- **İşçiliğinize garanti veriyor musunuz?** Evet. Yaptığımız işçiliğe garanti veriyoruz; ayrıntıları iş öncesinde size söyleriz.
+- **Fatura veriyor musunuz?** Evet, faturalı çalışıyoruz. Yapılan işler ve kullanılan parçalar faturada ayrıntılı yazar.
+- **Yol yardım hattınız 7/24 açık mı?** Evet. Yol yardım hattımız 0538 064 82 05 günün her saati açıktır ve Küçükçekmece'nin tamamına hizmet veriyoruz.
+- **Hibrit ve elektrikli araçlara bakıyor musunuz?** Evet. Hibrit ve elektrikli araçların bakım, fren, süspansiyon, klima ve elektrik işlerini yapıyoruz.
+- **Garantisi devam eden aracımın bakımını yaptırabilir miyim?** Evet. Bakımı üretici talimatlarına uygun yağ ve parçayla yapar, faturalı olarak belgeleriz. Kesin şartlar için aracınızın garanti kitapçığına da bakmanızı öneririz.
 - **Neredesiniz?** Yarımburgaz, Selvi Sk. 65/1, 34303 Küçükçekmece / İstanbul. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz.
 
 ## Sayfalar
@@ -100,6 +115,10 @@ Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai
 - [Periyodik bakım takvimi: hangi parça kaç kilometrede değişir?](rehber-periyodik-bakim-takvimi.html): Bakım aralıkları araçtan araca değişir ve kesin değerler kullanım kılavuzunda yazar. Yine de çoğu otomobil için genel bir takvim çıkarılabilir: yağ ve yağ filtresi her 10.000–15.000 km'de ya da yılda bir, fren hidroliği 2 yılda bir, triger kayışı ise genellikle 60.000–120.000 km arasında değişir.
 - [Araç muayenesine hazırlık: muayeneden kalmamak için kontrol listesi](rehber-arac-muayenesi-hazirlik.html): Araç muayenesinde güvenlikle ilgili sistemler kontrol edilir: frenler, aydınlatma, lastikler, direksiyon ve süspansiyon, egzoz ve emisyon, camlar ve görüş. Muayeneden önce bu noktaları kontrol ettirmek, ağır kusurla dönüp ikinci kez gitme zahmetini önler.
 - [Yolda kalınca ne yapmalı? Lastik patlaması, akü ve hararet](rehber-yolda-kalinca-ne-yapmali.html): Araç yolda kaldığında önce güvenlik gelir: aracı mümkünse yolun en sağına ya da emniyet şeridine çekin, dörtlüleri yakın, reflektörü aracın 30–150 metre gerisine koyun ve yolcularla birlikte bariyerin arkasında güvenli bir yerde bekleyin. Sorunu güvenle çözemiyorsanız yol yardım çağırın.
+- [Garantili araç özel serviste bakım yaptırabilir mi?](rehber-garantili-arac-ozel-serviste-bakim.html): Türkiye'de rekabet düzenlemeleri, garanti süresindeki araçların bakımının yalnızca yetkili serviste yapılması şartını sınırlar. Bakım üreticinin talimatlarına uygun yapılır, uygun kalitede parça kullanılır ve belgelenirse özel serviste yapılan bakım tek başına garantiyi geçersiz kılmaz. Yine de kesin şartlar için aracınızın garanti kitapçığına bakmanız gerekir.
+- [Orijinal, eşdeğer ve muadil yedek parça farkı](rehber-orijinal-esdeger-muadil-parca.html): Orijinal parça, aracın üreticisinin logosuyla satılan parçadır. Eşdeğer (OEM kalitesinde) parça, çoğu zaman aynı üreticinin ya da aynı standartlarda üretim yapan bir firmanın kendi markasıyla sattığı parçadır. Muadil parça ise farklı üreticilerin uyumlu ürünleridir; kalitesi markaya göre geniş bir aralıkta değişir.
+- [Güvenilir oto servis nasıl seçilir? 8 işaret](rehber-guvenilir-oto-servis-secimi.html): Güvenilir bir servis, ne yapılacağını ve tutarını işe başlamadan söyler, onayınızı almadan işe başlamaz, değişen parçaları gösterir, fatura ve işçilik garantisi verir. Arızayı tahminle değil, ölçüm ve kontrolle bulur.
+- [Kaza sonrası hasar onarım süreci: kasko ve trafik sigortası](rehber-kasko-hasar-onarim-sureci.html): Kazadan sonra önce güvenliği sağlayın, ardından kaza tespit tutanağını doldurun ya da gerekiyorsa polisi çağırın ve sigortanıza en kısa sürede ihbarda bulunun. Sigorta şirketinin eksperi hasarı inceler; onarım, eksperin onayladığı kapsamda yapılır.
 
 ## Hizmet bölgeleri
 - [Küçükçekmece yol yardım ve lastik tamiri](kucukcekmece-yol-yardim-lastik-tamiri.html): Yol yardım Küçükçekmece'nin tüm mahallelerinde (Atakent, Atatürk, Beşyol, Cennet, Cumhuriyet, Fatih, Fevzi Çakmak, Gültepe, Halkalı Merkez, İnönü, İstasyon, Kanarya, Kartaltepe, Kemalpaşa, Mehmet Akif, Söğütlü Çeşme, Sultan Murat, Tevfikbey, Yarımburgaz, Yeni Mahalle, Yeşilova).

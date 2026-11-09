@@ -9,7 +9,8 @@ from rehber2 import MAKALELER_2
 from rehber3 import MAKALELER_3
 from bolgeler import KUCUKCEKMECE_MAHALLELER, ILCELER
 
-MAKALELER = MAKALELER_1 + MAKALELER_2 + MAKALELER_3
+from rehber4 import MAKALELER_4
+MAKALELER = MAKALELER_1 + MAKALELER_2 + MAKALELER_3 + MAKALELER_4
 REHBER_GRUPLAR = ["Motor", "Aktarma organları", "Fren, süspansiyon ve direksiyon", "Elektrik ve konfor", "Bakım ve muayene"]
 NAV_OK = '<span aria-hidden="true">›</span>'
 def mah_ad(m): return m if m.endswith("Mahalle") else m + " Mahallesi"
@@ -111,7 +112,7 @@ def kucukcekmece_sayfasi():
              ("Patlak lastik tamir edilir mi?", "Diş bölgesindeki küçük delikler genellikle kalıcı olarak tamir edilir. Yanakta kesik ya da şişlik varsa ya da lastik basınçsız uzun süre sürüldüyse lastiğin değişmesi gerekir."),
              ("Lastik değişiminden sonra balans gerekir mi?", "Evet. Lastik değişiminde ve tamirinden sonra balans ayarı yapılması direksiyonda titremeyi önler.")]
     govde = f"""{sayfa_bas(yol, 'Küçükçekmece yol yardım ve <span style="color:var(--ikaz)">lastik tamiri</span>',
-        f"Küçükçekmece'nin {n} mahallesinin tamamına yol yardım veriyoruz. Lastiğiniz patladıysa ya da aracınız yolda kaldıysa arayın; lastik tamiri, lastik değişimi ve balans için de servisimizdeyiz.", eylem=False)}
+        f"Küçükçekmece'nin {n} mahallesinin tamamına 7/24 yol yardım veriyoruz. Lastiğiniz patladıysa ya da aracınız yolda kaldıysa arayın; lastik tamiri, lastik değişimi ve balans için de servisimizdeyiz.", eylem=False)}
 <section class="icerik"><div class="kap">
   <div class="metin">
     <a class="acil-buyuk" href="tel:{YOL}">{CEKICI_I2}<span><small>Yol yardım hattı</small><b>{YOL_YAZI}</b></span></a>
@@ -130,7 +131,7 @@ def kucukcekmece_sayfasi():
     <section class="sss makale-sss" id="sss"><h2>Sık sorulan sorular</h2>{sss_html(sss_l)}</section>
   </div>
   <aside class="yan-kutu">
-    <div class="kutu"><h2>Yol yardım</h2><p>Küçükçekmece'nin tamamında. Konumunuzu söyleyin, size ulaşalım.</p>
+    <div class="kutu"><h2>7/24 yol yardım</h2><p>Küçükçekmece'nin tamamında, gece gündüz. Konumunuzu söyleyin, size ulaşalım.</p>
       <a class="btn btn-sari" href="tel:{YOL}">{TEL_I} {YOL_YAZI}</a>
       <a class="btn btn-wa" href="{wa("Merhaba, yolda kaldım. Konumum: ")}" target="_blank" rel="noopener">{WA_I} Konum gönder</a></div>
     <div class="liste-kutu"><h3>Servisimiz</h3><ul><li><a href="{HARITA}" target="_blank" rel="noopener">{ADRES1} {NAV_OK}</a></li><li><a href="hizmet-lastik-balans.html">Lastik ve balans {NAV_OK}</a></li><li><a href="hizmetler.html">Tüm hizmetler {NAV_OK}</a></li></ul></div>
@@ -216,6 +217,37 @@ def llms_ek():
     ek += [f'- [{i["baslik"]}]({i["slug"]}-oto-servis.html): {i["giris"]}' for i in ILCELER]
     yol.write_text(s + "\n".join(ek) + "\n", encoding="utf-8")
 
+def gizlilik_sayfasi():
+    yol = [("Ana sayfa", "index.html"), ("Gizlilik ve KVKK", None)]
+    b = [("Genel", ["Bu metin, Çelikel Oto Servis web sitesini ziyaret ettiğinizde kişisel verilerinizin nasıl işlendiğini açıklar. 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında veri sorumlusu Çelikel Oto Servis'tir."]),
+         ("Sitemiz hangi verileri topluyor?", ["Sitemizde üyelik, çerezle takip ya da ziyaretçi istatistiği tutan bir sistem yoktur. Sitedeki iletişim formu bilgilerinizi sunucumuza kaydetmez; yazdığınız mesaj yalnızca sizin onayınızla WhatsApp uygulamasında açılır ve gönder tuşuna bastığınızda bize ulaşır."]),
+         ("Üçüncü taraf hizmetler", [{"liste": ["<b>Google Haritalar:</b> Konum haritası Google tarafından sunulur.",
+              "<b>Google Fonts:</b> Yazı tipleri Google sunucularından yüklenir.",
+              "<b>jsDelivr:</b> Marka logoları bu içerik dağıtım ağından yüklenir.",
+              "<b>WhatsApp:</b> WhatsApp ile yazdığınızda mesajınız WhatsApp'ın kendi koşullarına tabidir."]},
+              "Bu hizmetler, sayfayı görüntülemeniz için tarayıcınızın IP adresi gibi teknik bilgileri kendi gizlilik politikaları çerçevesinde işleyebilir."]),
+         ("Servis işlemlerinde işlenen veriler", ["Aracınızı servisimize bıraktığınızda adınız, telefon numaranız ve araç bilgileriniz (plaka, şasi numarası, kilometre) yalnızca servis hizmetinin yürütülmesi, faturalandırma ve yasal yükümlülüklerimiz için işlenir; reklam amacıyla üçüncü kişilerle paylaşılmaz."]),
+         ("Haklarınız", ["KVKK'nın 11. maddesi uyarınca kişisel verilerinizin işlenip işlenmediğini öğrenme, düzeltilmesini ya da silinmesini isteme gibi haklara sahipsiniz. Başvurularınız için " + f'<a href="tel:{TEL}">{TEL_YAZI}</a> numarasından ya da servisimize gelerek bize ulaşabilirsiniz.']),
+        ]
+    ic = "".join(f"<section><h2>{h}</h2>{''.join(blok_html(k) for k in x)}</section>" for h, x in b)
+    govde = f"""{O.sayfa_bas(yol, "Gizlilik ve KVKK aydınlatma metni", "Kişisel verilerinizi nasıl işlediğimizi açıklıyoruz.", eylem=False)}
+<section class="makale"><div class="kap"><div class="makale-govde" style="max-width:760px">{ic}</div></div></section>"""
+    O.sayfa("gizlilik.html", "Gizlilik ve KVKK Aydınlatma Metni | Çelikel Oto Servis",
+            "Çelikel Oto Servis web sitesi gizlilik politikası ve KVKK aydınlatma metni: hangi verilerin işlendiği, üçüncü taraf hizmetler ve haklarınız.",
+            govde, ek_ld=O.kirinti_ld(yol))
+
+def hata_sayfasi():
+    govde = f"""<section class="sayfa-bas"><div class="kap"><h1>Aradığınız sayfa bulunamadı</h1>
+  <p>Bağlantı değişmiş ya da sayfa kaldırılmış olabilir. Aşağıdaki sayfalardan devam edebilir ya da bizi arayabilirsiniz.</p>
+  <div class="eylemler"><a class="btn btn-sari" href="index.html">Ana sayfaya dön</a><a class="btn btn-wa" href="tel:{TEL}">{O.TEL_I} {TEL_YAZI}</a></div>
+  <p style="margin-top:24px"><a href="hizmetler.html">Hizmetler</a> · <a href="rehber.html">Oto tamir rehberi</a> · <a href="iletisim.html">İletişim</a> · <a href="tel:{YOL}">7/24 yol yardım: {YOL_YAZI}</a></p></div></section>"""
+    O.sayfa("404.html", "Sayfa bulunamadı | Çelikel Oto Servis", "Aradığınız sayfa bulunamadı.", govde)
+    O.URLLER.remove("404.html")
+    y = KOK / "404.html"; t = y.read_text(encoding="utf-8")
+    t = t.replace('<meta charset="utf-8">', f'<meta charset="utf-8">\n<base href="{SITE_URL}">\n<meta name="robots" content="noindex">', 1)
+    t = re.sub(r'<link rel="canonical"[^>]*>\n', "", t)
+    y.write_text(t, encoding="utf-8")
+
 def calistir():
     O.css(); O.ana(); O.hizmetler_sayfasi(); O.markalar_sayfasi(); O.hakkimizda(); O.iletisim()
     for h in HIZMETLER: O.hizmet_sayfasi(h)
@@ -223,5 +255,6 @@ def calistir():
     rehber_ana(); bolgeler_ana(); kucukcekmece_sayfasi()
     for m in MAKALELER: rehber_sayfasi(m)
     for i in ILCELER: ilce_sayfasi(i)
+    gizlilik_sayfasi(); hata_sayfasi()
     O.llms(); llms_ek(); site_haritasi()
     print("Sayfalar üretildi:", len(set(O.URLLER)))
