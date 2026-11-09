@@ -10,7 +10,7 @@ from rehber3 import MAKALELER_3
 from bolgeler import KUCUKCEKMECE_MAHALLELER, ILCELER
 
 from rehber4 import MAKALELER_4
-MAKALE_GORSEL = {"yolda-kalinca-ne-yapmali":"yol-yardim-lastik","lastik-rehberi":"yol-yardim-lastik","kasko-hasar-onarim-sureci":"hasar-onarimi"}
+MAKALE_GORSEL = {"yolda-kalinca-ne-yapmali":"yol-yardim-lastik","lastik-rehberi":"lastik-balans","kasko-hasar-onarim-sureci":"hasar-onarimi"}
 MAKALELER = MAKALELER_1 + MAKALELER_2 + MAKALELER_3 + MAKALELER_4
 REHBER_GRUPLAR = ["Motor", "Aktarma organları", "Fren, süspansiyon ve direksiyon", "Elektrik ve konfor", "Bakım ve muayene"]
 NAV_OK = '<span aria-hidden="true">›</span>'
