@@ -71,3 +71,9 @@ var AYAR = { acilis: 8, kapanis: 19, kapaliGunler: [0] /* 0 = Pazar */, wa: "905
     window.scrollTo({top:0, behavior: azHareket ? "auto" : "smooth"});
   });
 })();
+
+// Hareket azaltma tercihi olanlarda arka plan videosunu durdur
+(function(){
+  var v = document.querySelector(".giris-video"); if (!v) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches){ v.removeAttribute("autoplay"); v.pause(); }
+})();
