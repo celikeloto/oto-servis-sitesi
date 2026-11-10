@@ -41,7 +41,7 @@ GOZ_I = I('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle c
 import sys; sys.path.insert(0, str(K))
 from hizmetler import HIZMETLER, GRUPLAR
 from bolgeler import KUCUKCEKMECE_MAHALLELER, ILCELER
-SITE_URL = "https://celikeloto.github.io/oto-servis-sitesi/"   # domain bağlanınca değiştirin
+SITE_URL = "https://celikeloto.com/"
 TARIH, TARIH_YAZI = "2026-11-09", "9 Kasım 2026"
 ANA_HIZMETLER = [h for h in HIZMETLER if h.get("ana")]
 MARKALAR = ["Fiat","Renault","Dacia","Volkswagen","Ford","Opel","Peugeot","Citroën","Toyota","Hyundai","BMW","Mercedes-Benz","Audi"]
