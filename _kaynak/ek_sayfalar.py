@@ -224,7 +224,7 @@ def llms_ek():
 def gizlilik_sayfasi():
     yol = [("Ana sayfa", "index.html"), ("Gizlilik ve KVKK", None)]
     b = [("Genel", ["Bu metin, Çelikel Oto Servis web sitesini ziyaret ettiğinizde kişisel verilerinizin nasıl işlendiğini açıklar. 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında veri sorumlusu Çelikel Oto Servis'tir."]),
-         ("Sitemiz hangi verileri topluyor?", ["Sitemizde üyelik, çerezle takip ya da ziyaretçi istatistiği tutan bir sistem yoktur. Sitedeki iletişim formu bilgilerinizi sunucumuza kaydetmez; yazdığınız mesaj yalnızca sizin onayınızla WhatsApp uygulamasında açılır ve gönder tuşuna bastığınızda bize ulaşır."]),
+         ("Sitemiz hangi verileri topluyor?", ["Sitemizde üyelik, çerezle takip ya da ziyaretçi istatistiği tutan bir sistem yoktur (ayrıntılar için <a href=\"cerez-politikasi.html\">çerez politikamıza</a> bakabilirsiniz). Sitedeki iletişim formu bilgilerinizi sunucumuza kaydetmez; yazdığınız mesaj yalnızca sizin onayınızla WhatsApp uygulamasında açılır ve gönder tuşuna bastığınızda bize ulaşır."]),
          ("Üçüncü taraf hizmetler", [{"liste": ["<b>Google Haritalar:</b> Konum haritası Google tarafından sunulur.",
               "<b>Google Fonts:</b> Yazı tipleri Google sunucularından yüklenir.",
               "<b>jsDelivr:</b> Marka logoları bu içerik dağıtım ağından yüklenir.",
@@ -238,6 +238,35 @@ def gizlilik_sayfasi():
 <section class="makale"><div class="kap"><div class="makale-govde" style="max-width:760px">{ic}</div></div></section>"""
     O.sayfa("gizlilik.html", "Gizlilik ve KVKK Aydınlatma Metni | Çelikel Oto Servis",
             "Çelikel Oto Servis web sitesi gizlilik politikası ve KVKK aydınlatma metni: hangi verilerin işlendiği, üçüncü taraf hizmetler ve haklarınız.",
+            govde, ek_ld=O.kirinti_ld(yol))
+
+def cerez_sayfasi():
+    yol = [("Ana sayfa", "index.html"), ("Çerez politikası", None)]
+    b = [("Çerez nedir?", ["Çerezler, ziyaret ettiğiniz web sitelerinin tarayıcınıza kaydettiği küçük metin dosyalarıdır. Benzer şekilde tarayıcının \"yerel depolama\" alanı da sitelerin küçük bilgileri cihazınızda saklamasına izin verir. Bu metin, Çelikel Oto Servis web sitesinde (celikeloto.com) bu teknolojilerin nasıl kullanıldığını açıklar."]),
+         ("Sitemizin kendi çerezleri", ["Sitemiz kendi adına <b>hiçbir çerez oluşturmaz</b>. Ziyaretçi sayma, reklam, yeniden hedefleme ya da davranış takibi yapan bir araç (örneğin Google Analytics, Facebook Pikseli) kullanmıyoruz."]),
+         ("Yerel depolama", ["Sitemiz tarayıcınızın yerel depolama alanına yalnızca tek bir bilgi kaydeder:",
+              {"tablo": (["Ad", "Amaç", "Süre"], [["anma-10kasim-(yıl)", "10 Kasım anma ekranının size aynı gün içinde yalnızca bir kez gösterilmesi", "Siz tarayıcı verilerini silene kadar"]])},
+              "Bu bilgi kişisel veri içermez, yalnızca cihazınızda tutulur ve bize gönderilmez."]),
+         ("Üçüncü taraf hizmetlerin çerezleri", [
+              {"tablo": (["Hizmet", "Nerede kullanılıyor?", "Çerez"], [
+                ["Google Haritalar", "İletişim bölümündeki harita", "Harita görüntülendiğinde Google kendi çerezlerini oluşturabilir"],
+                ["Google Fonts", "Yazı tipleri", "Çerez oluşturmaz; teknik bağlantı bilgisi (IP adresi) Google'a iletilir"],
+                ["jsDelivr", "Marka logoları", "Çerez oluşturmaz; teknik bağlantı bilgisi iletilir"],
+                ["WhatsApp", "Mesaj gönderme düğmeleri", "Düğmeye tıkladığınızda WhatsApp'ın kendi koşulları geçerlidir"]])},
+              "Bu hizmetlerin çerez ve veri kullanımı, ilgili şirketlerin kendi gizlilik politikalarına tabidir. Google'ın politikasına policies.google.com adresinden ulaşabilirsiniz."]),
+         ("Çerezleri nasıl kontrol edebilirsiniz?", ["Tarayıcınızın ayarlarından çerezleri ve yerel depolanan verileri görebilir, silebilir ya da engelleyebilirsiniz:",
+              {"liste": ["<b>Chrome:</b> Ayarlar → Gizlilik ve güvenlik → Üçüncü taraf çerezleri",
+                         "<b>Safari (iPhone):</b> Ayarlar → Safari → Geçmişi ve Web Sitesi Verilerini Temizle",
+                         "<b>Firefox:</b> Ayarlar → Gizlilik ve Güvenlik → Çerezler ve site verileri",
+                         "<b>Edge:</b> Ayarlar → Çerezler ve site izinleri"]},
+              "Çerezleri engellemeniz sitemizin çalışmasını etkilemez; yalnızca harita görüntülenmeyebilir."]),
+         ("Kişisel verileriniz", ['Kişisel verilerinizin nasıl işlendiğine dair ayrıntılar için <a href="gizlilik.html">Gizlilik ve KVKK aydınlatma metnimize</a> bakabilirsiniz. Sorularınız için ' + f'<a href="tel:{TEL}">{TEL_YAZI}</a> numarasından bize ulaşabilirsiniz.']),
+        ]
+    ic = "".join(f"<section><h2>{h}</h2>{''.join(blok_html(k) for k in x)}</section>" for h, x in b)
+    govde = f"""{O.sayfa_bas(yol, "Çerez politikası", "Sitemizde çerez ve yerel depolamanın nasıl kullanıldığını açıklıyoruz.", eylem=False)}
+<section class="makale"><div class="kap"><div class="makale-govde" style="max-width:760px">{ic}<p><small>Son güncelleme: 10 Kasım 2026</small></p></div></div></section>"""
+    O.sayfa("cerez-politikasi.html", "Çerez Politikası | Çelikel Oto Servis",
+            "Çelikel Oto Servis web sitesi çerez politikası: kullanılan çerezler, yerel depolama, üçüncü taraf hizmetler ve çerezleri nasıl kontrol edebileceğiniz.",
             govde, ek_ld=O.kirinti_ld(yol))
 
 def hata_sayfasi():
@@ -259,6 +288,6 @@ def calistir():
     rehber_ana(); bolgeler_ana(); kucukcekmece_sayfasi()
     for m in MAKALELER: rehber_sayfasi(m)
     for i in ILCELER: ilce_sayfasi(i)
-    gizlilik_sayfasi(); hata_sayfasi()
+    gizlilik_sayfasi(); cerez_sayfasi(); hata_sayfasi()
     O.llms(); llms_ek(); site_haritasi()
     print("Sayfalar üretildi:", len(set(O.URLLER)))
