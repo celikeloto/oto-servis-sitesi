@@ -77,3 +77,25 @@ var AYAR = { acilis: 8, kapanis: 19, kapaliGunler: [0] /* 0 = Pazar */, wa: "905
   var v = document.querySelector(".giris-video"); if (!v) return;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches){ v.removeAttribute("autoplay"); v.pause(); }
 })();
+
+/* 10 Kasım anma ekranı: yalnızca 10 Kasım günü (İstanbul saatiyle), her ziyaretçiye bir kez */
+(function(){
+  try {
+    var p = new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Istanbul",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+    if (p.slice(5) !== "11-10") return;
+    var anahtar = "anma-10kasim-" + p.slice(0,4);
+    try { if (localStorage.getItem(anahtar)) return; } catch(e){}
+    var d = document.createElement("div");
+    d.className = "anma"; d.setAttribute("role","dialog"); d.setAttribute("aria-modal","true"); d.setAttribute("aria-label","10 Kasım Atatürk'ü anma");
+    d.innerHTML = '<div class="anma-ic"><img class="anma-gorsel" src="assets/img/10-kasim.jpg" alt="10 Kasım: Cumhuriyetimizin kurucusu Gazi Mustafa Kemal Atatürk\'ü sevgi, saygı ve özlemle anıyoruz." width="724" height="1024">'
+      + '<div class="anma-alt"><img src="assets/logo/logo-yatay-acik.svg" alt="Çelikel Oto Servis" height="34"><button type="button" class="anma-kapat">Siteye geç</button></div></div>';
+    function kapat(){ d.remove(); document.documentElement.style.overflow=""; document.removeEventListener("keydown", tus); }
+    function tus(e){ if (e.key === "Escape") kapat(); }
+    d.addEventListener("click", function(e){ if (e.target === d || e.target.classList.contains("anma-kapat")) kapat(); });
+    document.addEventListener("keydown", tus);
+    document.documentElement.style.overflow = "hidden";
+    document.body.appendChild(d);
+    d.querySelector(".anma-kapat").focus();
+    try { localStorage.setItem(anahtar, "1"); } catch(e){}
+  } catch(e){}
+})();
