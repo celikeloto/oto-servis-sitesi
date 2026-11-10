@@ -68,9 +68,9 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "23"
-GORSELLER = {"yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","aku":"aku-takviye","hibrit-elektrikli":"hibrit","muayene-oncesi-kontrol":"muayene-oncesi","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
-GORSEL_ALT = {"hibrit":"Şarj kablosu takılı hibrit araç başında tabletle kontrol yapan teknisyen","muayene-oncesi":"Serviste kontrol listesini dolduran usta, arkada kaputu açık araçta çalışan teknisyen","aku-takviye":"Kaputu açık araçta takviye cihazıyla akü takviyesi yapan usta","lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
+CSS_SURUM = "24"
+GORSELLER = {"yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","aku":"aku-takviye","ucretsiz-on-kontrol":"on-kontrol","hibrit-elektrikli":"hibrit","muayene-oncesi-kontrol":"muayene-oncesi","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
+GORSEL_ALT = {"on-kontrol":"Serviste iki usta aracın tekerleğini ve motorunu kontrol ediyor","hibrit":"Şarj kablosu takılı hibrit araç başında tabletle kontrol yapan teknisyen","muayene-oncesi":"Serviste kontrol listesini dolduran usta, arkada kaputu açık araçta çalışan teknisyen","aku-takviye":"Kaputu açık araçta takviye cihazıyla akü takviyesi yapan usta","lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
 def gorsel(ad, oncelik=False):
     yuk = 'fetchpriority="high"' if oncelik else 'loading="lazy"'
     return f'<figure class="icerik-gorsel"><img src="assets/img/{ad}.jpg" srcset="assets/img/{ad}-kucuk.jpg 800w, assets/img/{ad}.jpg 1200w" sizes="(max-width: 900px) 100vw, 760px" alt="{GORSEL_ALT[ad]}" width="1200" height="600" {yuk}></figure>'
