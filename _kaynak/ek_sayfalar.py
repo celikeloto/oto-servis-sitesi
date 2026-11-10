@@ -154,14 +154,14 @@ def ilce_sayfasi(i):
     dosya = f'{i["slug"]}-oto-servis.html'
     yol = [("Ana sayfa", "index.html"), ("Bölgeler", "bolgeler.html"), (i["ad"], None)]
     h, paras = i["ozel"]
-    diger = '<li><a href="kucukcekmece-yol-yardim-lastik-tamiri.html">Küçükçekmece ' + NAV_OK + "</a></li>" + "".join(
+    diger = '<li><a href="kucukcekmece-yol-yardim-lastik-tamiri.html">Küçükçekmece yol yardım ' + NAV_OK + "</a></li>" + "".join(
         f'<li><a href="{x["slug"]}-oto-servis.html"' + (' aria-current="page"' if x is i else "") + f'>{x["ad"]} {NAV_OK}</a></li>' for x in ILCELER)
     govde = f"""{sayfa_bas(yol, i["baslik"], i["giris"])}
 <section class="icerik"><div class="kap">
   <div class="metin">
     <h2>{h}</h2>{"".join(f"<p>{x}</p>" for x in paras)}
-    <h2>{i["ad"]} ilçesinden bize ulaşmak</h2>
-    <p>Servisimiz {ADRES1}, {ADRES2} adresinde; {i["ad"]} ilçe merkezine kuş uçuşu yaklaşık {i["km"]} km uzaklıkta. Pazartesiden cumartesiye 08:00–19:00 arası açığız. Gelmeden önce arayın, aracınız için yer ayıralım; gelemiyorsanız aracınızı adresinizden alalım.</p>
+    <h2>{i["ad"]} {"içinden" if i["km"] is None else "ilçesinden"} bize ulaşmak</h2>
+    <p>Servisimiz {ADRES1}, {ADRES2} adresinde{"; " + i["ad"] + " ilçe merkezine kuş uçuşu yaklaşık " + str(i["km"]) + " km uzaklıkta" if i["km"] else ""}. Pazartesiden cumartesiye 08:00–19:00 arası açığız. Gelmeden önce arayın, aracınız için yer ayıralım; gelemiyorsanız aracınızı adresinizden alalım.</p>
     <h2>Neden Çelikel Oto Servis?</h2>
     <ul class="tik">
       <li>{TIK_I}<span>40 yıllık tecrübeli Sebahattin Usta aracınızla birebir ilgilenir</span></li>
@@ -174,7 +174,7 @@ def ilce_sayfasi(i):
   <aside class="yan-kutu">
     <div class="kutu"><h2>Randevu ve fiyat</h2><p>Aracınızın marka, model ve yılını yazın, size dönelim.</p>
       <a class="btn btn-sari" href="tel:{TEL}">{TEL_I} {TEL_YAZI}</a>
-      <a class="btn btn-wa" href="{wa("Merhaba, " + i["ad"] + " ilçesinden yazıyorum. Aracım için bilgi almak istiyorum.")}" target="_blank" rel="noopener">{WA_I} WhatsApp'tan yaz</a></div>
+      <a class="btn btn-wa" href="{wa("Merhaba, " + i["ad"] + " bölgesinden yazıyorum. Aracım için bilgi almak istiyorum.")}" target="_blank" rel="noopener">{WA_I} WhatsApp'tan yaz</a></div>
     <div class="liste-kutu"><h3>Diğer bölgeler</h3><ul>{diger}</ul></div>
   </aside>
 </div></section>
@@ -186,17 +186,18 @@ def ilce_sayfasi(i):
           sss_ld(i["sss"]), kirinti_ld(yol)]
     title = i["baslik"][0].upper() + i["baslik"][1:]
     title = " ".join(w if w in ("ve",) else w[:1].upper() + w[1:] for w in title.split())
-    sayfa(dosya, f"{title} | Çelikel Oto Servis", i["meta"], govde, "bolge", ld)
+    t = next((x for x in (f"{title} | Çelikel Oto Servis", f"{title} | Çelikel Oto", title) if len(x) <= 62), title)
+    sayfa(dosya, t, i["meta"], govde, "bolge", ld)
 
 def bolgeler_ana():
     yol = [("Ana sayfa", "index.html"), ("Bölgeler", None)]
     kart = f'<li><a href="kucukcekmece-yol-yardim-lastik-tamiri.html"><h3>Küçükçekmece</h3><p>{len(KUCUKCEKMECE_MAHALLELER)} mahallenin tamamına yol yardım, lastik tamiri ve oto servis</p><span class="oku">Ayrıntılar</span></a></li>'
-    kart += "".join(f'<li><a href="{i["slug"]}-oto-servis.html"><h3>{i["ad"]}</h3><p>Kuş uçuşu yaklaşık {i["km"]} km, adresten araç alma</p><span class="oku">Ayrıntılar</span></a></li>' for i in ILCELER)
+    kart += "".join(f'<li><a href="{i["slug"]}-oto-servis.html"><h3>{i["ad"]}</h3><p>{("Kuş uçuşu yaklaşık " + str(i["km"]) + " km, adresten araç alma") if i["km"] else "Oto servis, bakım, tamir ve 7/24 yol yardım"}</p><span class="oku">Ayrıntılar</span></a></li>' for i in ILCELER)
     govde = f"""{sayfa_bas(yol, 'Hizmet verdiğimiz <span style="color:var(--ikaz)">bölgeler</span>', "Servisimiz Küçükçekmece'nin Yarımburgaz Mahallesi'nde. Küçükçekmece'nin tamamına yol yardım veriyor, çevre ilçelerden gelen müşterilerimizin aracını adresinden alıyoruz.")}
 <section><div class="kap"><ul class="rehber-izgara">{kart}</ul></div></section>
 {harita_bolum()}"""
     sayfa("bolgeler.html", "Hizmet Bölgelerimiz | Çelikel Oto Servis",
-          "Küçükçekmece'nin 21 mahallesine yol yardım; Başakşehir, Avcılar, Esenyurt, Beylikdüzü ve Bakırköy'den araç alma ve oto servis.",
+          "Küçükçekmece ve Halkalı oto servis, 21 mahalleye 7/24 yol yardım; Başakşehir, Avcılar, Esenyurt, Beylikdüzü ve Bakırköy'den araç alma.",
           govde, "bolge", kirinti_ld(yol))
 
 def site_haritasi():

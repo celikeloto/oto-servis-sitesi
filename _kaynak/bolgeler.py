@@ -5,6 +5,25 @@ KUCUKCEKMECE_MAHALLELER = ["Atakent", "Atatürk", "Beşyol", "Cennet", "Cumhuriy
     "Söğütlü Çeşme", "Sultan Murat", "Tevfikbey", "Yarımburgaz", "Yeni Mahalle", "Yeşilova"]
 
 ILCELER = [
+ dict(slug="kucukcekmece", ad="Küçükçekmece", km=None,
+  baslik="Küçükçekmece oto servis, oto tamir ve araç bakım",
+  meta="Küçükçekmece oto servis: araç bakım, oto tamir, arıza tespit, motor, şanzıman, fren, lastik, 7/24 yol yardım ve yedek parça. Yarımburgaz'da 40 yıllık usta.",
+  giris="Servisimiz Küçükçekmece'nin Yarımburgaz Mahallesi'nde. Periyodik bakımdan motor ve şanzıman onarımına, lastikten kaporta ve hasar onarımına kadar aracınızın bütün işlerini tek serviste yapıyoruz. Ne yapılacağını ve tutarını işe başlamadan söylüyoruz.",
+  ozel=("Küçükçekmece'de tek adreste bakım ve tamir", [
+   "Sebahattin Usta 40 yıldır bu işi yapıyor. Aracınız geldiğinde önce ücretsiz ön kontrolle genel durumuna bakıyor, gerekiyorsa arıza tespit cihazıyla teşhis koyuyoruz. Hangi parçanın neden değişmesi gerektiğini ve orijinal ya da muadil parça seçeneklerinin fiyatlarını size anlatıyoruz; onayınız olmadan işe başlamıyoruz.",
+   "Küçükçekmece'nin 21 mahallesinin tamamına 7/24 yol yardım veriyoruz: lastik patlaması, akü bitmesi ya da aracın çalışmaması durumunda yerinde müdahale ediyor, gerekirse aracınızı servise çekiyoruz. İşçiliğimize garanti veriyor, faturalı çalışıyoruz."]),
+  sss=[("Küçükçekmece'de oto servisiniz nerede?", "Servisimiz Yarımburgaz Mahallesi, Selvi Sokak 65/1 adresinde. Pazartesiden cumartesiye 08:00–19:00 arası açığız."),
+       ("Küçükçekmece'de hangi araçlara bakıyorsunuz?", "Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai başta olmak üzere BMW, Mercedes-Benz ve Audi dahil tüm marka binek araçlara, hibrit ve elektrikli araçlara bakıyoruz."),
+       ("Küçükçekmece'de gece yolda kalırsam ne yapmalıyım?", "Yol yardım hattımızı arayın: 0538 064 82 05. Hattımız 7/24 açık ve Küçükçekmece'nin tamamına hizmet veriyor.")]),
+ dict(slug="halkali", ad="Halkalı", km=None,
+  baslik="Halkalı oto servis ve araç bakım",
+  meta="Halkalı'ya yakın oto servis: periyodik bakım, arıza tespit, oto tamir, fren, lastik ve balans, klima, 7/24 yol yardım. Aracınızı adresinizden alıyoruz.",
+  giris="Halkalı'ya çok yakınız: servisimiz yine Küçükçekmece sınırları içinde, Yarımburgaz Mahallesi'nde. Halkalı'dan araç bakımı ve oto tamiri için bize gelebilir ya da aracınızı adresinizden aldırabilirsiniz.",
+  ozel=("Halkalı'daki sürücüler için", [
+   "Halkalı'da TEM ve Basın Ekspres bağlantılarıyla günlük işe gidiş gelişler uzun ve trafiği yoğun. Sık dur-kalk, frenlerin ve debriyajın daha hızlı aşınmasına, motor yağının daha çabuk yıpranmasına yol açar. Bakımları aksatmamanızı, fren ve debriyajı her bakımda kontrol ettirmenizi öneririz.",
+   "Halkalı Merkez, Atakent, İstasyon ve çevre mahallelerin tamamı 7/24 yol yardım hattımızın hizmet alanında. Lastiğiniz patlarsa ya da aküneniz biterse arayın, bulunduğunuz yere gelelim."]),
+  sss=[("Halkalı'dan servisinize ne kadar sürede ulaşırım?", "Servisimiz Küçükçekmece'nin Yarımburgaz Mahallesi'nde; Halkalı'dan trafiğe göre kısa sürede ulaşabilirsiniz. Gelemiyorsanız aracınızı adresinizden alıyoruz."),
+       ("Halkalı'da yol yardım veriyor musunuz?", "Evet. Halkalı, Küçükçekmece ilçesine bağlı ve yol yardım hattımız 0538 064 82 05 Küçükçekmece'nin tamamında 7/24 hizmet veriyor.")]),
  dict(slug="basaksehir", ad="Başakşehir", km=7,
   baslik="Başakşehir oto servis ve araç bakım",
   meta="Başakşehir'e yakın oto servis: periyodik bakım, arıza tespit, motor, şanzıman, fren, lastik ve yedek parça. Aracınızı adresinizden alıyoruz. Fiyat işe başlamadan.",

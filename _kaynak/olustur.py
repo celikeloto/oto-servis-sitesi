@@ -155,6 +155,15 @@ LD = {"@context":"https://schema.org","@type":"AutoRepair","name":"Çelikel Oto 
  "areaServed":["Küçükçekmece","Başakşehir","Avcılar","Beylikdüzü","Esenyurt","Bakırköy"],"priceRange":"₺₺"}
 
 URLLER = []
+def baslik_sec(ad):
+    for t in (f"{ad} Küçükçekmece | Çelikel Oto Servis", f"{ad} Küçükçekmece | Çelikel Oto", f"{ad} | Çelikel Oto Servis"):
+        if len(t) <= 62: return t
+    return ad[:62]
+
+def aciklama_sec(govde, son):
+    t = govde + son
+    return t if len(t) <= 160 else govde[:160 - 1].rsplit(" ", 1)[0] + "…"
+
 def sayfa(dosya, baslik, aciklama, govde, aktif="", ek_ld=None, og_tur="website"):
     ld = json.dumps(LD, ensure_ascii=False)
     ek = f'\n<script type="application/ld+json">{json.dumps(ek_ld, ensure_ascii=False)}</script>' if ek_ld else ""
@@ -345,8 +354,8 @@ def ana():
 {sss}
 {form_bolum()}
 {harita_bolum()}'''
-    sayfa("index.html", "Çelikel Oto Servis | Oto Tamir, Bakım ve Yedek Parça",
-          f"Çelikel Oto Servis: periyodik bakım, arıza tespit, motor, şanzıman, fren, klima, kaporta ve yedek parça. Aracınızı adresinizden alıyoruz. {TEL_YAZI}",
+    sayfa("index.html", "Küçükçekmece Oto Servis, Tamir ve Bakım | Çelikel Oto",
+          f"Küçükçekmece Yarımburgaz'da oto servis: araç bakım, oto tamir, arıza tespit, lastik, 7/24 yol yardım ve yedek parça. 40 yıllık usta. {TEL_YAZI}",
           govde, "ana", sss_ld)
 
 # ---------------- hizmet sayfaları ----------------
@@ -376,15 +385,15 @@ def hizmet_sayfasi(h):
 {cagri()}
 {harita_bolum()}'''
     ld = {"@context":"https://schema.org","@type":"Service","name":h["ad"],"serviceType":h["ad"],"provider":{"@type":"AutoRepair","name":"Çelikel Oto Servis","telephone":TEL},"areaServed":"Küçükçekmece, İstanbul","description":h["giris"]}
-    sayfa(f'hizmet-{h["slug"]}.html', f'{h["ad"]} | Çelikel Oto Servis',
-          f'{h["ad"]}: {h["kisa"]} Fiyatı işe başlamadan söyleriz. {TEL_YAZI}', govde, "", [ld, kirinti_ld(yol)])
+    sayfa(f'hizmet-{h["slug"]}.html', baslik_sec(h["ad"]),
+          aciklama_sec(f'Küçükçekmece {h["ad"][0].lower() + h["ad"][1:]}: {h["kisa"]}', f' Yarımburgaz. Fiyat işe başlamadan. {TEL_YAZI}'), govde, "", [ld, kirinti_ld(yol)])
 
 def hizmetler_sayfasi():
     yol = [("Ana sayfa","index.html"),("Hizmetlerimiz",None)]
     govde = f'''{sayfa_bas(yol, "Hizmetlerimiz", "Aracınızın motorundan frenine, elektriğinden kaportasına kadar bütün parçalarının bakımını ve onarımını tek serviste yapıyoruz. Gereken parçayı da biz buluyoruz.")}
 {"".join(f'<section class="grup-bolum" aria-label="{g}"><div class="kap"><h2 class="grup-baslik">{g}</h2><ul class="hizmet-izgara">{hizmet_kartlari([h for h in HIZMETLER if h["grup"]==g], one_son=False)}</ul></div></section>' for g in GRUPLAR)}
 {cagri()}{form_bolum()}'''
-    sayfa("hizmetler.html", "Hizmetlerimiz | Çelikel Oto Servis", "Çelikel Oto Servis hizmetleri: periyodik bakım, arıza tespit, motor, şanzıman, fren, oto elektrik, klima, kaporta boya ve yedek parça.", govde, "", kirinti_ld(yol))
+    sayfa("hizmetler.html", "Oto Tamir ve Araç Bakım Hizmetleri | Çelikel Oto Servis", "Küçükçekmece oto tamir ve araç bakım hizmetleri: periyodik bakım, arıza tespit, motor, şanzıman, fren, oto elektrik, klima, kaporta boya ve yedek parça.", govde, "", kirinti_ld(yol))
 
 # ---------------- marka sayfaları ----------------
 def marka_sayfasi(m):
@@ -416,8 +425,8 @@ def marka_sayfasi(m):
 </div></section>
 <section aria-labelledby="h-mh" style="padding-top:0"><div class="kap">{bas_orta("Hizmetler", f'{m} için <span class="vurgu">hizmetlerimiz</span>', "Hizmete tıklayın, ayrıntıları görün.", "h-mh")}<ul class="hizmet-izgara">{hk}</ul></div></section>
 {cagri()}'''
-    sayfa(f"marka-{mslug(m)}.html", f"{m} Servisi | Çelikel Oto Servis",
-          f"{m} bakım, arıza tespit ve onarım. {m} yedek parça temini, fiyat işe başlamadan. {TEL_YAZI}", govde, "", kirinti_ld(yol))
+    sayfa(f"marka-{mslug(m)}.html", baslik_sec(f"{m} Özel Servis"),
+          f"Küçükçekmece {m} özel servis: bakım, arıza tespit, onarım ve {m} yedek parça. Fiyat işe başlamadan. {TEL_YAZI}", govde, "", kirinti_ld(yol))
 
 def markalar_sayfasi():
     yol = [("Ana sayfa","index.html"),("Markalar",None)]
