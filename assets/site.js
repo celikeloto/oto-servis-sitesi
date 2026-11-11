@@ -1,7 +1,9 @@
 // Ayarlar: saatleri veya numarayı değiştirmek için burayı düzenleyin
 var AYAR = { acilis: 8, kapanis: 19, kapaliGunler: [0] /* 0 = Pazar */, wa: "905421401974",
   // Bayramlarda kapalıyız (arefe günü normal çalışılır). Yeni yılın bayram günlerini buraya ekleyin.
-  kapaliTarihler: ["2027-03-09","2027-03-10","2027-03-11", "2027-05-16","2027-05-17","2027-05-18","2027-05-19"] };
+  kapaliTarihler: ["2027-03-09","2027-03-10","2027-03-11", "2027-05-16","2027-05-17","2027-05-18","2027-05-19"],
+  // Arefe günleri yarım gün: bu saate kadar açığız
+  yarimGunler: { "2027-03-08": 13, "2027-05-15": 13 } };
 
 (function(){
   var yil = document.getElementById("yil");
@@ -37,17 +39,20 @@ var AYAR = { acilis: 8, kapanis: 19, kapaliGunler: [0] /* 0 = Pazar */, wa: "905
       var d = new Date(simdi.getTime() + ek * 86400000), g = {};
       new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Istanbul",weekday:"short",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false})
         .formatToParts(d).forEach(function(x){ g[x.type]=x.value; });
-      var hg = GUNLER[g.weekday];
+      var hg = GUNLER[g.weekday], t = g.year + "-" + g.month + "-" + g.day;
       return { hg: hg, saat: parseInt(g.hour,10) % 24 + parseInt(g.minute,10)/60,
-               kapali: AYAR.kapaliGunler.indexOf(hg) !== -1 || AYAR.kapaliTarihler.indexOf(g.year + "-" + g.month + "-" + g.day) !== -1 };
+               kapanis: AYAR.yarimGunler[t] || AYAR.kapanis, arefe: !!AYAR.yarimGunler[t],
+               kapali: AYAR.kapaliGunler.indexOf(hg) !== -1 || AYAR.kapaliTarihler.indexOf(t) !== -1 };
     }
-    var b = bilgi(0), acik = !b.kapali && b.saat >= AYAR.acilis && b.saat < AYAR.kapanis, sonraki;
+    var b = bilgi(0), acik = !b.kapali && b.saat >= AYAR.acilis && b.saat < b.kapanis, sonraki;
     if (!b.kapali && b.saat < AYAR.acilis) sonraki = "bugün 08:00'de";
     else { var ek = 1; while (ek < 14 && bilgi(ek).kapali) ek++;
       sonraki = (ek === 1 ? "yarın" : ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"][bilgi(ek).hg]) + " 08:00'de"; }
     var bayram = AYAR.kapaliGunler.indexOf(b.hg) === -1 && b.kapali;
     el.classList.add(acik ? "acik" : "kapali");
-    yazi.textContent = acik ? "Şu an açığız, 19:00'a kadar" : (bayram ? "Bayram nedeniyle kapalıyız, " : "Şu an kapalıyız, ") + sonraki + " açılıyoruz";
+    var kapanisYazi = (b.kapanis < 10 ? "0" : "") + b.kapanis + ":00";
+    yazi.textContent = acik ? (b.arefe ? "Bugün arefe, " + kapanisYazi + "'e kadar açığız" : "Şu an açığız, " + kapanisYazi + "'a kadar")
+      : (bayram ? "Bayram nedeniyle kapalıyız, " : "Şu an kapalıyız, ") + sonraki + " açılıyoruz";
   }catch(e){}
 
   // Form → WhatsApp mesajı
@@ -142,8 +147,8 @@ function bugunIstanbul(){
       "2027-01-22": "Berat Kandiliniz mübarek olsun.",
       "2027-02-08": "Hayırlı Ramazanlar! Ramazan ayının bereketli geçmesini dileriz.",
       "2027-03-05": "Kadir Geceniz mübarek olsun.",
-      "2027-03-08": RB, "2027-03-09": RB, "2027-03-10": RB, "2027-03-11": RB,
-      "2027-05-15": KB, "2027-05-16": KB, "2027-05-17": KB, "2027-05-18": KB, "2027-05-19": KB,
+      "2027-03-08": "Ramazan Bayramınızı şimdiden kutlarız! Bugün arefe, servisimiz 13:00'e kadar açık; bayram boyunca (9–11 Mart) kapalıyız. 7/24 yol yardım hattımız açık: " + YOL, "2027-03-09": RB, "2027-03-10": RB, "2027-03-11": RB,
+      "2027-05-15": "Kurban Bayramınızı şimdiden kutlarız! Bugün arefe, servisimiz 13:00'e kadar açık; bayram boyunca (16–19 Mayıs) kapalıyız. 7/24 yol yardım hattımız açık: " + YOL, "2027-05-16": KB, "2027-05-17": KB, "2027-05-18": KB, "2027-05-19": KB,
       "2027-08-13": "Mevlid Kandiliniz mübarek olsun.",
       "2027-11-29": "Üç aylar başladı. Hayırlara vesile olmasını dileriz.",
       "2027-12-02": "Regaip Kandiliniz mübarek olsun.",

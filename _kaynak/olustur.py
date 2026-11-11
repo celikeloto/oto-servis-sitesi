@@ -68,7 +68,7 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "30"
+CSS_SURUM = "31"
 GORSELLER = {"periyodik-bakim":"periyodik-bakim","motor-mekanik":"motor","yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","aku":"aku-takviye","ucretsiz-on-kontrol":"on-kontrol","hibrit-elektrikli":"hibrit","muayene-oncesi-kontrol":"muayene-oncesi","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
 GORSEL_ALT = {"motor":"Motor bölümünde çalışan usta","periyodik-bakim":"Kaputu açık araçta yağ çubuğuyla motor yağı seviyesini kontrol eden usta","on-kontrol":"Serviste iki usta aracın tekerleğini ve motorunu kontrol ediyor","hibrit":"Şarj kablosu takılı hibrit araç başında tabletle kontrol yapan teknisyen","muayene-oncesi":"Serviste kontrol listesini dolduran usta, arkada kaputu açık araçta çalışan teknisyen","aku-takviye":"Kaputu açık araçta takviye cihazıyla akü takviyesi yapan usta","lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
 def gorsel(ad, oncelik=False):
