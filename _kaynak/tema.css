@@ -301,10 +301,10 @@ footer h3{font-family:var(--baslik);font-size:.78rem;letter-spacing:.18em;text-t
 @media (min-width:601px) and (max-width:960px){.hizmet-izgara .hizmet.one{grid-column:1/-1}}
 
 /* Logo */
-.ust .logo img{height:70px;width:auto;display:block;margin:-6px 0}
+.ust .logo img{height:62px;width:auto;display:block}
 .alt-logo{display:inline-block;margin-bottom:16px}
-.alt-logo img{height:120px;width:auto;display:block}
-@media (max-width:520px){.ust .logo img{height:56px;margin:-4px 0}}
+.alt-logo img{height:72px;width:auto;display:block}
+@media (max-width:520px){.ust .logo img{height:48px}}
 
 /* Gruplu açılır menü */
 .acilir ul.mega{min-width:620px;display:grid;grid-template-columns:1fr 1fr;column-gap:8px;padding:14px;left:-120px}
