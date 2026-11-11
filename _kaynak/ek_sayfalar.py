@@ -78,7 +78,7 @@ def rehber_sayfasi(m):
            "datePublished": TARIH, "dateModified": TARIH, "inLanguage": "tr-TR", "mainEntityOfPage": url,
            "author": {"@type": "Organization", "name": "Çelikel Oto Servis", "url": SITE_URL},
            "publisher": {"@type": "Organization", "name": "Çelikel Oto Servis",
-                         "logo": {"@type": "ImageObject", "url": SITE_URL + "assets/logo/logo-yatay.svg"}}},
+                         "logo": {"@type": "ImageObject", "url": SITE_URL + "assets/logo/logo.png"}}},
           sss_ld(m["sss"]), kirinti_ld(yol)]
     ek = " | Çelikel Oto Servis"
     if len(m["baslik"]) + len(ek) <= 62: title = m["baslik"] + ek

@@ -68,7 +68,7 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "25"
+CSS_SURUM = "26"
 GORSELLER = {"yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","aku":"aku-takviye","ucretsiz-on-kontrol":"on-kontrol","hibrit-elektrikli":"hibrit","muayene-oncesi-kontrol":"muayene-oncesi","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
 GORSEL_ALT = {"on-kontrol":"Serviste iki usta aracın tekerleğini ve motorunu kontrol ediyor","hibrit":"Şarj kablosu takılı hibrit araç başında tabletle kontrol yapan teknisyen","muayene-oncesi":"Serviste kontrol listesini dolduran usta, arkada kaputu açık araçta çalışan teknisyen","aku-takviye":"Kaputu açık araçta takviye cihazıyla akü takviyesi yapan usta","lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
 def gorsel(ad, oncelik=False):
@@ -89,7 +89,7 @@ def ust(aktif=""):
 </div></div>
 <header class="ust">
   <div class="kap">
-    <a class="logo" href="index.html" aria-label="Çelikel Oto Servis ana sayfa"><img src="assets/logo/logo-yatay.svg" alt="Çelikel Oto Servis" width="460" height="120"></a>
+    <a class="logo" href="index.html" aria-label="Çelikel Oto Servis ana sayfa"><img src="assets/logo/logo.png" alt="Çelikel Oto Servis" width="353" height="320"></a>
     <button class="menu-dugme" type="button" aria-controls="ana-menu" aria-expanded="false" aria-label="Menüyü aç">{I('<path d="M4 7h16M4 12h16M4 17h16"/>',24)}</button>
     <nav id="ana-menu" aria-label="Ana menü">
       <div class="acilir"><button type="button" aria-expanded="false">Hizmetlerimiz {OK_I}</button>
@@ -133,7 +133,7 @@ def alt():
     hl = "".join(f'<li><a href="hizmet-{h["slug"]}.html">{h["ad"]}</a></li>' for h in ANA_HIZMETLER[:6])
     ml = "".join(f'<li><a href="marka-{mslug(m)}.html">{m} servisi</a></li>' for m in MARKALAR[:6])
     return f'''<footer><div class="kap">
-  <div><a class="logo alt-logo" href="index.html" aria-label="Çelikel Oto Servis ana sayfa"><img src="assets/logo/logo-yatay-acik.svg" alt="Çelikel Oto Servis" width="460" height="120"></a>
+  <div><a class="logo alt-logo" href="index.html" aria-label="Çelikel Oto Servis ana sayfa"><img src="assets/logo/logo-acik.png" alt="Çelikel Oto Servis" width="353" height="320" loading="lazy"></a>
     <p style="margin:0;max-width:36ch">Oto bakım, tamir ve yedek parça. Aracınızı adresinizden alıyoruz.</p></div>
   <div><h3>Hizmetler</h3><ul>{hl}<li><a href="hizmetler.html">Tümü</a></li></ul></div>
   <div><h3>Rehber ve bölgeler</h3><ul><li><a href="rehber.html">Oto tamir rehberi</a></li><li><a href="kucukcekmece-yol-yardim-lastik-tamiri.html">Küçükçekmece yol yardım</a></li>{"".join(f'<li><a href="{i["slug"]}-oto-servis.html">{i["ad"]} oto servis</a></li>' for i in ILCELER[:4])}<li><a href="bolgeler.html">Tüm bölgeler</a></li></ul></div>
