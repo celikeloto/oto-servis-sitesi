@@ -768,3 +768,20 @@ footer h3{font-family:var(--baslik);font-size:.78rem;letter-spacing:.18em;text-t
 .bakim-listeler{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;margin:8px 0 16px}
 .bakim-listeler h3{margin:8px 0 4px;font-size:1.1rem}
 @media (max-width:700px){.bakim-listeler{grid-template-columns:1fr}}
+
+/* Önemli günler şeridi */
+.gun-serit{position:relative;z-index:21;font-size:.98rem;line-height:1.45}
+.gun-serit .kap{display:flex;align-items:center;gap:14px;padding-top:10px;padding-bottom:10px}
+.gun-serit p{margin:0;flex:1;font-weight:500}
+.gun-serit a{color:inherit;font-weight:700;white-space:nowrap}
+.gun-ikon{display:flex;flex:none}
+.gun-imza{opacity:.75;font-weight:600;white-space:nowrap;margin-left:4px}
+.gun-imza::before{content:"— "}
+.gun-kapat{flex:none;background:none;border:0;color:inherit;font-size:1.6rem;line-height:1;cursor:pointer;opacity:.8;padding:0 4px}
+.gun-kapat:hover,.gun-kapat:focus-visible{opacity:1}
+.gun-resmi{background:#e30a17;color:#fff}
+.gun-resmi .gun-ikon svg rect{fill:#fff}.gun-resmi .gun-ikon svg circle:first-of-type{fill:#e30a17}.gun-resmi .gun-ikon svg circle:last-of-type{fill:#fff}.gun-resmi .gun-ikon svg path{fill:#e30a17}
+.gun-anma{background:#000;color:#f2f2f2}
+.gun-dini{background:linear-gradient(90deg,#0f3d2e,#14523d);color:#f6efd8}
+.gun-dini .gun-ikon{color:#e9c46a}
+@media (max-width:600px){.gun-serit{font-size:.9rem}.gun-imza{display:none}}

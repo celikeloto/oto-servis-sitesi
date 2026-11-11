@@ -252,8 +252,9 @@ def cerez_sayfasi():
     yol = [("Ana sayfa", "index.html"), ("Çerez politikası", None)]
     b = [("Çerez nedir?", ["Çerezler, ziyaret ettiğiniz web sitelerinin tarayıcınıza kaydettiği küçük metin dosyalarıdır. Benzer şekilde tarayıcının \"yerel depolama\" alanı da sitelerin küçük bilgileri cihazınızda saklamasına izin verir. Bu metin, Çelikel Oto Servis web sitesinde (celikeloto.com) bu teknolojilerin nasıl kullanıldığını açıklar."]),
          ("Sitemizin kendi çerezleri", ["Sitemiz kendi adına <b>hiçbir çerez oluşturmaz</b>. Ziyaretçi sayma, reklam, yeniden hedefleme ya da davranış takibi yapan bir araç (örneğin Google Analytics, Facebook Pikseli) kullanmıyoruz."]),
-         ("Yerel depolama", ["Sitemiz tarayıcınızın yerel depolama alanına yalnızca tek bir bilgi kaydeder:",
-              {"tablo": (["Ad", "Amaç", "Süre"], [["anma-10kasim-(yıl)", "10 Kasım anma ekranının size aynı gün içinde yalnızca bir kez gösterilmesi", "Siz tarayıcı verilerini silene kadar"]])},
+         ("Yerel depolama", ["Sitemiz tarayıcınızın yerel depolama alanına yalnızca şu bilgileri kaydeder:",
+              {"tablo": (["Ad", "Amaç", "Süre"], [["anma-10kasim-(yıl)", "10 Kasım anma ekranının size aynı gün içinde yalnızca bir kez gösterilmesi", "Siz tarayıcı verilerini silene kadar"],
+                ["gun-serit-(tarih)", "Bayram, kandil ve anma günlerinde gösterilen mesaj şeridini kapattığınızın hatırlanması", "Siz tarayıcı verilerini silene kadar"]])},
               "Bu bilgi kişisel veri içermez, yalnızca cihazınızda tutulur ve bize gönderilmez."]),
          ("Üçüncü taraf hizmetlerin çerezleri", [
               {"tablo": (["Hizmet", "Nerede kullanılıyor?", "Çerez"], [
@@ -272,7 +273,7 @@ def cerez_sayfasi():
         ]
     ic = "".join(f"<section><h2>{h}</h2>{''.join(blok_html(k) for k in x)}</section>" for h, x in b)
     govde = f"""{O.sayfa_bas(yol, "Çerez politikası", "Sitemizde çerez ve yerel depolamanın nasıl kullanıldığını açıklıyoruz.", eylem=False)}
-<section class="makale"><div class="kap"><div class="makale-govde" style="max-width:760px">{ic}<p><small>Son güncelleme: 10 Kasım 2026</small></p></div></div></section>"""
+<section class="makale"><div class="kap"><div class="makale-govde" style="max-width:760px">{ic}<p><small>Son güncelleme: 11 Kasım 2026</small></p></div></div></section>"""
     O.sayfa("cerez-politikasi.html", "Çerez Politikası | Çelikel Oto Servis",
             "Çelikel Oto Servis web sitesi çerez politikası: kullanılan çerezler, yerel depolama, üçüncü taraf hizmetler ve çerezleri nasıl kontrol edebileceğiniz.",
             govde, ek_ld=O.kirinti_ld(yol))
