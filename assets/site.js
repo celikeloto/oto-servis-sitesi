@@ -1,5 +1,7 @@
 // Ayarlar: saatleri veya numarayı değiştirmek için burayı düzenleyin
-var AYAR = { acilis: 8, kapanis: 19, kapaliGunler: [0] /* 0 = Pazar */, wa: "905421401974" };
+var AYAR = { acilis: 8, kapanis: 19, kapaliGunler: [0] /* 0 = Pazar */, wa: "905421401974",
+  // Bayramlarda kapalıyız (arefe günü normal çalışılır). Yeni yılın bayram günlerini buraya ekleyin.
+  kapaliTarihler: ["2027-03-09","2027-03-10","2027-03-11", "2027-05-16","2027-05-17","2027-05-18","2027-05-19"] };
 
 (function(){
   var yil = document.getElementById("yil");
@@ -24,20 +26,28 @@ var AYAR = { acilis: 8, kapanis: 19, kapaliGunler: [0] /* 0 = Pazar */, wa: "905
     document.querySelectorAll(".acilir.acik").forEach(function(li){ li.classList.remove("acik"); li.querySelector("button").setAttribute("aria-expanded","false"); });
   });
 
-  // Şu an açık mı? (Türkiye saatine göre)
+  // Şu an açık mı? (Türkiye saatine göre; Pazar ve bayram günleri kapalı)
   var el = document.getElementById("durum");
   if (el) try{
     var yazi = el.querySelector("span");
-    var p = new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Istanbul",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
-    var g = {}; p.forEach(function(x){ g[x.type]=x.value; });
-    var gunler = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
-    var saat = parseInt(g.hour,10) % 24 + parseInt(g.minute,10)/60, bugun = gunler[g.weekday];
-    var acik = AYAR.kapaliGunler.indexOf(bugun) === -1 && saat >= AYAR.acilis && saat < AYAR.kapanis, sonraki;
-    if (saat < AYAR.acilis && AYAR.kapaliGunler.indexOf(bugun) === -1) sonraki = "bugün 08:00'de";
-    else { var d = (bugun + 1) % 7; while (AYAR.kapaliGunler.indexOf(d) !== -1) d = (d + 1) % 7;
-      sonraki = (d === (bugun + 1) % 7 ? "yarın" : ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"][d]) + " 08:00'de"; }
+    var onizleme = /[?&]gun=(\d{4}-\d{2}-\d{2})/.exec(location.search);
+    var simdi = onizleme ? new Date(onizleme[1] + "T10:00:00+03:00") : new Date();
+    var GUNLER = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    function bilgi(ek){
+      var d = new Date(simdi.getTime() + ek * 86400000), g = {};
+      new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Istanbul",weekday:"short",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false})
+        .formatToParts(d).forEach(function(x){ g[x.type]=x.value; });
+      var hg = GUNLER[g.weekday];
+      return { hg: hg, saat: parseInt(g.hour,10) % 24 + parseInt(g.minute,10)/60,
+               kapali: AYAR.kapaliGunler.indexOf(hg) !== -1 || AYAR.kapaliTarihler.indexOf(g.year + "-" + g.month + "-" + g.day) !== -1 };
+    }
+    var b = bilgi(0), acik = !b.kapali && b.saat >= AYAR.acilis && b.saat < AYAR.kapanis, sonraki;
+    if (!b.kapali && b.saat < AYAR.acilis) sonraki = "bugün 08:00'de";
+    else { var ek = 1; while (ek < 14 && bilgi(ek).kapali) ek++;
+      sonraki = (ek === 1 ? "yarın" : ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"][bilgi(ek).hg]) + " 08:00'de"; }
+    var bayram = AYAR.kapaliGunler.indexOf(b.hg) === -1 && b.kapali;
     el.classList.add(acik ? "acik" : "kapali");
-    yazi.textContent = acik ? "Şu an açığız, 19:00'a kadar" : "Şu an kapalıyız, " + sonraki + " açılıyoruz";
+    yazi.textContent = acik ? "Şu an açığız, 19:00'a kadar" : (bayram ? "Bayram nedeniyle kapalıyız, " : "Şu an kapalıyız, ") + sonraki + " açılıyoruz";
   }catch(e){}
 
   // Form → WhatsApp mesajı
@@ -108,7 +118,7 @@ function bugunIstanbul(){
 
 /* Önemli günler şeridi: resmî bayramlar, anma günleri, kandiller ve dinî bayramlar.
    Dinî günler her yıl değişir; tarihler Diyanet İşleri Başkanlığı dinî günler takviminden alınmıştır.
-   Yeni yılın tarihleri DINI listesine eklenmelidir (son eklenen: 2027 sonu). */
+   Yeni yılın tarihleri DINI listesine, bayram günleri en üstteki AYAR.kapaliTarihler listesine eklenmelidir (son eklenen: 2027 sonu). */
 (function(){
   try {
     var bugun = bugunIstanbul(), yil = +bugun.slice(0,4), ag = bugun.slice(5);
@@ -124,8 +134,8 @@ function bugunIstanbul(){
       "10-29": ["resmi", "Cumhuriyetimizin " + (yil - 1923) + ". yılı kutlu olsun! 29 Ekim Cumhuriyet Bayramımız kutlu olsun."],
       "11-10": ["anma",  "Cumhuriyetimizin kurucusu Gazi Mustafa Kemal Atatürk'ü sevgi, saygı ve özlemle anıyoruz."]
     };
-    var RB = "Ramazan Bayramınız mübarek olsun! 7/24 yol yardım hattımız bayramda da açık: " + YOL;
-    var KB = "Kurban Bayramınız mübarek olsun! 7/24 yol yardım hattımız bayramda da açık: " + YOL;
+    var RB = "Ramazan Bayramınız mübarek olsun! Servisimiz bayram boyunca (9–11 Mart) kapalıdır; 7/24 yol yardım hattımız açık: " + YOL;
+    var KB = "Kurban Bayramınız mübarek olsun! Servisimiz bayram boyunca (16–19 Mayıs) kapalıdır; 7/24 yol yardım hattımız açık: " + YOL;
     var DINI = {
       "2026-12-10": "Regaip Kandiliniz mübarek olsun. Üç ayların hayırlara vesile olmasını dileriz.",
       "2027-01-04": "Miraç Kandiliniz mübarek olsun.",
