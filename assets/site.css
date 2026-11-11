@@ -763,3 +763,8 @@ footer h3{font-family:var(--baslik);font-size:.78rem;letter-spacing:.18em;text-t
 .makale-govde section{padding:0}
 .makale-govde section + section{margin-top:8px}
 .metin .sss.makale-sss{padding:0}
+
+/* Periyodik / ağır bakım listeleri */
+.bakim-listeler{display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;margin:8px 0 16px}
+.bakim-listeler h3{margin:8px 0 4px;font-size:1.1rem}
+@media (max-width:700px){.bakim-listeler{grid-template-columns:1fr}}

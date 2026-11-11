@@ -58,7 +58,7 @@
 - [Yedek parça](hizmet-yedek-parca.html): Orijinal ve muadil parça. Stokta yoksa kısa sürede getirtiriz; takmasını da biz yaparız.
 
 ## Bakılan markalar
-Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai, BMW, Mercedes-Benz, Audi ve diğer binek araç markaları.
+Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai, Skoda, Seat, Kia, Honda, BMW, Mercedes-Benz, Audi, Volvo, Mini, Porsche ve diğer binek araç markaları.
 
 ## Sık sorulan sorular
 - **Çalışma saatleriniz nedir?** Pazartesiden cumartesiye 08:00–19:00 arası açığız. Pazar günü kapalıyız.
@@ -67,7 +67,7 @@ Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai
 - **Fiyatı önceden öğrenebilir miyim?** Evet. Arıza tespitinden sonra ne yapılacağını ve tutarını işe başlamadan söyleriz; onayınız olmadan işe başlamayız.
 - **Motor arıza ışığı yandı, ne yapmalıyım?** Işık sabit yanıyorsa aracı en kısa sürede getirin; yanıp sönüyorsa ya da araç çekişten düştüyse yola devam etmeden bizi arayın. Cihazla hata kodlarını okuyup sorunun kaynağını buluruz.
 - **Yedek parçayı siz mi temin ediyorsunuz?** Evet. Orijinal ve muadil parça seçeneklerini fiyatlarıyla birlikte size söyleriz. Stokta olmayan parçayı kısa sürede getirtiriz.
-- **Hangi markalara bakıyorsunuz?** Binek araçların büyük çoğunluğuna bakıyoruz: Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai, BMW, Mercedes-Benz, Audi ve diğer markalar. Aracınızdan emin değilseniz arayıp sorabilirsiniz.
+- **Hangi markalara bakıyorsunuz?** Binek araçların büyük çoğunluğuna bakıyoruz: Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai, Skoda, Seat, Kia, Honda, BMW, Mercedes-Benz, Audi, Volvo, Mini, Porsche ve diğer markalar. Aracınızdan emin değilseniz arayıp sorabilirsiniz.
 - **Aracım yolda kaldı, ne yapmalıyım?** Güvenli bir yere çekilip dörtlüleri yakın ve yol yardım hattımızı arayın: 0538 064 82 05. Durumu dinleyip size en hızlı çözümü söyleyelim.
 - **Aracın hangi parçalarına bakıyorsunuz?** Aracın bütün parçalarına bakım ve onarım yapıyoruz: motor, triger, debriyaj, şanzıman, soğutma ve yakıt sistemi, turbo, egzoz, fren, süspansiyon ve direksiyon, lastik ve balans, elektrik, klima ve kaporta. Gereken yedek parçayı da biz temin ediyoruz.
 - **Ustanız ne kadar tecrübeli?** Servisimizi yöneten Sebahattin Usta 40 yıldır bu işi yapıyor. Aracınızla bizzat ilgilenir.
@@ -129,3 +129,8 @@ Fiat, Renault, Dacia, Volkswagen, Ford, Opel, Peugeot, Citroën, Toyota, Hyundai
 - [Esenyurt araç bakım ve oto tamir](esenyurt-oto-servis.html): Esenyurt'a kuş uçuşu yaklaşık 7 km uzaklıktayız. Esenyurt'tan araç bakımı ve oto tamiri için bize gelebilir ya da aracınızı adresinizden aldırabilirsiniz. Ne yapılacağını ve tutarını işe başlamadan söylüyoruz.
 - [Beylikdüzü oto servis ve araç bakım](beylikduzu-oto-servis.html): Beylikdüzü'ne kuş uçuşu yaklaşık 12 km uzaklıktayız. Beylikdüzü'nden bakım ve onarım için bize gelen müşterilerimiz için aracı adresinden alma imkânı sunuyoruz; böylece işinizden ya da evinizden ayrılmanız gerekmez.
 - [Bakırköy oto servis ve araç bakım](bakirkoy-oto-servis.html): Çelikel Oto Servis uzun yıllar Bakırköy'de hizmet verdi. Bakırköy'den birçok müşterimiz, Yarımburgaz'daki yeni yerimize de gelmeye devam ediyor. Bakırköy'e kuş uçuşu yaklaşık 13 km uzaklıktayız; mesafe sorun olmasın diye aracınızı adresinizden alıyoruz.
+- [Yarımburgaz oto servis ve oto tamir](yarimburgaz-oto-servis.html): Servisimiz Yarımburgaz Mahallesi'nde, Selvi Sokak 65/1'de. Mahallede oturuyor ya da çalışıyorsanız aracınızı yürüme mesafesinde bırakıp işinize dönebilirsiniz; iş bitince sizi arıyoruz.
+- [Atakent oto servis ve araç bakım](atakent-oto-servis.html): Atakent'e yakınız: servisimiz yine Küçükçekmece'de, Yarımburgaz Mahallesi'nde. Atakent'ten bakım ve onarım için bize gelebilir ya da aracınızı oturduğunuz siteden aldırabilirsiniz.
+- [Cennet Mahallesi oto servis ve tamir](cennet-oto-servis.html): Cennet Mahallesi, servisimizle aynı ilçede, Küçükçekmece'de. Cennet'ten araç bakımı ve oto tamiri için bize gelebilir ya da aracınızı adresinizden aldırabilirsiniz.
+- [Sefaköy oto servis ve araç bakım](sefakoy-oto-servis.html): Sefaköy de servisimiz gibi Küçükçekmece sınırları içinde. Sefaköy'den bakım ve onarım için bize gelebilir, vaktiniz yoksa aracınızı adresinizden ya da iş yerinizden aldırabilirsiniz.
+- [İkitelli oto servis ve araç bakım](ikitelli-oto-servis.html): İkitelli'ye yakın bir oto servis arıyorsanız servisimiz Küçükçekmece'nin Yarımburgaz Mahallesi'nde. İkitelli'de çalışıyorsanız aracınızı mesai sırasında iş yerinizden alıp akşam teslim edebiliyoruz.

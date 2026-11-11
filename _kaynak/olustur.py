@@ -44,7 +44,7 @@ from bolgeler import KUCUKCEKMECE_MAHALLELER, ILCELER
 SITE_URL = "https://celikeloto.com/"
 TARIH, TARIH_YAZI = "2026-11-09", "9 Kasım 2026"
 ANA_HIZMETLER = [h for h in HIZMETLER if h.get("ana")]
-MARKALAR = ["Fiat","Renault","Dacia","Volkswagen","Ford","Opel","Peugeot","Citroën","Toyota","Hyundai","BMW","Mercedes-Benz","Audi"]
+MARKALAR = ["Fiat","Renault","Dacia","Volkswagen","Ford","Opel","Peugeot","Citroën","Toyota","Hyundai","Skoda","Seat","Kia","Honda","BMW","Mercedes-Benz","Audi","Volvo","Mini","Porsche"]
 LOGO_SLUG = {"Mercedes-Benz":"mercedes"}
 LOGO_CDN = "https://cdn.jsdelivr.net/npm/simple-icons@16.16.0/icons/"   # Simple Icons, sürüm sabit
 def logo(m, boy=28): return f'<img class="marka-logo" src="{LOGO_CDN}{LOGO_SLUG.get(m, mslug(m))}.svg" alt="" width="{boy}" height="{boy}" loading="lazy" onerror="this.remove()">'
@@ -68,7 +68,7 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "27"
+CSS_SURUM = "28"
 GORSELLER = {"periyodik-bakim":"periyodik-bakim","yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","aku":"aku-takviye","ucretsiz-on-kontrol":"on-kontrol","hibrit-elektrikli":"hibrit","muayene-oncesi-kontrol":"muayene-oncesi","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
 GORSEL_ALT = {"periyodik-bakim":"Kaputu açık araçta yağ çubuğuyla motor yağı seviyesini kontrol eden usta","on-kontrol":"Serviste iki usta aracın tekerleğini ve motorunu kontrol ediyor","hibrit":"Şarj kablosu takılı hibrit araç başında tabletle kontrol yapan teknisyen","muayene-oncesi":"Serviste kontrol listesini dolduran usta, arkada kaputu açık araçta çalışan teknisyen","aku-takviye":"Kaputu açık araçta takviye cihazıyla akü takviyesi yapan usta","lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
 def gorsel(ad, oncelik=False):
@@ -360,6 +360,21 @@ def ana():
           govde, "ana", sss_ld)
 
 # ---------------- hizmet sayfaları ----------------
+PERIYODIK_LISTE = ["Motor yağı ve yağ filtresi", "Hava filtresi", "Polen (kabin) filtresi",
+    "Yakıt filtresi (dizelde her bakımda kontrol)", "Buji kontrolü (benzinli)", "Fren balatası ve disk kontrolü",
+    "Lastik basıncı ve diş derinliği", "Akü testi", "Antifriz, fren hidroliği ve cam suyu seviyeleri",
+    "Silecekler ve aydınlatma", "Kayış ve hortumlarda gözle kontrol", "Arıza kodlarının okunması ve servis ışığının sıfırlanması"]
+AGIR_LISTE = ["Triger kayışı ya da zinciri seti", "Devirdaim (su) pompası", "V kayışı (alternatör kayışı) ve gergileri",
+    "Bujilerin değişimi", "Fren hidroliği değişimi", "Antifriz değişimi", "Şanzıman yağı kontrolü ya da değişimi",
+    "Debriyaj kontrolü", "Ön düzen ve süspansiyon kontrolü", "Motor ve şanzıman takozlarının kontrolü", "Rot ve balans kontrolü"]
+def agir_bakim():
+    li = lambda xs: "".join(f"<li>{TIK_I}<span>{x}</span></li>" for x in xs)
+    return f'''<h2>Periyodik bakım mı, ağır bakım mı?</h2>
+    <p>Periyodik bakım, genellikle yılda bir ya da 10.000–15.000 km'de bir yapılan yağ ve filtre bakımıdır. Ağır bakım ise daha uzun aralıklarla yapılan kapsamlı bakımdır; çoğu araçta 60.000–100.000 km arasına denk gelir. Aracınızın kesin bakım aralıkları bakım kitapçığında yazar; kitapçık yoksa şasi numarasından biz bakarız.</p>
+    <div class="bakim-listeler"><div><h3>Periyodik bakımda</h3><ul class="tik">{li(PERIYODIK_LISTE)}</ul></div>
+    <div><h3>Ağır bakımda ayrıca</h3><ul class="tik">{li(AGIR_LISTE)}</ul></div></div>
+    <p>Ağır bakımda hangi parçanın değişmesi gerektiği aracın kilometresine, yaşına ve kullanımına göre değişir. Aracı kontrol edip neyin şart, neyin bekleyebileceğini size ayrı ayrı söyleriz. Ayrıntılar için <a href="rehber-periyodik-bakim-takvimi.html">periyodik bakım takvimi</a> ve <a href="rehber-triger-kayisi-zinciri.html">triger kayışı ve zinciri</a> rehberlerimize bakabilirsiniz.</p>'''
+
 def hizmet_sayfasi(h):
     yol = [("Ana sayfa","index.html"),("Hizmetlerimiz","hizmetler.html"),(h["ad"],None)]
     neler = "".join(f"<li>{TIK_I}<span>{n}</span></li>" for n in h["neler"])
@@ -371,6 +386,7 @@ def hizmet_sayfasi(h):
     {gorsel(GORSELLER[h["slug"]], True) if h["slug"] in GORSELLER else ""}
     <h2>Bu belirtiler varsa bize gelin</h2><ul class="belirti">{bel}</ul>
     <h2>Neler yapıyoruz?</h2><ul class="tik">{neler}</ul>
+    {agir_bakim() if h["slug"] == "periyodik-bakim" else ""}
     <h2>Nasıl ilerliyoruz?</h2>
     <p>Aracınızı getirdiğinizde ya da adresinizden aldığımızda önce kontrol eder, sorunun kaynağını buluruz. Ne yapılması gerektiğini ve tutarını işe başlamadan söyleriz; onayınızla işe başlar, iş bitince değişen parçaları gösteririz.</p>
     <p>Gereken parçayı biz temin ederiz. Orijinal ve muadil seçenekleri fiyatlarıyla birlikte size söyler, tercihi size bırakırız.</p>

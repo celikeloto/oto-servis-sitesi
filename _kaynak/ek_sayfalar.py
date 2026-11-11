@@ -7,7 +7,7 @@ from olustur import (HIZMETLER, ANA_HIZMETLER, MARKALAR, TEL, TEL_YAZI, YOL, YOL
 from rehber1 import MAKALELER_1
 from rehber2 import MAKALELER_2
 from rehber3 import MAKALELER_3
-from bolgeler import KUCUKCEKMECE_MAHALLELER, ILCELER
+from bolgeler import KUCUKCEKMECE_MAHALLELER, ILCELER, MAHALLELER
 
 from rehber4 import MAKALELER_4
 MAKALE_GORSEL = {"periyodik-bakim-takvimi":"periyodik-bakim","yolda-kalinca-ne-yapmali":"yol-yardim-lastik","lastik-rehberi":"lastik-balans","kasko-hasar-onarim-sureci":"hasar-onarimi","aku-sarj-sistemi":"aku-takviye","arac-muayenesi-hazirlik":"muayene-oncesi","guvenilir-oto-servis-secimi":"on-kontrol"}
@@ -108,7 +108,8 @@ def kucukcekmece_sayfasi():
     dosya = "kucukcekmece-yol-yardim-lastik-tamiri.html"
     yol = [("Ana sayfa", "index.html"), ("Bölgeler", "bolgeler.html"), ("Küçükçekmece yol yardım", None)]
     n = len(KUCUKCEKMECE_MAHALLELER)
-    mah = "".join(f"<li><h3>{mah_ad(m)}</h3><p>Lastik tamiri, lastik değişimi ve yol yardım</p></li>" for m in KUCUKCEKMECE_MAHALLELER)
+    sayfali = {x["ad"]: x["slug"] for x in MAHALLELER}
+    mah = "".join(f'<li><h3>' + (f'<a href="{sayfali[m]}-oto-servis.html">{mah_ad(m)}</a>' if m in sayfali else mah_ad(m)) + '</h3><p>Lastik tamiri, lastik değişimi ve yol yardım</p></li>' for m in KUCUKCEKMECE_MAHALLELER)
     sss_l = [("Küçükçekmece'nin hangi mahallelerine yol yardım veriyorsunuz?", f"Küçükçekmece'nin {n} mahallesinin tamamına: " + ", ".join(KUCUKCEKMECE_MAHALLELER) + "."),
              ("Lastiğim patladı, ne yapmalıyım?", f"Aracı güvenli bir yere çekin, dörtlüleri yakın ve {YOL_YAZI} numaralı yol yardım hattımızı arayın. Konumunuzu ve aracınızı söyleyin, size ulaşalım."),
              ("Patlak lastik tamir edilir mi?", "Diş bölgesindeki küçük delikler genellikle kalıcı olarak tamir edilir. Yanakta kesik ya da şişlik varsa ya da lastik basınçsız uzun süre sürüldüyse lastiğin değişmesi gerekir."),
@@ -155,13 +156,18 @@ def ilce_sayfasi(i):
     yol = [("Ana sayfa", "index.html"), ("Bölgeler", "bolgeler.html"), (i["ad"], None)]
     h, paras = i["ozel"]
     diger = '<li><a href="kucukcekmece-yol-yardim-lastik-tamiri.html">Küçükçekmece yol yardım ' + NAV_OK + "</a></li>" + "".join(
-        f'<li><a href="{x["slug"]}-oto-servis.html"' + (' aria-current="page"' if x is i else "") + f'>{x["ad"]} {NAV_OK}</a></li>' for x in ILCELER)
+        f'<li><a href="{x["slug"]}-oto-servis.html"' + (' aria-current="page"' if x is i else "") + f'>{x["ad"]} {NAV_OK}</a></li>' for x in ILCELER + MAHALLELER)
+    mahalle = "ilce" in i
+    if mahalle:
+        ulasim_h = "Servisimize nasıl ulaşırsınız?" if i["slug"] == "yarimburgaz" else f'{i["ad"]}{i["ek"]} bize ulaşmak'
+    else:
+        ulasim_h = f'{i["ad"]} {"içinden" if i["km"] is None else "ilçesinden"} bize ulaşmak'
     govde = f"""{sayfa_bas(yol, i["baslik"], i["giris"])}
 <section class="icerik"><div class="kap">
   <div class="metin">
     <h2>{h}</h2>{"".join(f"<p>{x}</p>" for x in paras)}
-    <h2>{i["ad"]} {"içinden" if i["km"] is None else "ilçesinden"} bize ulaşmak</h2>
-    <p>Servisimiz {ADRES1}, {ADRES2} adresinde{"; " + i["ad"] + " ilçe merkezine kuş uçuşu yaklaşık " + str(i["km"]) + " km uzaklıkta" if i["km"] else ""}. Pazartesiden cumartesiye 08:00–19:00 arası açığız. Gelmeden önce arayın, aracınız için yer ayıralım; gelemiyorsanız aracınızı adresinizden alalım.</p>
+    <h2>{ulasim_h}</h2>
+    <p>Servisimiz {ADRES1}, {ADRES2} adresinde{"; " + i["ad"] + " ilçe merkezine kuş uçuşu yaklaşık " + str(i["km"]) + " km uzaklıkta" if i.get("km") else ""}. Pazartesiden cumartesiye 08:00–19:00 arası açığız. Gelmeden önce arayın, aracınız için yer ayıralım; gelemiyorsanız aracınızı adresinizden alalım.</p>
     <h2>Neden Çelikel Oto Servis?</h2>
     <ul class="tik">
       <li>{TIK_I}<span>40 yıllık tecrübeli Sebahattin Usta aracınızla birebir ilgilenir</span></li>
@@ -182,7 +188,7 @@ def ilce_sayfasi(i):
 {cagri()}"""
     ld = [{"@context": "https://schema.org", "@type": "Service", "name": i["baslik"],
            "provider": {"@type": "AutoRepair", "name": "Çelikel Oto Servis", "telephone": TEL},
-           "areaServed": {"@type": "City", "name": f'{i["ad"]}, İstanbul'}},
+           "areaServed": ({"@type": "Place", "name": f'{i["ad"]}, {i["ilce"]}, İstanbul'} if mahalle else {"@type": "City", "name": f'{i["ad"]}, İstanbul'})},
           sss_ld(i["sss"]), kirinti_ld(yol)]
     title = i["baslik"][0].upper() + i["baslik"][1:]
     title = " ".join(w if w in ("ve",) else w[:1].upper() + w[1:] for w in title.split())
@@ -193,8 +199,10 @@ def bolgeler_ana():
     yol = [("Ana sayfa", "index.html"), ("Bölgeler", None)]
     kart = f'<li><a href="kucukcekmece-yol-yardim-lastik-tamiri.html"><h3>Küçükçekmece</h3><p>{len(KUCUKCEKMECE_MAHALLELER)} mahallenin tamamına yol yardım, lastik tamiri ve oto servis</p><span class="oku">Ayrıntılar</span></a></li>'
     kart += "".join(f'<li><a href="{i["slug"]}-oto-servis.html"><h3>{i["ad"]}</h3><p>{("Kuş uçuşu yaklaşık " + str(i["km"]) + " km, adresten araç alma") if i["km"] else "Oto servis, bakım, tamir ve 7/24 yol yardım"}</p><span class="oku">Ayrıntılar</span></a></li>' for i in ILCELER)
+    mkart = "".join(f'<li><a href="{m["slug"]}-oto-servis.html"><h3>{m["ad"]}</h3><p>{m["ilce"]} · bakım, tamir ve adresten araç alma</p><span class="oku">Ayrıntılar</span></a></li>' for m in MAHALLELER)
     govde = f"""{sayfa_bas(yol, 'Hizmet verdiğimiz <span style="color:var(--ikaz)">bölgeler</span>', "Servisimiz Küçükçekmece'nin Yarımburgaz Mahallesi'nde. Küçükçekmece'nin tamamına yol yardım veriyor, çevre ilçelerden gelen müşterilerimizin aracını adresinden alıyoruz.")}
 <section><div class="kap"><ul class="rehber-izgara">{kart}</ul></div></section>
+<section style="padding-top:0"><div class="kap"><h2 class="grup-baslik">Yakın mahalleler ve sanayi bölgeleri</h2><ul class="rehber-izgara">{mkart}</ul></div></section>
 {harita_bolum()}"""
     sayfa("bolgeler.html", "Hizmet Bölgelerimiz | Çelikel Oto Servis",
           "Küçükçekmece ve Halkalı oto servis, 21 mahalleye 7/24 yol yardım; Başakşehir, Avcılar, Esenyurt, Beylikdüzü ve Bakırköy'den araç alma.",
@@ -218,7 +226,7 @@ def llms_ek():
         ek += [f'- [{m["baslik"]}](rehber-{m["slug"]}.html): {m["ozet"]}' for m in MAKALELER if m["grup"] == g]
     ek += ["", "## Hizmet bölgeleri",
            f"- [Küçükçekmece yol yardım ve lastik tamiri](kucukcekmece-yol-yardim-lastik-tamiri.html): Yol yardım Küçükçekmece'nin tüm mahallelerinde ({', '.join(KUCUKCEKMECE_MAHALLELER)})."]
-    ek += [f'- [{i["baslik"]}]({i["slug"]}-oto-servis.html): {i["giris"]}' for i in ILCELER]
+    ek += [f'- [{i["baslik"]}]({i["slug"]}-oto-servis.html): {i["giris"]}' for i in ILCELER + MAHALLELER]
     yol.write_text(s + "\n".join(ek) + "\n", encoding="utf-8")
 
 def gizlilik_sayfasi():
@@ -287,7 +295,7 @@ def calistir():
     for m in MARKALAR: O.marka_sayfasi(m)
     rehber_ana(); bolgeler_ana(); kucukcekmece_sayfasi()
     for m in MAKALELER: rehber_sayfasi(m)
-    for i in ILCELER: ilce_sayfasi(i)
+    for i in ILCELER + MAHALLELER: ilce_sayfasi(i)
     gizlilik_sayfasi(); cerez_sayfasi(); hata_sayfasi()
     O.llms(); llms_ek(); site_haritasi()
     print("Sayfalar üretildi:", len(set(O.URLLER)))

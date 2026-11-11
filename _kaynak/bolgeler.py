@@ -70,3 +70,56 @@ ILCELER = [
   sss=[("Eski Bakırköy dükkânınız kapandı mı?", "Servisimiz Küçükçekmece'nin Yarımburgaz Mahallesi'ne taşındı. Aynı ustamızla, aynı anlayışla hizmet vermeye devam ediyoruz."),
        ("Bakırköy'den aracımı alıyor musunuz?", "Evet, aracınızı adresinizden alıp iş bitince geri getiriyoruz.")]),
 ]
+
+# Mahalle / semt / sanayi sayfaları. Mesafe yazılmadı; yalnızca doğrulanabilir bilgiler kullanıldı.
+MAHALLELER = [
+ dict(slug="yarimburgaz", ad="Yarımburgaz", ilce="Küçükçekmece", ek="'da",
+  baslik="Yarımburgaz oto servis ve oto tamir",
+  meta="Yarımburgaz oto servis: Selvi Sokak'taki servisimizde bakım, arıza tespit, motor, şanzıman, fren, lastik ve yedek parça. 40 yıllık usta, fiyat işe başlamadan.",
+  giris="Servisimiz Yarımburgaz Mahallesi'nde, Selvi Sokak 65/1'de. Mahallede oturuyor ya da çalışıyorsanız aracınızı yürüme mesafesinde bırakıp işinize dönebilirsiniz; iş bitince sizi arıyoruz.",
+  ozel=("Yarımburgaz'daki komşularımız için", [
+   "Mahallemizdeki sürücülerin çoğu aracını her gün kullanıyor; bu yüzden aracın servis için uzun süre elden çıkması istenmiyor. Basit bakım ve küçük onarımları çoğunlukla aynı gün bitiriyoruz. Parça beklemesi gereken işlerde parçanın ne zaman geleceğini önceden söylüyor, aracınızı gereksiz yere bekletmiyoruz.",
+   "Sabah işe giderken aracınızı bırakıp akşam alabilirsiniz. Aracınızı kontrol ettikten sonra ne yapılacağını ve tutarını telefonla ya da WhatsApp'tan bildiriyor, onayınızı alıp işe başlıyoruz."]),
+  sss=[("Yarımburgaz'da servisiniz tam olarak nerede?", "Yarımburgaz Mahallesi, Selvi Sokak 65/1, Küçükçekmece. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
+       ("Aracımı sabah bırakıp akşam alabilir miyim?", "Evet. Pazartesiden cumartesiye 08:00–19:00 arası açığız. Aracınızı sabah bırakın, kontrol sonrası sizi arayıp ne yapılacağını söyleyelim."),
+       ("Yarımburgaz'da yolda kaldım, gelebilir misiniz?", "Evet. Yol yardım hattımız 0538 064 82 05 günün her saati açık; servisimiz mahallede olduğu için size çok kısa sürede ulaşıyoruz.")]),
+ dict(slug="atakent", ad="Atakent", ilce="Küçükçekmece", ek="'ten",
+  baslik="Atakent oto servis ve araç bakım",
+  meta="Atakent oto servis: periyodik bakım, arıza tespit, fren, lastik, klima ve oto tamir. Halkalı Atakent'e yakın, aracınızı sitenizden alıyoruz. 7/24 yol yardım.",
+  giris="Atakent'e yakınız: servisimiz yine Küçükçekmece'de, Yarımburgaz Mahallesi'nde. Atakent'ten bakım ve onarım için bize gelebilir ya da aracınızı oturduğunuz siteden aldırabilirsiniz.",
+  ozel=("Atakent'teki sitelerde oturanlar için", [
+   "Atakent'te konutların büyük kısmı kapalı otoparklı sitelerde. Kapalı otoparkta uzun süre bekleyen araçlarda akü zayıflaması ve lastik basıncı düşmesi sık görülür. Aracınızı birkaç gün kullanmayacaksanız aküyü ve lastik basınçlarını kontrol ettirmenizi öneririz.",
+   "Atakent'ten servise gelmek istemezseniz aracınızı sitenizin otoparkından alıyor, iş bitince yine aynı yere bırakıyoruz. Güvenlik görevlisine haber vermeniz yeterli; alma ve teslim saatini birlikte belirliyoruz."]),
+  sss=[("Atakent'te aracımı siteden alıyor musunuz?", "Evet. Aracınızı oturduğunuz siteden alıp iş bitince geri getiriyoruz. Uygun saati belirlemek için arayın ya da WhatsApp'tan yazın."),
+       ("Atakent yol yardım hizmetiniz kapsamında mı?", "Evet. Atakent, Küçükçekmece'ye bağlı ve yol yardım hattımız 0538 064 82 05 Küçükçekmece'nin tamamında 7/24 hizmet veriyor."),
+       ("Akü bitti, otoparkta takviye yapıyor musunuz?", "Evet. Akü takviyesi için otoparka geliyoruz; akü yorulmuşsa test edip gerekirse yerinde değiştiriyoruz.")]),
+ dict(slug="cennet", ad="Cennet", ilce="Küçükçekmece", ek="'ten",
+  baslik="Cennet Mahallesi oto servis ve tamir",
+  meta="Cennet Mahallesi'ne yakın oto servis: bakım, arıza tespit, debriyaj, fren, egzoz-DPF, lastik ve yedek parça. Aracınızı adresinizden alıyoruz, fiyat işe başlamadan.",
+  giris="Cennet Mahallesi, servisimizle aynı ilçede, Küçükçekmece'de. Cennet'ten araç bakımı ve oto tamiri için bize gelebilir ya da aracınızı adresinizden aldırabilirsiniz.",
+  ozel=("Cennet'te şehir içi kullanım ve aracınız", [
+   "Cennet ve çevresinde günlük kullanımın büyük kısmı E-5 bağlantılı, dur-kalk trafiğinde geçiyor. Bu kullanımda fren balatası ve debriyaj daha hızlı aşınır, motor yağı daha çabuk yıpranır. Yağ değişimini kitapçıktaki aralığın biraz önünde yaptırmanızı, fren ve debriyajı her bakımda kontrol ettirmenizi öneririz.",
+   "Dizel araçlarda kısa mesafe kullanımı partikül filtresinin (DPF) kendini temizlemesini engelleyebilir. DPF uyarısı yanarsa aracı bir süre sabit hızla sürün; uyarı sönmüyorsa gecikmeden kontrol ettirin, tıkanan filtrenin temizliği değişiminden çok daha ucuzdur."]),
+  sss=[("Cennet Mahallesi'nden aracımı alabilir misiniz?", "Evet. Aracınızı adresinizden alıp iş bitince geri getiriyoruz; günü ve saati birlikte belirliyoruz."),
+       ("Cennet'te gece yolda kaldım, ne yapmalıyım?", "Güvenli bir yere çekilip dörtlüleri yakın ve 0538 064 82 05'i arayın. Yol yardım hattımız Küçükçekmece'nin tamamında 7/24 açık.")]),
+ dict(slug="sefakoy", ad="Sefaköy", ilce="Küçükçekmece", ek="'den",
+  baslik="Sefaköy oto servis ve araç bakım",
+  meta="Sefaköy'e yakın oto servis: periyodik bakım, arıza tespit, motor, şanzıman, fren, klima ve yedek parça. Aracınızı adresinizden alıyoruz. 7/24 yol yardım.",
+  giris="Sefaköy de servisimiz gibi Küçükçekmece sınırları içinde. Sefaköy'den bakım ve onarım için bize gelebilir, vaktiniz yoksa aracınızı adresinizden ya da iş yerinizden aldırabilirsiniz.",
+  ozel=("Sefaköy'de esnaf ve iş yerleri için", [
+   "Sefaköy'de aracını işi için kullanan esnaf ve şirket çalışanı çok. İş aracının servise girdiği her gün kayıp demek; bu yüzden işi önceden planlıyoruz. Aracı kontrol ettikten sonra ne kadar süreceğini ve parça gerekip gerekmediğini baştan söylüyoruz.",
+   "Birden fazla aracı olan iş yerleri için bakım zamanlarını takip etmek zorlaşabilir. Her aracın yapılan işlerini yazılı veriyor, bir sonraki bakım zamanını hatırlatıyoruz. Faturalı çalışıyoruz."]),
+  sss=[("Sefaköy'deki iş yerimden aracı alabilir misiniz?", "Evet. Aracınızı iş yerinizden alıp iş bitince geri getiriyoruz. Uygun saati arayıp birlikte belirleyelim."),
+       ("Şirket araçlarına fatura kesiyor musunuz?", "Evet, faturalı çalışıyoruz. Yapılan işler ve kullanılan parçalar faturada ayrıntılı yazar."),
+       ("Sefaköy yol yardım alanınızda mı?", "Evet. Sefaköy Küçükçekmece'de ve yol yardım hattımız 0538 064 82 05 ilçenin tamamında 7/24 açık.")]),
+ dict(slug="ikitelli", ad="İkitelli", ilce="Başakşehir", ek="'den",
+  baslik="İkitelli oto servis ve araç bakım",
+  meta="İkitelli ve İkitelli OSB'ye yakın oto servis: bakım, arıza tespit, motor, fren, lastik ve yedek parça. Aracınızı iş yerinizden alıyoruz, fiyat işe başlamadan.",
+  giris="İkitelli'ye yakın bir oto servis arıyorsanız servisimiz Küçükçekmece'nin Yarımburgaz Mahallesi'nde. İkitelli'de çalışıyorsanız aracınızı mesai sırasında iş yerinizden alıp akşam teslim edebiliyoruz.",
+  ozel=("İkitelli'de çalışanlar için", [
+   "İkitelli Organize Sanayi Bölgesi'ne her gün binlerce kişi aracıyla gidip geliyor. Mesai sırasında aracınızı servise götürmek zor; bu yüzden aracınızı iş yerinizin otoparkından alıyor, iş bitince yine oraya bırakıyoruz.",
+   "Sanayi bölgelerinde yollarda metal parça, vida ve çivi daha sık bulunur; lastik patlaması ve yavaş hava kaçırma sık görülür. Lastiğiniz sürekli hava kaybediyorsa yama ile kurtarılıp kurtarılamayacağını kontrol ediyor, gerekiyorsa değiştirip balansını yapıyoruz."]),
+  sss=[("İkitelli OSB'deki iş yerimden aracımı alabilir misiniz?", "Evet. Aracınızı iş yerinizden alıp iş bitince geri getiriyoruz. Alma ve teslim saatini birlikte belirleyelim."),
+       ("İkitelli'de yolda kaldım, yol yardım gönderiyor musunuz?", "Yol yardım hattımız Küçükçekmece'nin tamamında 7/24 hizmet veriyor. İkitelli için 0538 064 82 05'i arayın, konumunuzu ve durumu söyleyin; size en hızlı çözümü birlikte bulalım."),
+       ("Hangi markalara bakıyorsunuz?", "Tüm marka binek araçlara bakıyoruz. Aracınızın marka, model ve yılını yazmanız fiyat vermemiz için yeterli.")]),
+]
