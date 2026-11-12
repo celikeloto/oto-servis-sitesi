@@ -68,9 +68,9 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "32"
-GORSELLER = {"periyodik-bakim":"periyodik-bakim","motor-mekanik":"motor","yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","aku":"aku-takviye","ucretsiz-on-kontrol":"on-kontrol","hibrit-elektrikli":"hibrit","muayene-oncesi-kontrol":"muayene-oncesi","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
-GORSEL_ALT = {"motor":"Motor bölümünde çalışan usta","periyodik-bakim":"Kaputu açık araçta yağ çubuğuyla motor yağı seviyesini kontrol eden usta","on-kontrol":"Serviste iki usta aracın tekerleğini ve motorunu kontrol ediyor","hibrit":"Şarj kablosu takılı hibrit araç başında tabletle kontrol yapan teknisyen","muayene-oncesi":"Serviste kontrol listesini dolduran usta, arkada kaputu açık araçta çalışan teknisyen","aku-takviye":"Kaputu açık araçta takviye cihazıyla akü takviyesi yapan usta","lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
+CSS_SURUM = "33"
+GORSELLER = {"yedek-parca":"yedek-parca","ariza-tespit":"ariza-tespit","periyodik-bakim":"periyodik-bakim","motor-mekanik":"motor","yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","aku":"aku-takviye","ucretsiz-on-kontrol":"on-kontrol","hibrit-elektrikli":"hibrit","muayene-oncesi-kontrol":"muayene-oncesi","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
+GORSEL_ALT = {"yedek-parca":"Çelikel Oto Servis yedek parça bölümünde raflar dolusu filtre, balata ve motor yağı","ariza-tespit":"Bosch KTS 250 arıza tespit cihazında okunan şanzıman ve motor arıza kodları","motor":"Motor bölümünde çalışan usta","periyodik-bakim":"Kaputu açık araçta yağ çubuğuyla motor yağı seviyesini kontrol eden usta","on-kontrol":"Serviste iki usta aracın tekerleğini ve motorunu kontrol ediyor","hibrit":"Şarj kablosu takılı hibrit araç başında tabletle kontrol yapan teknisyen","muayene-oncesi":"Serviste kontrol listesini dolduran usta, arkada kaputu açık araçta çalışan teknisyen","aku-takviye":"Kaputu açık araçta takviye cihazıyla akü takviyesi yapan usta","lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
 def gorsel(ad, oncelik=False):
     yuk = 'fetchpriority="high"' if oncelik else 'loading="lazy"'
     return f'<figure class="icerik-gorsel"><img src="assets/img/{ad}.jpg" srcset="assets/img/{ad}-kucuk.jpg 800w, assets/img/{ad}.jpg 1200w" sizes="(max-width: 900px) 100vw, 760px" alt="{GORSEL_ALT[ad]}" width="1200" height="600" {yuk}></figure>'
@@ -94,6 +94,28 @@ def galeri(baslik="Serviste fren işinden kareler", aciklama="Atölyemizde yapt�
              f'<figcaption>▶ Fren diski değişimi videosu</figcaption></figure>')
     return (f'<section class="is-galeri" aria-labelledby="h-galeri"><h2 id="h-galeri">{baslik}</h2><p>{aciklama}</p>'
             f'<div class="galeri-izgara">{video}{"".join(kare(*x) for x in FREN_GALERI)}</div></section>')
+# Hizmet sayfalarındaki dükkân fotoğrafları (yatay, 4:3 küçük görsel): başlık, açıklama, [(dosya, alt)]
+FOTO_GALERILER = {
+ "yedek-parca": ("Yedek parça bölümümüzden", "Sık kullanılan parçaları ve bakım ürünlerini stokta tutuyoruz; olmayanı kısa sürede getiriyoruz.", [
+  ("yedek-parca-yaglar", "Rafta farklı marka ve viskozitelerde motor yağları ile yağ filtreleri"),
+  ("yedek-parca-raflar", "Markalara göre ayrılmış raflarda filtre, balata ve motor parçaları"),
+  ("yedek-parca-bakim-urunleri", "Fren temizleyici, katkı, antifriz ve silecek süpürgesi gibi bakım ürünleri"),
+  ("yedek-parca-sivilar", "Antifriz, fren hidroliği ve şanzıman yağı rafları")]),
+ "ariza-tespit": ("Arıza tespitten kareler", "Bosch KTS 250 cihazımızla aracın tüm sistemlerini tarıyor, kayıtlı arıza kodlarını okuyoruz. Aşağıda farklı araçlarda okuduğumuz kayıtlardan örnekler var.", [
+  ("ariza-tespit-usta", "Ustamız arıza tespit cihazını araca bağlarken"),
+  ("ariza-tespit-kia", "Kia Sportage'da ABS/ESP sisteminde okunan debriyaj şalteri arıza kaydı"),
+  ("ariza-tespit-sanziman", "Opel Corsa'da fren ve şanzıman kumandasında okunan arıza kodları"),
+  ("ariza-tespit-corsa", "Şanzıman devir vericisi ve ses sistemi iletişim arızası kayıtları"),
+  ("ariza-tespit-elektrik", "Merkezi elektronikte arka sis lambası ve iç aydınlatma arıza kayıtları"),
+  ("ariza-tespit-bmw", "BMW 520i'de tüm sistemlerin taranmasıyla bulunan arıza kayıtları")]),
+}
+def foto_galeri(slug):
+    if slug not in FOTO_GALERILER: return ""
+    baslik, aciklama, liste = FOTO_GALERILER[slug]
+    kare = "".join(f'<figure><a href="assets/img/{ad}.jpg" target="_blank" rel="noopener"><img src="assets/img/{ad}-kucuk.jpg" alt="{alt}" width="600" height="450" loading="lazy"></a></figure>' for ad, alt in liste)
+    sinif = "galeri-izgara yatay" + (" iki" if len(liste) % 3 else "")
+    return (f'<section class="is-galeri" aria-labelledby="h-foto"><h2 id="h-foto">{baslik}</h2><p>{aciklama}</p>'
+            f'<div class="{sinif}">{kare}</div></section>')
 # ---------------- parçalar ----------------
 def ust(aktif=""):
     hl = "".join(f'<li class="grup-bas" role="presentation">{g}</li>' + "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],18)}{h["ad"]}</a></li>' for h in HIZMETLER if h["grup"]==g) for g in GRUPLAR)
@@ -407,6 +429,7 @@ def hizmet_sayfasi(h):
     <h2>Bu belirtiler varsa bize gelin</h2><ul class="belirti">{bel}</ul>
     <h2>Neler yapıyoruz?</h2><ul class="tik">{neler}</ul>
     {galeri() if h["slug"] == "fren-yuruyen" else ""}
+    {foto_galeri(h["slug"])}
     {agir_bakim() if h["slug"] == "periyodik-bakim" else ""}
     <h2>Nasıl ilerliyoruz?</h2>
     <p>Aracınızı getirdiğinizde ya da adresinizden aldığımızda önce kontrol eder, sorunun kaynağını buluruz. Ne yapılması gerektiğini ve tutarını işe başlamadan söyleriz; onayınızla işe başlar, iş bitince değişen parçaları gösteririz.</p>
