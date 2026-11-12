@@ -68,7 +68,7 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "33"
+CSS_SURUM = "34"
 GORSELLER = {"yedek-parca":"yedek-parca","ariza-tespit":"ariza-tespit","periyodik-bakim":"periyodik-bakim","motor-mekanik":"motor","yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","aku":"aku-takviye","ucretsiz-on-kontrol":"on-kontrol","hibrit-elektrikli":"hibrit","muayene-oncesi-kontrol":"muayene-oncesi","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
 GORSEL_ALT = {"yedek-parca":"Çelikel Oto Servis yedek parça bölümünde raflar dolusu filtre, balata ve motor yağı","ariza-tespit":"Bosch KTS 250 arıza tespit cihazında okunan şanzıman ve motor arıza kodları","motor":"Motor bölümünde çalışan usta","periyodik-bakim":"Kaputu açık araçta yağ çubuğuyla motor yağı seviyesini kontrol eden usta","on-kontrol":"Serviste iki usta aracın tekerleğini ve motorunu kontrol ediyor","hibrit":"Şarj kablosu takılı hibrit araç başında tabletle kontrol yapan teknisyen","muayene-oncesi":"Serviste kontrol listesini dolduran usta, arkada kaputu açık araçta çalışan teknisyen","aku-takviye":"Kaputu açık araçta takviye cihazıyla akü takviyesi yapan usta","lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
 def gorsel(ad, oncelik=False):
@@ -76,24 +76,40 @@ def gorsel(ad, oncelik=False):
     return f'<figure class="icerik-gorsel"><img src="assets/img/{ad}.jpg" srcset="assets/img/{ad}-kucuk.jpg 800w, assets/img/{ad}.jpg 1200w" sizes="(max-width: 900px) 100vw, 760px" alt="{GORSEL_ALT[ad]}" width="1200" height="600" {yuk}></figure>'
 # Atölyeden gerçek iş fotoğrafları: (dosya, alt, genişlik, yükseklik)
 FREN_GALERI = [
+    ("fren-11", "Sökülen bitmiş fren balatası: balata malzemesi tükenmiş, metal taban diske sürtmüş", 1000, 1777),
+    ("fren-10", "Aşınmış ve yüzeyinde derin çizikler oluşmuş eski fren diski", 1000, 1777),
+    ("fren-9", "Araçtan sökülen ve değiştirilecek eski fren diski", 1000, 1777),
+    ("fren-12", "Sökülen delikli fren diskleri, balatalar ve rot başı", 889, 1580),
+    ("fren-13", "Değişim öncesi delikli ön fren diski ve kaliper", 1000, 1777),
+    ("fren-7", "Kaldırılmış araçta yeni takılan ön fren diski, yerde eski balatalar ve alet takımı", 1000, 1777),
+    ("fren-8", "Göbeğe takılmış yeni fren diski", 1000, 1777),
+    ("fren-1", "Fren diski değişimi sırasında araç sehpada, yere serili el aletleri ve yeni parçanın ambalajı", 1000, 1777),
     ("fren-2", "Yeni fren diski ve Bosch balata takılmış ön teker, kaliper yerinde", 1000, 1777),
     ("fren-3", "Fren diski ve balatası yenilenmiş ön teker, amortisör ve fren hortumu görünüyor", 1000, 1777),
     ("fren-4", "Değişim sonrası yeni fren diski ve kaliper, yanda kaliper pistonu geri itme aparatı", 1000, 1777),
-    ("fren-1", "Fren diski değişimi sırasında araç sehpada, yere serili el aletleri ve yeni parçanın ambalajı", 1000, 1777),
-    ("fren-5", "Serviste hazır tutulan fren hidroliği, fren temizleyici, yağ ve bakım ürünleri", 1000, 752),
+    ("fren-6", "Yeni fren diskinin göbek ve bijonlarla yakından görünümü, yanda kaliper", 1000, 1777),
 ]
-FREN_VIDEO = ("fren-disk-degisimi", "Ön fren diski değişimi: eski diskin sökülmesinden yeni diskin takılmasına")
-def galeri(baslik="Serviste fren işinden kareler", aciklama="Atölyemizde yaptığımız ön fren diski ve balata değişiminden fotoğraflar ve kısa bir video."):
+# (dosya, kısa başlık, açıklama)
+FREN_VIDEOLAR = [
+    ("fren-disk-degisimi", "Ön fren diski değişimi", "Ön fren diski değişimi: eski diskin sökülmesinden yeni diskin takılmasına"),
+    ("fren-kaliper-sokme", "Kaliper ve balata sökme", "Aracın kaldırılıp kaliperin ve eski balataların sökülmesi"),
+    ("fren-balata-cikarma", "Bitmiş balata", "Sökülen bitmiş balatanın ve aşınmanın gösterilmesi"),
+    ("fren-disk-sokme", "Aşınmış disk", "Aşınmış fren diskinin incelenmesi ve sökülmesi"),
+    ("fren-delikli-disk", "Delikli disk değişimi", "Delikli fren diski ve balata değişimi"),
+    ("fren-yeni-disk", "Yeni disk takıldı", "Yeni takılan fren diskinin göbek üzerindeki görünümü"),
+]
+def galeri(baslik="Serviste fren işinden kareler", aciklama="Atölyemizde yaptığımız fren diski ve balata değişimlerinden videolar ve fotoğraflar. Bitmiş balatanın ve aşınmış diskin nasıl göründüğünü de burada görebilirsiniz."):
     def kare(ad, alt, w, h):
         return (f'<figure><a href="assets/img/{ad}.jpg" target="_blank" rel="noopener">'
                 f'<img src="assets/img/{ad}-kucuk.jpg" srcset="assets/img/{ad}-kucuk.jpg 560w, assets/img/{ad}.jpg 1000w" '
                 f'sizes="(max-width: 600px) 50vw, 250px" alt="{alt}" width="{w}" height="{h}" loading="lazy"></a></figure>')
-    v, valt = FREN_VIDEO
-    video = (f'<figure class="galeri-video"><video controls muted playsinline preload="none" poster="assets/video/{v}-kapak.jpg" '
-             f'width="720" height="1280" aria-label="{valt}"><source src="assets/video/{v}.mp4" type="video/mp4"></video>'
-             f'<figcaption>▶ Fren diski değişimi videosu</figcaption></figure>')
+    def video(v, kisa, valt):
+        return (f'<figure class="galeri-video"><video controls muted playsinline preload="none" poster="assets/video/{v}-kapak.jpg" '
+                f'width="720" height="1280" aria-label="{valt}"><source src="assets/video/{v}.mp4" type="video/mp4"></video>'
+                f'<figcaption>▶ {kisa}</figcaption></figure>')
     return (f'<section class="is-galeri" aria-labelledby="h-galeri"><h2 id="h-galeri">{baslik}</h2><p>{aciklama}</p>'
-            f'<div class="galeri-izgara">{video}{"".join(kare(*x) for x in FREN_GALERI)}</div></section>')
+            f'<h3>Videolar</h3><div class="galeri-izgara">{"".join(video(*x) for x in FREN_VIDEOLAR)}</div>'
+            f'<h3>Fotoğraflar</h3><div class="galeri-izgara">{"".join(kare(*x) for x in FREN_GALERI)}</div></section>')
 # Hizmet sayfalarındaki dükkân fotoğrafları (yatay, 4:3 küçük görsel): başlık, açıklama, [(dosya, alt)]
 FOTO_GALERILER = {
  "yedek-parca": ("Yedek parça bölümümüzden", "Sık kullanılan parçaları ve bakım ürünlerini stokta tutuyoruz; olmayanı kısa sürede getiriyoruz.", [

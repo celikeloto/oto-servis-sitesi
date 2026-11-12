@@ -799,3 +799,5 @@ footer h3{font-family:var(--baslik);font-size:.78rem;letter-spacing:.18em;text-t
 /* Yatay dükkân fotoğrafları galerisi (yedek parça, arıza tespit) */
 .galeri-izgara.yatay figure{aspect-ratio:4/3}
 .galeri-izgara.iki{grid-template-columns:1fr 1fr}
+
+.is-galeri h3{margin:22px 0 10px;font-size:1.1rem}
