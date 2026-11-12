@@ -68,12 +68,32 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "31"
+CSS_SURUM = "32"
 GORSELLER = {"periyodik-bakim":"periyodik-bakim","motor-mekanik":"motor","yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","aku":"aku-takviye","ucretsiz-on-kontrol":"on-kontrol","hibrit-elektrikli":"hibrit","muayene-oncesi-kontrol":"muayene-oncesi","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
 GORSEL_ALT = {"motor":"Motor bölümünde çalışan usta","periyodik-bakim":"Kaputu açık araçta yağ çubuğuyla motor yağı seviyesini kontrol eden usta","on-kontrol":"Serviste iki usta aracın tekerleğini ve motorunu kontrol ediyor","hibrit":"Şarj kablosu takılı hibrit araç başında tabletle kontrol yapan teknisyen","muayene-oncesi":"Serviste kontrol listesini dolduran usta, arkada kaputu açık araçta çalışan teknisyen","aku-takviye":"Kaputu açık araçta takviye cihazıyla akü takviyesi yapan usta","lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
 def gorsel(ad, oncelik=False):
     yuk = 'fetchpriority="high"' if oncelik else 'loading="lazy"'
     return f'<figure class="icerik-gorsel"><img src="assets/img/{ad}.jpg" srcset="assets/img/{ad}-kucuk.jpg 800w, assets/img/{ad}.jpg 1200w" sizes="(max-width: 900px) 100vw, 760px" alt="{GORSEL_ALT[ad]}" width="1200" height="600" {yuk}></figure>'
+# Atölyeden gerçek iş fotoğrafları: (dosya, alt, genişlik, yükseklik)
+FREN_GALERI = [
+    ("fren-2", "Yeni fren diski ve Bosch balata takılmış ön teker, kaliper yerinde", 1000, 1777),
+    ("fren-3", "Fren diski ve balatası yenilenmiş ön teker, amortisör ve fren hortumu görünüyor", 1000, 1777),
+    ("fren-4", "Değişim sonrası yeni fren diski ve kaliper, yanda kaliper pistonu geri itme aparatı", 1000, 1777),
+    ("fren-1", "Fren diski değişimi sırasında araç sehpada, yere serili el aletleri ve yeni parçanın ambalajı", 1000, 1777),
+    ("fren-5", "Serviste hazır tutulan fren hidroliği, fren temizleyici, yağ ve bakım ürünleri", 1000, 752),
+]
+FREN_VIDEO = ("fren-disk-degisimi", "Ön fren diski değişimi: eski diskin sökülmesinden yeni diskin takılmasına")
+def galeri(baslik="Serviste fren işinden kareler", aciklama="Atölyemizde yaptığımız ön fren diski ve balata değişiminden fotoğraflar ve kısa bir video."):
+    def kare(ad, alt, w, h):
+        return (f'<figure><a href="assets/img/{ad}.jpg" target="_blank" rel="noopener">'
+                f'<img src="assets/img/{ad}-kucuk.jpg" srcset="assets/img/{ad}-kucuk.jpg 560w, assets/img/{ad}.jpg 1000w" '
+                f'sizes="(max-width: 600px) 50vw, 250px" alt="{alt}" width="{w}" height="{h}" loading="lazy"></a></figure>')
+    v, valt = FREN_VIDEO
+    video = (f'<figure class="galeri-video"><video controls muted playsinline preload="none" poster="assets/video/{v}-kapak.jpg" '
+             f'width="720" height="1280" aria-label="{valt}"><source src="assets/video/{v}.mp4" type="video/mp4"></video>'
+             f'<figcaption>▶ Fren diski değişimi videosu</figcaption></figure>')
+    return (f'<section class="is-galeri" aria-labelledby="h-galeri"><h2 id="h-galeri">{baslik}</h2><p>{aciklama}</p>'
+            f'<div class="galeri-izgara">{video}{"".join(kare(*x) for x in FREN_GALERI)}</div></section>')
 # ---------------- parçalar ----------------
 def ust(aktif=""):
     hl = "".join(f'<li class="grup-bas" role="presentation">{g}</li>' + "".join(f'<li><a href="hizmet-{h["slug"]}.html">{I(h["ikon"],18)}{h["ad"]}</a></li>' for h in HIZMETLER if h["grup"]==g) for g in GRUPLAR)
@@ -386,6 +406,7 @@ def hizmet_sayfasi(h):
     {gorsel(GORSELLER[h["slug"]], True) if h["slug"] in GORSELLER else ""}
     <h2>Bu belirtiler varsa bize gelin</h2><ul class="belirti">{bel}</ul>
     <h2>Neler yapıyoruz?</h2><ul class="tik">{neler}</ul>
+    {galeri() if h["slug"] == "fren-yuruyen" else ""}
     {agir_bakim() if h["slug"] == "periyodik-bakim" else ""}
     <h2>Nasıl ilerliyoruz?</h2>
     <p>Aracınızı getirdiğinizde ya da adresinizden aldığımızda önce kontrol eder, sorunun kaynağını buluruz. Ne yapılması gerektiğini ve tutarını işe başlamadan söyleriz; onayınızla işe başlar, iş bitince değişen parçaları gösteririz.</p>

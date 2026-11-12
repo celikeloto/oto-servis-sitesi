@@ -60,6 +60,7 @@ def rehber_sayfasi(m):
     <div class="kisaca"><b>Kısaca</b><p>{m["ozet"]}</p></div>
     <nav class="icindekiler" aria-label="İçindekiler"><b>İçindekiler</b><ol>{toc}<li><a href="#sss">Sık sorulan sorular</a></li></ol></nav>
     {bolumler}
+    {O.galeri("Serviste fren diski ve balata değişimi", "Atölyemizde yaptığımız bir ön fren diski ve balata değişiminden fotoğraflar ve kısa bir video.") if m["slug"] == "fren-sistemi" else ""}
     <section id="sss" class="sss makale-sss"><h2>Sık sorulan sorular</h2>{sss_html(m["sss"])}</section>
     <p class="uyari-not">Bu yazı genel bilgi amaçlıdır. Bakım aralıkları ve teknik değerler araca göre değişir; kesin bilgi için aracınızın kullanım kılavuzuna bakın ya da bize danışın.</p>
   </article>
