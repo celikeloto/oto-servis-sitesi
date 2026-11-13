@@ -47,7 +47,14 @@ ANA_HIZMETLER = [h for h in HIZMETLER if h.get("ana")]
 MARKALAR = ["Fiat","Renault","Dacia","Volkswagen","Ford","Opel","Peugeot","Citroën","Toyota","Hyundai","Skoda","Seat","Kia","Honda","BMW","Mercedes-Benz","Audi","Volvo","Mini","Porsche"]
 LOGO_SLUG = {"Mercedes-Benz":"mercedes"}
 LOGO_CDN = "https://cdn.jsdelivr.net/npm/simple-icons@16.16.0/icons/"   # Simple Icons, sürüm sabit
-def logo(m, boy=28): return f'<img class="marka-logo" src="{LOGO_CDN}{LOGO_SLUG.get(m, mslug(m))}.svg" alt="" width="{boy}" height="{boy}" loading="lazy" onerror="this.remove()">'
+# Simple Icons'ta bulunmayan logolar (ör. Mercedes) sitede barındırılır: assets/img/marka/<marka>.svg ya da .png
+def _yerel_logo(m):
+    for uz in ("svg", "png"):
+        y = f"assets/img/marka/{mslug(m)}.{uz}"
+        if (KOK / y).exists(): return y
+def logo(m, boy=28):
+    src = _yerel_logo(m) or f"{LOGO_CDN}{LOGO_SLUG.get(m, mslug(m))}.svg"
+    return f'<img class="marka-logo" src="{src}" alt="" width="{boy}" height="{boy}" loading="lazy" onerror="this.remove()">'
 def mslug(m): return m.lower().replace("ë","e").replace("ç","c").replace("ü","u").replace("ö","o").replace("ş","s").replace("ı","i").replace("ğ","g").replace(" ","-")
 SSS = [
  ("Çalışma saatleriniz nedir?", "Pazartesiden cumartesiye 08:00–19:00 arası açığız. Pazar günü kapalıyız."),
@@ -70,7 +77,7 @@ SSS = [
 
 CSS_SURUM = "36"
 GORSELLER = {"sogutma-sistemi":"sogutma-servis","klima":"klima-servis","yedek-parca":"yedek-parca","ariza-tespit":"ariza-tespit","periyodik-bakim":"periyodik-bakim","motor-mekanik":"motor","yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","aku":"aku-takviye","ucretsiz-on-kontrol":"on-kontrol","hibrit-elektrikli":"hibrit","muayene-oncesi-kontrol":"muayene-oncesi","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
-GORSEL_ALT = {"sogutma-servis":"Ustamız Çelikel Oto Servis örtüsüyle korunan aracın motor bölümünde soğutma sistemi bakımı yapıyor","klima-servis":"Ustamız klima cihazını araca bağlarken; çamurluklar Çelikel Oto Servis örtüsüyle korunuyor","yedek-parca":"Çelikel Oto Servis yedek parça bölümünde raflar dolusu filtre, balata ve motor yağı","ariza-tespit":"Bosch KTS 250 arıza tespit cihazında okunan şanzıman ve motor arıza kodları","motor":"Motor bölümünde çalışan usta","periyodik-bakim":"Kaputu açık araçta yağ çubuğuyla motor yağı seviyesini kontrol eden usta","on-kontrol":"Serviste iki usta aracın tekerleğini ve motorunu kontrol ediyor","hibrit":"Şarj kablosu takılı hibrit araç başında tabletle kontrol yapan teknisyen","muayene-oncesi":"Serviste kontrol listesini dolduran usta, arkada kaputu açık araçta çalışan teknisyen","aku-takviye":"Kaputu açık araçta takviye cihazıyla akü takviyesi yapan usta","lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
+GORSEL_ALT = {"atolye-araclar":"Servisimizde bakımı yapılan iki araç; çamurluklar kırmızı Çelikel Oto Servis örtüleriyle korunuyor","sogutma-servis":"Ustamız Çelikel Oto Servis örtüsüyle korunan aracın motor bölümünde soğutma sistemi bakımı yapıyor","klima-servis":"Ustamız klima cihazını araca bağlarken; çamurluklar Çelikel Oto Servis örtüsüyle korunuyor","yedek-parca":"Çelikel Oto Servis yedek parça bölümünde raflar dolusu filtre, balata ve motor yağı","ariza-tespit":"Bosch KTS 250 arıza tespit cihazında okunan şanzıman ve motor arıza kodları","motor":"Motor bölümünde çalışan usta","periyodik-bakim":"Kaputu açık araçta yağ çubuğuyla motor yağı seviyesini kontrol eden usta","on-kontrol":"Serviste iki usta aracın tekerleğini ve motorunu kontrol ediyor","hibrit":"Şarj kablosu takılı hibrit araç başında tabletle kontrol yapan teknisyen","muayene-oncesi":"Serviste kontrol listesini dolduran usta, arkada kaputu açık araçta çalışan teknisyen","aku-takviye":"Kaputu açık araçta takviye cihazıyla akü takviyesi yapan usta","lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
 # Hizmet sayfasının üstünde görsel yerine gösterilen kısa, sessiz ve dönen video: (dosya, açıklama)
 HIZMET_VIDEO = {"yol-yardim": ("cekici", "Vinçli çekicimiz arızalı aracı kaldırıp servise taşımak için yüklüyor")}
 def hizmet_video(slug):
@@ -372,6 +379,7 @@ def ana():
     <li><span class="yuvarlak">{ARABA_I}</span><b>10+</b><em>Araç markası</em><p>Fiat'tan Toyota'ya, binek araçların çoğuna bakıyoruz</p></li>
     <li><span class="yuvarlak">{CEKICI_I2}</span><b class="kucuk-b">7/24</b><em>Yol yardım</em><p><a href="tel:{YOL}">{YOL_YAZI}</a></p></li>
   </ul>
+  <div style="margin-top:36px">{gorsel("atolye-araclar")}</div>
 </div></section>
 
 <section class="alti-neden" aria-labelledby="h-alti"><div class="kap">
@@ -522,7 +530,7 @@ def markalar_sayfasi():
 
 def hakkimizda():
     yol = [("Ana sayfa","index.html"),("Hakkımızda",None)]
-    govde = f'''{sayfa_bas(yol, "Aracınız Sebahattin Usta'ya emanet", "Çelikel Oto Servis'i 40 yıldır bu işi yapan Sebahattin Aksaç yönetiyor. Bakırköy'deki dükkânımızdan beri bize gelen birçok müşterimiz, yeni yerimize de gelmeye devam ediyor.")}
+    govde = f'''{sayfa_bas(yol, "Aracınız bize emanet", "Çelikel Oto Servis'i 40 yıldır bu işi yapan Sebahattin Aksaç yönetiyor. Bakırköy'deki dükkânımızdan beri bize gelen birçok müşterimiz, yeni yerimize de gelmeye devam ediyor.")}
 <section class="usta"><div class="kap">
   <div><h2>Nasıl çalıştığımız</h2><p class="giris-yazi">Bir servise aracınızı bırakırken içinizin rahat olması gerekir. Bu yüzden her adımda ne yaptığımızı size anlatırız.</p>
     <figure class="ilke"><p>Gereksiz parça değiştirmeyiz. Önce sorunu buluruz, sonra ne yapılacağını size söyleriz.</p></figure>
