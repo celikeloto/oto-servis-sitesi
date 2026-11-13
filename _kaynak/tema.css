@@ -399,3 +399,5 @@ footer h3{font-family:var(--baslik);font-size:.78rem;letter-spacing:.18em;text-t
 .galeri-izgara.iki{grid-template-columns:1fr 1fr}
 
 .is-galeri h3{margin:22px 0 10px;font-size:1.1rem}
+
+.icerik-gorsel video{display:block;width:100%;height:100%;object-fit:cover}

@@ -68,9 +68,16 @@ SSS = [
  ("Neredesiniz?", f"{ADRES1}, {ADRES2}. Yol tarifi için sayfanın altındaki haritayı kullanabilirsiniz."),
 ]
 
-CSS_SURUM = "35"
+CSS_SURUM = "36"
 GORSELLER = {"sogutma-sistemi":"sogutma-servis","klima":"klima-servis","yedek-parca":"yedek-parca","ariza-tespit":"ariza-tespit","periyodik-bakim":"periyodik-bakim","motor-mekanik":"motor","yol-yardim":"yol-yardim-lastik","lastik-balans":"lastik-balans","aku":"aku-takviye","ucretsiz-on-kontrol":"on-kontrol","hibrit-elektrikli":"hibrit","muayene-oncesi-kontrol":"muayene-oncesi","hasar-onarimi":"hasar-onarimi","kaporta-boya":"hasar-onarimi"}
 GORSEL_ALT = {"sogutma-servis":"Ustamız Çelikel Oto Servis örtüsüyle korunan aracın motor bölümünde soğutma sistemi bakımı yapıyor","klima-servis":"Ustamız klima cihazını araca bağlarken; çamurluklar Çelikel Oto Servis örtüsüyle korunuyor","yedek-parca":"Çelikel Oto Servis yedek parça bölümünde raflar dolusu filtre, balata ve motor yağı","ariza-tespit":"Bosch KTS 250 arıza tespit cihazında okunan şanzıman ve motor arıza kodları","motor":"Motor bölümünde çalışan usta","periyodik-bakim":"Kaputu açık araçta yağ çubuğuyla motor yağı seviyesini kontrol eden usta","on-kontrol":"Serviste iki usta aracın tekerleğini ve motorunu kontrol ediyor","hibrit":"Şarj kablosu takılı hibrit araç başında tabletle kontrol yapan teknisyen","muayene-oncesi":"Serviste kontrol listesini dolduran usta, arkada kaputu açık araçta çalışan teknisyen","aku-takviye":"Kaputu açık araçta takviye cihazıyla akü takviyesi yapan usta","lastik-balans":"Balans makinesine takılmış lastik ve jant, usta balans ayarı yapıyor","hasar-onarimi":"Kaza sonrası kaza tespit tutanağını dolduran iki sürücü, arkada çekici","yol-yardim-lastik":"Yolda lastiği patlayan araçta lastik değiştiren usta, önde ikaz üçgeni"}
+# Hizmet sayfasının üstünde görsel yerine gösterilen kısa, sessiz ve dönen video: (dosya, açıklama)
+HIZMET_VIDEO = {"yol-yardim": ("cekici", "Vinçli çekicimiz arızalı aracı kaldırıp servise taşımak için yüklüyor")}
+def hizmet_video(slug):
+    v, alt = HIZMET_VIDEO[slug]
+    return (f'<figure class="icerik-gorsel"><video autoplay muted loop playsinline preload="metadata" poster="assets/video/{v}-kapak.jpg" '
+            f'width="1200" height="600" aria-label="{alt}"><source src="assets/video/{v}.mp4" type="video/mp4"></video></figure>')
+
 def gorsel(ad, oncelik=False):
     yuk = 'fetchpriority="high"' if oncelik else 'loading="lazy"'
     return f'<figure class="icerik-gorsel"><img src="assets/img/{ad}.jpg" srcset="assets/img/{ad}-kucuk.jpg 800w, assets/img/{ad}.jpg 1200w" sizes="(max-width: 900px) 100vw, 760px" alt="{GORSEL_ALT[ad]}" width="1200" height="600" {yuk}></figure>'
@@ -441,7 +448,7 @@ def hizmet_sayfasi(h):
     govde = f'''{sayfa_bas(yol, h["ad"], h["giris"])}
 <section class="icerik"><div class="kap">
   <div class="metin">
-    {gorsel(GORSELLER[h["slug"]], True) if h["slug"] in GORSELLER else ""}
+    {hizmet_video(h["slug"]) if h["slug"] in HIZMET_VIDEO else (gorsel(GORSELLER[h["slug"]], True) if h["slug"] in GORSELLER else "")}
     <h2>Bu belirtiler varsa bize gelin</h2><ul class="belirti">{bel}</ul>
     <h2>Neler yapıyoruz?</h2><ul class="tik">{neler}</ul>
     {galeri() if h["slug"] == "fren-yuruyen" else ""}

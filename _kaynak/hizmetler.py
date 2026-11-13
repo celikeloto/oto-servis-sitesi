@@ -11,7 +11,7 @@ HIZMETLER = [
       kisa="Yolda kalan araca gece gündüz ulaşıyoruz: lastik patlağı, akü bitmesi, çalışmayan araç.",
       ikon='<path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/>',
       giris="Aracınız yolda kaldıysa günün her saatinde, hafta sonu dahil yol yardım hattımızı arayabilirsiniz. Küçükçekmece'nin tamamında bulunduğunuz yere geliyor, sorunu yerinde çözmeye çalışıyor, gerekiyorsa aracınızı servisimize alıyoruz.",
-      neler=["Patlak lastik için yerinde müdahale ve lastik değişimi","Akü takviyesi ve gerekiyorsa akü değişimi","Çalışmayan araç için yerinde arıza kontrolü","Yerinde çözülemeyen arızalarda aracın servise alınması","Küçükçekmece'nin 21 mahallesinin tamamında hizmet"],
+      neler=["Patlak lastik için yerinde müdahale ve lastik değişimi","Akü takviyesi ve gerekiyorsa akü değişimi","Çalışmayan araç için yerinde arıza kontrolü","Yerinde çözülemeyen arızalarda aracın çekiciyle servisimize taşınması","Küçükçekmece'nin 21 mahallesinin tamamında hizmet"],
       belirti=["Lastiğiniz patladı","Aracınız çalışmıyor ya da akü bitti","Göstergede kırmızı uyarı ışığı yandı, durmak zorunda kaldınız","Gece ya da hafta sonu yolda kaldınız"]),
  dict(slug="aku", grup="Yol yardım ve acil", ana=False, ad="Akü takviye ve değişimi",
       kisa="Biten aküye yerinde takviye, akü testi ve aracınıza uygun yeni akü takılması.",
